@@ -173,36 +173,240 @@ html, body {
    }
 }
 
+/* ============================= */
+/* 📱 Responsive Styles (max 768px) */
+/* ============================= */
 
-
-
-
-
-/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-    .header-container {
-        padding: 0 10px;
-    }
+  /* Header adjustments */
+  .header-container {
+    height: 60px;
+    padding: 0 16px;
+  }
 
-    .header-logo img {
-        height: 40px; 
-    }
+  .header-logo img {
+    height: 45px;
+  }
 
-    .header-menu button {
-        font-size: medium;
-        padding: 6px 12px;
-    }
+  .header-menu a {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+
+  /* Overlay adjustments */
+  .overlay {
+    padding: 60px 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  /* Close button - keep bottom-left but scale down */
+  .overlay-close {
+    bottom: 40px;
+    left: 20px;
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  /* Links stack vertically with smaller size */
+  .overlay-links li {
+    font-size: 2rem;
+    left: 20px; /* Move closer to left on small screens */
+  }
+
+  /* Contact details */
+  .overlay-details {
+    margin-left: 20px;
+    margin-top: 50px;
+    font-size: 0.9rem;
+  }
+
+  /* Video - responsive but stays bottom right */
+  .overlay-vedio {
+    width: 250px;
+    bottom: 80px;
+    right: 20px;
+  }
+
+  .video-caption {
+    bottom: 50px;
+    right: 100px;
+    font-size: 0.9rem;
+  }
 }
 
+/* 📱 Even smaller screens (phones < 480px) */
 @media (max-width: 480px) {
-    .header-container {
-        height: auto;
-        padding: 10px;
-    }
+  .header-container {
+    height: 55px;
+  }
 
-    .header-menu {
-        margin-top: 10px; 
-    }
+  .header-logo img {
+    height: 40px;
+  }
+
+  .overlay-links li {
+    font-size: 1.8rem;
+    left: 15px;
+  }
+
+  .overlay-vedio {
+    width: 200px;
+    bottom: 60px;
+    right: 15px;
+  }
+
+  .video-caption {
+    font-size: 0.8rem;
+    right: 80px;
+    bottom: 40px;
+  }
 }
+/* ============================= */
+/* 📱 Responsive Styles - Mobile (< 600px) */
+/* ============================= */
+@media (max-width: 600px) {
+  .header-container {
+    height: 55px;
+    padding: 0 14px;
+  }
+
+  .header-logo img {
+    height: 40px;
+  }
+
+  .header-menu a {
+    font-size: 0.95rem;
+    padding: 5px 10px;
+  }
+
+  .overlay {
+    padding: 50px 18px;
+  }
+
+  .overlay-close {
+    bottom: 35px;
+    left: 18px;
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .overlay-links li {
+    font-size: 1.8rem;
+    left: 15px;
+  }
+
+  .overlay-details {
+    margin-left: 18px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+  }
+
+  .overlay-vedio {
+    width: 200px;
+    bottom: 60px;
+    right: 15px;
+  }
+
+  .video-caption {
+    bottom: 35px;
+    right: 70px;
+    font-size: 0.8rem;
+  }
+}
+
+
+/* ============================= */
+/* 📱 iPad Mini / Tablet (600px – 900px) */
+/* ============================= */
+@media (min-width: 600px) and (max-width: 900px) {
+  /* Header slightly more spacious */
+  .header-container {
+    height: 70px;
+    padding: 0 25px;
+  }
+
+  .header-logo img {
+    height: 55px;
+  }
+
+  .header-menu a {
+    font-size: 1.2rem;
+    padding: 8px 14px;
+  }
+
+  /* Overlay spacing */
+  .overlay {
+    padding: 70px 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  /* Links - comfortable size for tablet */
+  .overlay-links li {
+    font-size: 2.5rem;
+    left: 60px;
+  }
+
+  .overlay-details {
+    margin-left: 60px;
+    margin-top: 80px;
+    font-size: 1rem;
+  }
+
+  /* Close button stays bottom-left but sized properly */
+  .overlay-close {
+    bottom: 60px;
+    left: 30px;
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  /* Video: slightly bigger but still bottom-right */
+  .overlay-vedio {
+    width: 320px;
+    bottom: 90px;
+    right: 30px;
+  }
+
+  .video-caption {
+    bottom: 60px;
+    right: 140px;
+    font-size: 1rem;
+  }
+}
+/* 📱 Font size boost for iPhone XR, 12 Pro, 14 Pro, etc. */
+@media (max-width: 430px) {
+  .overlay-links li {
+    font-size: 2.2rem; /* increased from 2rem */
+  }
+
+  .overlay-details p {
+    font-size: 1.2rem;
+  }
+
+  .video-caption {
+    font-size: 1.1rem;
+  }
+
+  .menu-btn {
+    font-size: 1.1rem;
+  }
+}
+/* 📱📲 Better alignment for iPad Air, iPad Pro, Surface Pro */
+@media (min-width: 900px) and (max-width: 1180px) {
+  .overlay-links li {
+    left: 150px; /* shifted slightly left (was 250px) */
+  }
+
+  .overlay-details {
+    margin-left: 150px; /* match details alignment with links */
+  }
+}
+
+
+
+
+
 
 
