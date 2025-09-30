@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "./components/Header";
-import Works from "./pages/Works";
+import Choose from "./pages/Choose";
 
 function App() {
   return (
     <div>
-      <Works/>
+      <Choose/>
     </div>
   );
 }
