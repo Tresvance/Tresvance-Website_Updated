@@ -10,19 +10,17 @@ body,html{
 
 .choose-heading{
     display: flex;
-    gap: 250px;
-
+    gap: 200px;
 }
 
 .choose-subheading1{
     color: black;
     font-size:45px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 150px;
-    line-height:25px;
+    line-height:100pc;
     padding-left: 200px;
-    
 }
 
 .choose-subheading2{
@@ -33,11 +31,9 @@ body,html{
     padding-right: 20px;
     font-family: inter, sans-serif;
     font-weight: 400;
-
 }
 
-.choose-fullbtn a
-{
+.choose-fullbtn a{
     text-align: end;
     text-decoration: underline;
     color: black;
@@ -49,17 +45,16 @@ body,html{
 }
 
 .choose-image-container {
-  width: 100%;
-  margin-top: 20px; 
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    margin-top: 20px; 
+    display: flex;
+    justify-content: center;
 }
 
 .choose-image {
-  width: 100vw;         
-  height: 250px;       
-  object-fit:fill;   
-
+    width: 100vw;         
+    height: 250px;       
+    object-fit: fill;   
 }
 
 .choose-marquee{
@@ -68,6 +63,7 @@ body,html{
     padding: 10px 0;
     overflow: hidden;
 }
+
 .choose-marquee-content{
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
@@ -75,17 +71,395 @@ body,html{
     font-weight: 500;
     color: black;
     animation: choosemarquee 12s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes choosemarquee{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+/* Large Desktop Responsive  */
+@media (min-width: 1440px) {
+    .choose-heading{
+        gap: 250px;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    .choose-subheading1{
+        font-size: 52px;
+        line-height: 20px;
+        padding-left: 250px;
+    }
+
+    .choose-subheading2{
+        font-size: 22px;
+        line-height: 20px;
+    }
+
+    .choose-image {
+        height: 300px;
+    }
+}
+
+/* Standard Desktop Responsive  */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .choose-heading{
+        gap: 300px;
+        padding: 0 50px;
+    }
+
+    .choose-subheading1{
+        font-size: 42px;
+        line-height: 20px;
+        padding-left: 100px;
+    }
+
+    .choose-subheading2{
+        font-size: 18px;
+        line-height: 15px;
+    }
+
+    .choose-fullbtn a{
+        padding-left: 150px;
+    }
+
+    .choose-image {
+        height: 230px;
+    }
+}
+
+/* Tablet Landscape Responsive  */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .choose-heading{
+        gap: 65px;
+        padding: 0 40px;
+    }
+
+    .choose-subheading1{
+        font-size: 38px;
+        margin-top: 100px;
+        line-height: 20px;
+        padding-left: 40px;
+        font-weight: 600;
+    }
+
+    .choose-subheading2{
+        font-size: 16px;
+        line-height: 20px;
+        margin-top: 100px;
 
     }
 
-@keyframes choosemarquee{
-0%{
-  transform: translate(-100%);
-}
-100%
-{
- transform: translate(100%);
-}
-} 
-    
+    .choose-fullbtn a{
+        padding-left: 80px;
+    }
 
+    .choose-image {
+        height: 220px;
+    }
+
+    .choose-marquee-content{
+        font-size: 20px;
+    }
+}
+
+/* Tablet Portrait Responsive  */
+@media (min-width: 600px) and (max-width: 767px) {
+    .choose-heading{
+        flex-direction: column;
+        gap: 65px;
+        padding: 0 30px;
+    }
+
+    .choose-subheading1{
+        font-size: 36px;
+        margin-top: 80px;
+        line-height: 20px;
+        padding-left: 0;
+        font-weight: 600;
+    }
+
+    .choose-subheading2{
+        font-size: 16px;
+        line-height: 20px;
+        margin-top: 0;
+        padding-right: 0;
+    }
+
+    .choose-fullbtn{
+        margin-top: 15px;
+    }
+
+    .choose-fullbtn a{
+        padding-left: 0;
+        display: inline-block;
+    }
+
+    .choose-image-container {
+        margin-top: 30px;
+    }
+
+    .choose-image {
+        height: 200px;
+    }
+
+    .choose-marquee-content{
+        font-size: 18px;
+    }
+}
+
+/* Mobile Landscape Responsive  */
+@media (min-width: 481px) and (max-width: 599px) {
+    .choose-heading{
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 25px;
+    }
+
+    .choose-subheading1{
+        font-size: 32px;
+        margin-top: 70px;
+        line-height: 20px;
+        padding-left: 0;
+    }
+
+    .choose-subheading2{
+        font-size: 15px;
+        line-height: 22px;
+        margin-top: 0;
+        padding-right: 0;
+    }
+
+    .choose-fullbtn{
+        margin-top: 15px;
+    }
+
+    .choose-fullbtn a{
+        padding-left: 0;
+        display: inline-block;
+    }
+
+    .choose-image-container {
+        margin-top: 30px;
+    }
+
+    .choose-image {
+        height: 190px;
+    }
+
+    .choose-marquee-content{
+        font-size: 17px;
+    }
+}
+
+/* Mobile Portrait Responsive  */
+@media (max-width: 480px) {
+    .choose-heading{
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .choose-subheading1{
+        font-size: 28px;
+        margin-top: 60px;
+        line-height: 20px;
+        padding-left: 0;
+        font-weight: 700;
+    }
+
+    .choose-subheading2{
+        font-size: 14px;
+        line-height: 10px;
+        margin-top: 0;
+        padding-right: 0;
+    }
+
+    .choose-fullbtn{
+        margin-top: 15px;
+    }
+
+    .choose-fullbtn a{
+        padding-left: 0;
+        display: inline-block;
+        font-size: 14px;
+    }
+
+    .choose-image-container {
+        margin-top: 25px;
+    }
+
+    .choose-image {
+        height: 180px;
+    }
+
+    .choose-marquee-content{
+        font-size: 16px;
+    }
+}
+
+
+
+/* Forest Hub (Assuming width around 1366px) */
+@media (min-width: 1360px) and (max-width: 1380px) {
+    .choose-heading {
+        gap: 380px;
+    }
+
+    .choose-subheading1 {
+        font-size: 50px;
+        padding-left: 220px;
+    }
+
+    .choose-subheading2 {
+        font-size: 21px;
+        font-weight: 600;
+    }
+
+    .choose-image {
+        height: 290px;
+    }
+
+    .choosecards {
+        width: 270px;
+        padding: 34px 24px;
+    }
+
+    .choosecards-icon {
+        font-size: 44px;
+    }
+
+    .choosecards-title {
+        font-size: 15px;
+    }
+
+    .choosecards-description {
+        font-size: 14px;
+    }
+}
+
+/* iPad Pro (width 1024px - 1366px, height 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .choose-heading {
+        gap: 300px;
+        padding: 0 40px;
+    }
+
+    .choose-subheading1 {
+        font-size: 40px;
+        padding-left: 50px;
+
+    }
+
+    .choose-subheading2 {
+        font-size: 17px;
+    }
+
+    .choose-image {
+        height: 240px;
+    }
+
+    .choosecards {
+        width: 260px;
+        padding: 30px 20px;
+    }
+
+    .choosecards-icon {
+        font-size: 40px;
+    }
+
+    .choosecards-title {
+        font-size: 14px;
+    }
+
+    .choosecards-description {
+        font-size: 13px;
+    }
+}
+
+/* Asus Tablets (width around 800px to 1200px) */
+@media (min-width: 800px) and (max-width: 1200px) {
+    .choose-heading {
+        gap: 100px;
+    }
+
+    .choose-subheading1 {
+        font-size: 40px;
+        padding-left: 20px;
+        font-weight: 800;
+    }
+
+    .choose-subheading2 {
+        font-size: 20px;
+    }
+
+    .choose-image {
+        height: 225px;
+    }
+
+    .choosecards {
+        width: 45%;
+        min-width: 280px;
+        padding: 28px 18px;
+    }
+
+    .choosecards-icon {
+        font-size: 38px;
+    }
+
+    .choosecards-title {
+        font-size: 13px;
+    }
+
+    .choosecards-description {
+        font-size: 12px;
+    }
+}
+
+/* Surface Duo (width ~540px, height ~720px, dual-screen) */
+@media (min-width: 540px) and (max-width: 550px) {
+    .choose-heading {
+        flex-direction: column;
+        gap: 25px;
+        padding: 0 20px;
+    }
+
+    .choose-subheading1 {
+        font-weight: 600;
+        font-size: 30px;
+        padding-left: 0;
+    }
+
+    .choose-subheading2 {
+        font-size: 15px;
+        line-height: 10px;
+    }
+
+    .choose-image {
+        height: 180px;
+    }
+
+    .choosecards {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px 15px;
+    }
+
+    .choosecards-icon {
+        font-size: 32px;
+    }
+
+    .choosecards-title {
+        font-size: 12px;
+    }
+
+    .choosecards-description {
+        font-size: 11px;
+    }
+}

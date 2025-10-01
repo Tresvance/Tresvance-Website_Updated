@@ -1,38 +1,219 @@
 .choosecards-container {
- display: flex;
- justify-content: center;
- gap: 30px;
- color: black;
- padding: 50px 20px;
-  
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    color: black;
+    padding: 50px 20px;
+    flex-wrap: wrap;
 }
 
 .choosecards {
-text-align: left;
-transition: transform 0.3s, box-shadow 0.3s;
-border-radius: 12px;
-padding: 30px 20px;
-width: 250px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 12px;
+    padding: 30px 20px;
+    width: 250px;
 }
 
 .choosecards:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 .choosecards-icon {
-    
-  font-size: 40px;
-  color: #52a7e4; /* Bright blue */
-  margin-bottom: 20px;
+    font-size: 40px;
+    color: #52a7e4;
+    margin-bottom: 20px;
 }
 
 .choosecards-title {
-  font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 
 .choosecards-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #666;
+}
 
-  font-family: 'Inter', sans-serif;
+/* Large Desktop Responsive (1440px and above) */
+@media (min-width: 1440px) {
+    .choosecards-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        gap: 40px;
+        padding: 60px 40px;
+    }
+
+    .choosecards {
+        width: 280px;
+        padding: 35px 25px;
+    }
+
+    .choosecards-icon {
+        font-size: 45px;
+        margin-bottom: 25px;
+    }
+
+    .choosecards-title {
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    .choosecards-description {
+        font-size: 14px;
+    }
+}
+
+/* Standard Desktop Responsive (1024px to 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .choosecards-container {
+        gap: 30px;
+        padding: 50px 50px;
+    }
+
+    .choosecards {
+        width: 260px;
+        padding: 32px 22px;
+    }
+
+    .choosecards-icon {
+        font-size: 42px;
+        margin-bottom: 22px;
+    }
+
+    .choosecards-title {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .choosecards-description {
+        font-size: 13px;
+    }
+}
+
+/* Tablet Landscape Responsive (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .choosecards-container {
+        gap: 25px;
+        padding: 40px 40px;
+        justify-content: center;
+    }
+
+    .choosecards {
+        width: 45%;
+        min-width: 300px;
+        max-width: 350px;
+        padding: 28px 20px;
+    }
+
+    .choosecards-icon {
+        font-size: 38px;
+        margin-bottom: 18px;
+    }
+
+    .choosecards-title {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
+
+    .choosecards-description {
+        font-size: 12px;
+    }
+}
+
+/* Tablet Portrait Responsive (600px to 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+    .choosecards-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        padding: 35px 30px;
+    }
+
+    .choosecards {
+        width: 48%;
+        min-width: 250px;
+        max-width: 320px;
+        padding: 25px 18px;
+    }
+
+    .choosecards-icon {
+        font-size: 36px;
+        margin-bottom: 16px;
+    }
+
+    .choosecards-title {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .choosecards-description {
+        font-size: 11px;
+    }
+}
+
+/* Mobile Landscape Responsive (481px to 599px) */
+@media (min-width: 481px) and (max-width: 599px) {
+    .choosecards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 30px 25px;
+    }
+
+    .choosecards {
+        width: 100%;
+        max-width: 450px;
+        padding: 25px 20px;
+    }
+
+    .choosecards-icon {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    .choosecards-title {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .choosecards-description {
+        font-size: 12px;
+    }
+}
+
+/* Mobile Portrait Responsive (up to 480px) */
+@media (max-width: 480px) {
+    .choosecards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 15px;
+    }
+
+    .choosecards {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px 15px;
+    }
+
+    .choosecards-icon {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .choosecards-title {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .choosecards-description {
+        font-size: 11px;
+    }
 }
