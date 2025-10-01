@@ -20,7 +20,19 @@ const Choose = () => {
         <p>deliver trust,innovation and</p><br/>
         <p>long term value.</p>
         <div className="choose-fullbtn">
-        <a>Learn More ↓</a>
+        <a
+  href="#"
+  onClick={(e) => {
+    e.preventDefault(); // prevent default jump
+    window.scrollTo({
+      top: document.body.scrollHeight, // scroll to bottom
+      behavior: "smooth" // smooth scrolling
+    });
+  }}
+>
+  Learn More ↓
+</a>
+
         </div>
       </div>
       </div>

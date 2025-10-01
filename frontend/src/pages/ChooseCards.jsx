@@ -1,42 +1,44 @@
 import React from "react";
-import { FaRocket, FaLightbulb, FaUsers, FaCogs } from "react-icons/fa";
 import "./ChooseCards.css";
+import { FaRocket, FaLightbulb, FaUsers, FaCogs } from "react-icons/fa";
 
 const cardData = [
   {
     icon: <FaRocket />,
-    title: "Fast Performance",
-    description: "Our solutions are optimized for speed and efficiency."
+    title: "END-TO-END DEVELOPMENT SUPPORT",
+    description: "We provide complete development services, from planning to deployment. Ensuring your project is built efficiently and effectively."
   },
   {
     icon: <FaLightbulb />,
-    title: "Innovative Ideas",
-    description: "We bring creative and modern solutions to your business."
+    title: "COMPREHENSIVE TESTING & QUALITY ASSURANCE",
+    description: "Rigorous testing at every stage to guarantee quality. We make sure your product is bug-free and reliable."
   },
   {
     icon: <FaUsers />,
-    title: "Customer Focus",
-    description: "Our team is dedicated to providing exceptional service."
+    title: "SCALABLE AND FUTURE READY SOLUTIONS",
+    description: "Our solutions are designed to grow with your business. Future-proof technology for long term success."
   },
   {
     icon: <FaCogs />,
-    title: "Custom Solutions",
-    description: "We tailor our products to fit your unique requirements."
+    title: "ONTIME DELIVERY",
+    description: "We prioritize deadlines without compromising quality. Projects delivered promptly, every time."
   }
 ];
 
-const ChooseCards = () => {
-  return (
-    <div className="cards-container">
+
+
+const ChooseCards =()=>{
+    return(
+      <div className="choosecards-container">
       {cardData.map((card, index) => (
-        <div className="card" key={index}>
-          <div className="card-icon">{card.icon}</div>
-          <h3 className="card-title">{card.title}</h3>
-          <p className="card-description">{card.description}</p>
+        <div className="choosecards" key={index}>
+          <div className="choosecards-icon">{card.icon}</div>
+          <h3 className="choosecards-title">{card.title}</h3>
+          <p className="choosecards-description">{card.description}</p>
         </div>
       ))}
     </div>
-  );
-};
+    );
 
+};
 export default ChooseCards;
