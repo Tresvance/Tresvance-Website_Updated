@@ -1,0 +1,412 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+}
+
+.header-container {
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    height: 80px;
+    background-color: rgba(246, 247, 249, 0.979);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    padding: 0 20px;
+}
+
+.header-logo img {
+    height: 60px;
+    width: auto;
+}
+
+.header-menu a {
+    background-color: rgba(246, 247, 249, 0.979);
+    color: black;
+    border: none;
+    font-size: large;
+    font-weight: 500;
+    font-style: inherit;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+.header-menu a:hover{
+    text-decoration:underline;
+
+}
+
+.overlay
+{
+    position: fixed;
+    top: -100%; /*over the screen*/
+    left:0;
+    width: 100%;
+    height:100%;
+    background-color: #52a7e4;
+    transition:top 0.6s ease-in-out;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:flex-start;
+    padding: 70px 50px; 
+    
+}
+
+.overlay-open{
+    top:0;
+}
+
+.overlay-close
+{
+  position: absolute;
+  bottom: 80px;
+  left: 30px;
+ 
+}
+
+.overlay-links {
+  margin-top: 30px;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+   
+}
+
+.overlay-links li{
+    position: relative;
+    overflow: hidden;
+    font-size: 3rem;
+    font-weight:500;
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 1px 0;
+    line-height: 1.2;
+    color: black;
+    cursor: pointer;
+    left: 250px;
+    text-align: left;
+
+}
+
+.overlay-links li span{
+    display: inline-block;
+    transform: translateY(-100%);
+    opacity: 0;
+    
+    /*color filling inside the letters*/
+    background: linear-gradient(to bottom,black 0%,black 50%,white 50%,white 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 200%;
+    background-position: 100% 0;
+    transition:background-position 0.7s ease;
+}
+.overlay-links li:hover span,.overlay-links li:active span{
+    background-position: 0 100%;
+}
+
+.overlay-open .overlay-links li span{
+    animation: revealDown 1s ease forwards;
+}
+
+.overlay-open .overlay-links li:nth-child(1) span{
+    animation-delay: 0.2s;                               /*This is for the display of the list items*/
+}
+
+.overlay-open .overlay-links li:nth-child(2) span{
+    animation-delay: 0.4s;
+}
+
+.overlay-open .overlay-links li:nth-child(3) span{
+    animation-delay: 0.6s;
+}
+.overlay-open .overlay-links li:nth-child(4) span{
+    animation-delay: 0.8s;
+}
+.overlay-open .overlay-links li:nth-child(5) span{
+    animation-delay: 1s;
+}
+
+
+.overlay-details
+{
+    margin-left: 250px;
+    margin-top: 90px;
+    color: rgb(40, 38, 38)
+    
+}
+
+.overlay-vedio
+{
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    width: 400px;     
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.video-caption
+{
+    position: absolute;
+    bottom: 70px;
+    right: 355px;
+    font-size:large;
+}
+
+@keyframes revealDown{
+      0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+   100%{
+    transform: translateY(0);
+    opacity: 1;
+   }
+}
+
+/* ============================= */
+/* 📱 Responsive Styles (max 768px) */
+/* ============================= */
+
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .header-container {
+    height: 60px;
+    padding: 0 16px;
+  }
+
+  .header-logo img {
+    height: 45px;
+  }
+
+  .header-menu a {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+
+  /* Overlay adjustments */
+  .overlay {
+    padding: 60px 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  /* Close button - keep bottom-left but scale down */
+  .overlay-close {
+    bottom: 40px;
+    left: 20px;
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  /* Links stack vertically with smaller size */
+  .overlay-links li {
+    font-size: 2rem;
+    left: 20px; /* Move closer to left on small screens */
+  }
+
+  /* Contact details */
+  .overlay-details {
+    margin-left: 20px;
+    margin-top: 50px;
+    font-size: 0.9rem;
+  }
+
+  /* Video - responsive but stays bottom right */
+  .overlay-vedio {
+    width: 250px;
+    bottom: 80px;
+    right: 20px;
+  }
+
+  .video-caption {
+    bottom: 50px;
+    right: 100px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 📱 Even smaller screens (phones < 480px) */
+@media (max-width: 480px) {
+  .header-container {
+    height: 55px;
+  }
+
+  .header-logo img {
+    height: 40px;
+  }
+
+  .overlay-links li {
+    font-size: 1.8rem;
+    left: 15px;
+  }
+
+  .overlay-vedio {
+    width: 200px;
+    bottom: 60px;
+    right: 15px;
+  }
+
+  .video-caption {
+    font-size: 0.8rem;
+    right: 80px;
+    bottom: 40px;
+  }
+}
+/* ============================= */
+/* 📱 Responsive Styles - Mobile (< 600px) */
+/* ============================= */
+@media (max-width: 600px) {
+  .header-container {
+    height: 55px;
+    padding: 0 14px;
+  }
+
+  .header-logo img {
+    height: 40px;
+  }
+
+  .header-menu a {
+    font-size: 0.95rem;
+    padding: 5px 10px;
+  }
+
+  .overlay {
+    padding: 50px 18px;
+  }
+
+  .overlay-close {
+    bottom: 35px;
+    left: 18px;
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .overlay-links li {
+    font-size: 1.8rem;
+    left: 15px;
+  }
+
+  .overlay-details {
+    margin-left: 18px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+  }
+
+  .overlay-vedio {
+    width: 200px;
+    bottom: 60px;
+    right: 15px;
+  }
+
+  .video-caption {
+    bottom: 35px;
+    right: 70px;
+    font-size: 0.8rem;
+  }
+}
+
+
+/* ============================= */
+/* 📱 iPad Mini / Tablet (600px – 900px) */
+/* ============================= */
+@media (min-width: 600px) and (max-width: 900px) {
+  /* Header slightly more spacious */
+  .header-container {
+    height: 70px;
+    padding: 0 25px;
+  }
+
+  .header-logo img {
+    height: 55px;
+  }
+
+  .header-menu a {
+    font-size: 1.2rem;
+    padding: 8px 14px;
+  }
+
+  /* Overlay spacing */
+  .overlay {
+    padding: 70px 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  /* Links - comfortable size for tablet */
+  .overlay-links li {
+    font-size: 2.5rem;
+    left: 60px;
+  }
+
+  .overlay-details {
+    margin-left: 60px;
+    margin-top: 80px;
+    font-size: 1rem;
+  }
+
+  /* Close button stays bottom-left but sized properly */
+  .overlay-close {
+    bottom: 60px;
+    left: 30px;
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  /* Video: slightly bigger but still bottom-right */
+  .overlay-vedio {
+    width: 320px;
+    bottom: 90px;
+    right: 30px;
+  }
+
+  .video-caption {
+    bottom: 60px;
+    right: 140px;
+    font-size: 1rem;
+  }
+}
+/* 📱 Font size boost for iPhone XR, 12 Pro, 14 Pro, etc. */
+@media (max-width: 430px) {
+  .overlay-links li {
+    font-size: 2.2rem; /* increased from 2rem */
+  }
+
+  .overlay-details p {
+    font-size: 1.2rem;
+  }
+
+  .video-caption {
+    font-size: 1.1rem;
+  }
+
+  .menu-btn {
+    font-size: 1.1rem;
+  }
+}
+/* 📱📲 Better alignment for iPad Air, iPad Pro, Surface Pro */
+@media (min-width: 900px) and (max-width: 1180px) {
+  .overlay-links li {
+    left: 150px; /* shifted slightly left (was 250px) */
+  }
+
+  .overlay-details {
+    margin-left: 150px; /* match details alignment with links */
+  }
+}
+
+
+
+
+
+
+
