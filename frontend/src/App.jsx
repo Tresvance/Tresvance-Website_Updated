@@ -8,6 +8,7 @@ function App() {
   return (
     <div id="top">
       {/* Your page content */}
+      <Choose/>
       <Footer />
     </div>
   );
