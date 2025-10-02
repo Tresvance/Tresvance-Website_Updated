@@ -173,9 +173,9 @@ html, body {
    }
 }
 
-/* ============================= */
+
 /* 📱 Responsive Styles (max 768px) */
-/* ============================= */
+
 
 @media (max-width: 768px) {
   /* Header adjustments */
@@ -316,9 +316,9 @@ html, body {
 }
 
 
-/* ============================= */
+
 /* 📱 iPad Mini / Tablet (600px – 900px) */
-/* ============================= */
+
 @media (min-width: 600px) and (max-width: 900px) {
   /* Header slightly more spacious */
   .header-container {
