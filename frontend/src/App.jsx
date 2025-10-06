@@ -1,12 +1,13 @@
 import React from "react";
 import Header from "./components/Header";
-import Works from "./pages/Works";
 
+import OurWorks from "./components/OurWorks";
 function App() {
   return (
-    <div>
-      <Works/>
-    </div>
+    <>
+      <Header />
+      <OurWorks />
+    </>
   );
 }
 
