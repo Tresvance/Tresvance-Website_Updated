@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -20,6 +21,14 @@ html, body {
     justify-content: space-between; 
     align-items: center;            
     padding: 0 20px;
+}
+
+.header-container.header-open {
+    background-color: #52a7e4; /* blue when overlay open */
+}
+
+.header-container.header-open .header-menu a {
+    background-color: #52a7e4;
 }
 
 .header-logo img {
@@ -151,15 +160,26 @@ html, body {
     right: 40px;
     width: 400px;     
     height: auto;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 3pc;
+    font-family:'Samarkan';
+    /*box-shadow: 0 4px 10px rgba(0,0,0,0.4);*/
 }
+
+
+
+
+
+
+
 
 .video-caption
 {
     position: absolute;
     bottom: 70px;
     right: 355px;
-    font-size:large;
+    /*font-size:large;*/
 }
 
 @keyframes revealDown{
@@ -226,6 +246,8 @@ html, body {
     width: 250px;
     bottom: 80px;
     right: 20px;
+    font-size: 25px;
+    line-height: 20px;
   }
 
   .video-caption {
@@ -254,6 +276,8 @@ html, body {
     width: 200px;
     bottom: 60px;
     right: 15px;
+    font-size: 25px;
+    line-height: 20px;
   }
 
   .video-caption {
@@ -262,9 +286,7 @@ html, body {
     bottom: 40px;
   }
 }
-/* ============================= */
-/* 📱 Responsive Styles - Mobile (< 600px) */
-/* ============================= */
+
 @media (max-width: 600px) {
   .header-container {
     height: 55px;
@@ -306,6 +328,8 @@ html, body {
     width: 200px;
     bottom: 60px;
     right: 15px;
+    font-size: 25px;
+    line-height: 30px;
   }
 
   .video-caption {
@@ -367,6 +391,8 @@ html, body {
     width: 320px;
     bottom: 90px;
     right: 30px;
+    font-size: 40px;
+    line-height: 35px;
   }
 
   .video-caption {
