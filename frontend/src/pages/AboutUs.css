@@ -1,0 +1,323 @@
+.aboutus-container {
+  font-family: sans-serif;
+  background: #fff;
+  color: #222;
+  padding-bottom: 40px;
+}
+
+.aboutus-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aboutus-logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.aboutus-menu {
+  font-size: 1rem;
+  color: #444;
+  cursor: pointer;
+}
+
+.aboutus-main-title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-top: 48px;
+  padding-left: 7%;
+  padding-right: 7%;
+  margin-bottom: 1px;
+  text-align: left;
+}
+
+.aboutus-subtitle {
+  text-align: left;
+  font-size: 1.05rem;
+  padding-left: 7%;
+  color: #777;
+  margin-bottom: 32px;
+}
+
+.aboutus-image-block {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  margin: 0;
+}
+
+.aboutus-banner-image {
+  /* max-width: 480px; */
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+.aboutus-section {
+  background: #fafafa;
+  display: flex;
+  width: 100%;
+  height: 40vh;
+  padding: 7%;
+  /* padding: 48px 32px; */
+}
+
+.aboutus-section-title {
+  flex: 1;
+  width:50%;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 12px;
+  /* display: flex;                Enable flexbox */
+  /* justify-content: center;      Center horizontally */
+  /* align-items: center;          Center vertically */
+  /* text-align: center; */
+}
+
+.aboutus-section-text {
+  flex: 1;
+  width:50%;
+  font-size: 1.02rem;
+  color: #333;
+}
+
+.custom-divider {
+  width: 90%;                   /* length of the line */
+  height: 3px;                  /* thickness */
+  background-color: #aaa;       /* line color */
+  margin: 20px auto;            /* center it and add spacing */
+  border: none;                 /* remove default hr styling if applied */
+  opacity: 0.9;                 /* make it slightly faded */
+}
+
+
+.aboutus-why-section {
+  margin-top: 40px;
+  padding: 0 35px;
+}
+
+.aboutus-why-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #2ca7f8;
+}
+
+.aboutus-why-grid {
+  display: flex;
+  /* background-color: #fafafa; */
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.aboutus-why-item {
+  flex: 1;
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.03); */
+}
+
+.aboutus-why-icon {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+
+  width: 70px;
+  height: 70px;
+  background-color: #cbf1ff ; /* blue circle */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0 auto 16px; */
+  /* margin: 0 0 16px 0; */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  margin-bottom: 30px;
+}
+
+.aboutus-why-text-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.aboutus-why-text {
+  font-size: smaller;
+  color: #555;
+  line-height: 1.4;
+}
+
+.aboutus-service-section {
+  padding: 0 32px;
+  margin-top: 32px;
+}
+
+.aboutus-service-maintitle {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #2ca7f8;
+}
+
+.aboutus-service-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.aboutus-services-grid {
+  display: flex;
+  gap: 16px;
+  width: 100vw;
+  margin-top: 30px;
+  margin-bottom: 32px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  box-sizing: border-box;
+  padding: 20px;
+  justify-content: stretch;
+}
+
+.aboutus-service-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* keep title at bottom */
+  align-items: flex-start;
+  background: #000;
+  color: #fff;
+  flex: 1 0 0;
+  width: 180px; /* slightly narrower for cleaner grid */
+  height: 380px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 0;
+  /* margin: 5px; */
+  /* margin-block-end: 10px; */
+  min-width: 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect (optional) */
+.aboutus-service-card:hover {
+  transform: translateY(-8px);
+  background: #0a0a0a;
+}
+
+.aboutus-service-number {
+  font-size: 8rem;
+  font-weight: 100;
+  font-style: thin;
+  line-height: 1;
+  size: 150px;
+  color: #06A3DA;
+  position: absolute;
+  top: 5px;
+  left: -40px;
+  letter-spacing: -0.05em;
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+ font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+/* Service title at bottom */
+/* .aboutus-service-title {
+  font-size: small;
+  font-weight: lighter;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 1;
+  position: relative;
+  text-align: left;
+} */
+
+.aboutus-service-subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.service-card {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+.card-top {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: opacity 0.5s;
+}
+.card-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+  transition: opacity 0.5s;
+}
+.service-card:hover .card-overlay {
+  opacity: 1;
+}
+.service-card:hover .card-top {
+  opacity: 0;
+}
+.service-arrow {
+  background: #27affe;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s;
+}
+.service-card:hover .service-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card-overlay .service-desc {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.5s cubic-bezier(0.19,1,0.22,1);
+}
+.service-card:hover .card-overlay .service-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
