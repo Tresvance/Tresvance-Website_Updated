@@ -5,7 +5,7 @@ import "./Contact.css";
 
 const Contact = () => {
     return (
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen bg-[#f9f9f2]">
           {/* Header Section */}
         <section className="contact-hero relative flex items-center p-10 text-white">
             <div className="absolute inset-0 bg-black bg-opacity-0"></div>
