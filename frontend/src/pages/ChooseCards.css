@@ -41,7 +41,7 @@
     color: #666;
 }
 
-/* Large Desktop Responsive (1440px and above) */
+/* Large Desktop Responsive */
 @media (min-width: 1440px) {
     .choosecards-container {
         max-width: 1600px;
@@ -70,7 +70,7 @@
     }
 }
 
-/* Standard Desktop Responsive (1024px to 1439px) */
+/* Standard Desktop Responsive  */
 @media (min-width: 1024px) and (max-width: 1439px) {
     .choosecards-container {
         gap: 30px;
@@ -88,12 +88,13 @@
     }
 
     .choosecards-title {
-        font-size: 14px;
+        font-size: 20px;
         margin-bottom: 16px;
     }
 
     .choosecards-description {
-        font-size: 13px;
+        font-size: 15px;
+        font-family: 'Inter', sans-serif;
     }
 }
 

@@ -8,7 +8,6 @@ import ChooseCards from "./ChooseCards";
 const Choose = () => {
   return (
     <div className="choose-container">
-      <Header />
       <div className="choose-heading">
       <div className="choose-subheading1">
         <p>WHY CHOOSE</p><br></br>

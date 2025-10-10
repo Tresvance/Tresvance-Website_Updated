@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import './Header.css';
@@ -30,7 +31,7 @@ const Header =()=>
   const [isMenuOpen,setIsMenuOpen]=useState(false);
   return(
     <>
-    <div className="header-container">
+    <div className={`header-container ${isMenuOpen ? "header-open" : ""}`}>
         <div className="header-logo">
         <img src={logo} alt="Logo"/>
         </div>
@@ -53,21 +54,37 @@ const Header =()=>
     <div>
       <div className={`overlay ${isMenuOpen ? "overlay-open" : ""}`}>
         <ThinClose size={130} color="white" className="overlay-close" onClick={() => setIsMenuOpen(false)} />
-          <ul className="overlay-links">
-          <li><span>HOME</span></li>
-          <li><span>ABOUT</span></li>
-          <li><span>FEATURES</span></li>
-          <li><span>CAREERS</span></li>
-          <li><span>CONTACT</span></li>
-          </ul>
+        <ul className="overlay-links">
+          <li>
+              <Link to="/" onClick={() => setIsMenuOpen(false)}><span>HOME</span></Link>
+          </li>
+          <li>
+               <Link to="/" onClick={() => setIsMenuOpen(false)}><span>ABOUT</span></Link>
+          </li>
+          <li>
+                <Link to="/choose-us" onClick={() => setIsMenuOpen(false)}><span>WHY CHOOSE US</span></Link>
+          </li>
+          <li>
+                  <Link to="/join-us" onClick={() => setIsMenuOpen(false)}><span>CAREERS</span></Link>
+            </li>
+          <li>
+                  <Link to="/" onClick={() => setIsMenuOpen(false)}><span>CONTACT</span></Link>
+          </li>
+        </ul>
+
 
           <div className="overlay-details">
             <p>TRESVANCE SOFTWARES</p>
             <p><FaEnvelope style={{ marginRight: "8px" }}/> contact@tresvance</p>
             <p><FaMapMarkerAlt style={{ marginRight: "8px" }}/>Cochin,India</p>
           </div>
-            <video className="overlay-vedio" src="https://cdn.pixabay.com/vimeo/454036780/tech-background-1920x1080-1.mp4?width=1920&hash=somehash" autoPlay loop muted controls />
-            <p className="video-caption">Play Video</p>
+
+          <p className="overlay-vedio">
+             <span>INNOVATE</span><br />
+             <span>INTEGRATE</span><br />
+            <span>ELEVATE</span>
+          </p>
+
       </div>
     </div>
     </>
