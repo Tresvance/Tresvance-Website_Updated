@@ -1,10 +1,30 @@
+/* === GLOBAL SAFETY === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* force main wrappers to not overflow viewport */
+.aboutus-container,
+.aboutus-section,
+.aboutus-services-grid {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+
 .aboutus-container {
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #fff;
   color: #222;
   padding-bottom: 40px;
+  padding-top: 5%;
 }
 
+/* Header */
 .aboutus-header {
   padding: 24px 32px;
   border-bottom: 1px solid #eee;
@@ -25,14 +45,18 @@
   cursor: pointer;
 }
 
+/* About Us Main Section */
 .aboutus-main-title {
-  font-weight: bold;
-  font-size: 2rem;
   margin-top: 48px;
   padding-left: 7%;
   padding-right: 7%;
-  margin-bottom: 1px;
+  margin-bottom: 8px;
   text-align: left;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 100%;
+  text-transform: uppercase;
 }
 
 .aboutus-subtitle {
@@ -43,61 +67,63 @@
   margin-bottom: 32px;
 }
 
+/* Image Section */
 .aboutus-image-block {
   display: flex;
-  width: 100vw;
+  width: 100%;
   justify-content: center;
   margin: 0;
 }
 
 .aboutus-banner-image {
-  /* max-width: 480px; */
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
   border-radius: 0;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
+/* About Us Content Section */
 .aboutus-section {
   background: #fafafa;
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
   width: 100%;
-  height: 40vh;
+  height: auto;
   padding: 7%;
-  /* padding: 48px 32px; */
+  gap: 40px;
+  box-sizing: border-box;
 }
 
 .aboutus-section-title {
   flex: 1;
-  width:50%;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 2rem;
+  color: #2ca7f8;
   margin-bottom: 12px;
-  /* display: flex;                Enable flexbox */
-  /* justify-content: center;      Center horizontally */
-  /* align-items: center;          Center vertically */
-  /* text-align: center; */
+  text-transform: uppercase;
 }
 
 .aboutus-section-text {
-  flex: 1;
-  width:50%;
-  font-size: 1.02rem;
+  flex: 2;
+  font-size: 1.05rem;
   color: #333;
+  line-height: 1.6;
 }
 
 .custom-divider {
-  width: 90%;                   /* length of the line */
-  height: 3px;                  /* thickness */
-  background-color: #aaa;       /* line color */
-  margin: 20px auto;            /* center it and add spacing */
-  border: none;                 /* remove default hr styling if applied */
-  opacity: 0.9;                 /* make it slightly faded */
+  width: 90%;
+  height: 3px;
+  background-color: #aaa;
+  margin: 20px auto;
+  border: none;
+  opacity: 0.9;
 }
 
-
+/* Why Choose Us Section */
 .aboutus-why-section {
   margin-top: 40px;
   padding: 0 35px;
@@ -112,7 +138,6 @@
 
 .aboutus-why-grid {
   display: flex;
-  /* background-color: #fafafa; */
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 48px;
@@ -123,31 +148,41 @@
   background: #fff;
   padding: 16px;
   border-radius: 8px;
-  /* box-shadow: 0 2px 8px rgba(0,0,0,0.03); */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.aboutus-why-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.15);
+  background-color: #f8fbff;
+}
+
+.aboutus-why-item:hover .aboutus-why-icon {
+  background-color: #2ca7f8;
+  color: white;
+  box-shadow: 0 6px 15px rgba(44, 167, 248, 0.5);
+  transition: all 0.3s ease;
 }
 
 .aboutus-why-icon {
   font-size: 1.5rem;
-  margin-bottom: 10px;
-
+  margin-bottom: 30px;
   width: 70px;
   height: 70px;
-  background-color: #cbf1ff ; /* blue circle */
+  background-color: #cbf1ff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin: 0 auto 16px; */
-  /* margin: 0 0 16px 0; */
   box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
-  margin-bottom: 30px;
 }
 
 .aboutus-why-text-title {
   font-weight: bold;
   font-size: 1.1rem;
   margin-bottom: 10px;
-  display: block;
 }
 
 .aboutus-why-text {
@@ -156,168 +191,543 @@
   line-height: 1.4;
 }
 
+/* Services Section */
 .aboutus-service-section {
-  padding: 0 32px;
-  margin-top: 32px;
+  padding: 0.5%;
+  margin-top: 40px;
+  background: #fff;
 }
 
 .aboutus-service-maintitle {
   text-align: left;
-  font-weight: bold;
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
   color: #2ca7f8;
+  letter-spacing: 0.5px;
 }
 
-.aboutus-service-title {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
+/* Services Grid */
 .aboutus-services-grid {
   display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   gap: 16px;
-  width: 100vw;
-  margin-top: 30px;
-  margin-bottom: 32px;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  box-sizing: border-box;
+  overflow-x: auto;
   padding: 20px;
-  justify-content: stretch;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .aboutus-service-card {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* keep title at bottom */
-  align-items: flex-start;
+  width: 219px;
+  height: 462px;
   background: #000;
   color: #fff;
-  flex: 1 0 0;
-  width: 180px; /* slightly narrower for cleaner grid */
-  height: 380px;
-  padding: 30px;
-  box-sizing: border-box;
-  border-radius: 0;
-  /* margin: 5px; */
-  /* margin-block-end: 10px; */
-  min-width: 0;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-/* Hover effect (optional) */
-.aboutus-service-card:hover {
-  transform: translateY(-8px);
-  background: #0a0a0a;
-}
-
-.aboutus-service-number {
-  font-size: 8rem;
-  font-weight: 100;
-  font-style: thin;
-  line-height: 1;
-  size: 150px;
-  color: #06A3DA;
-  position: absolute;
-  top: 5px;
-  left: -40px;
-  letter-spacing: -0.05em;
-  opacity: 0.9;
-  z-index: 1;
-  pointer-events: none;
-  user-select: none;
- font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-}
-
-/* Service title at bottom */
-/* .aboutus-service-title {
-  font-size: small;
-  font-weight: lighter;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  z-index: 1;
-  position: relative;
-  text-align: left;
-} */
-
-.aboutus-service-subtitle {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #222;
-  margin-bottom: 30px;
-  text-align: left;
-}
-
-.service-card {
-  position: relative;
-  width: 300px;
-  height: 500px;
-  background: #000;
-  color: #fff;
-  overflow: hidden;
-  cursor: pointer;
-  transition: box-shadow 0.3s;
-}
-.card-top {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: opacity 0.5s;
-}
-.card-overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 32px;
-  transition: opacity 0.5s;
-}
-.service-card:hover .card-overlay {
-  opacity: 1;
-}
-.service-card:hover .card-top {
-  opacity: 0;
-}
-.service-arrow {
-  background: #27affe;
-  color: #fff;
-  border-radius: 50%;
-  border: none;
-  width: 48px;
-  height: 48px;
-  font-size: 2rem;
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s;
-}
-.service-card:hover .service-arrow {
-  opacity: 1;
-  transform: translateY(0);
-}
-.card-overlay .service-desc {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.5s cubic-bezier(0.19,1,0.22,1);
-}
-.service-card:hover .card-overlay .service-desc {
-  opacity: 1;
-  transform: translateY(0);
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
+.aboutus-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.aboutus-service-number {
+  position: absolute;
+  top: 0%;
+  left: -30px;
+  font-size: 7rem;
+  font-weight: 100;
+  color: #06A3DA;
+  opacity: 0.9;
+  line-height: 1;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.aboutus-service-title {
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.aboutus-service-desc {
+  position: relative;
+  z-index: 2;
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* ============================= */
+/* RESPONSIVE BREAKPOINTS FOR DEVICES */
+/* ============================= */
+
+/* iPhone SE (320–375px) */
+/* @media (max-width: 375px) {
+  .aboutus-main-title { font-size: 24px; }
+  .aboutus-subtitle { font-size: 0.85rem; }
+  .aboutus-section { flex-direction: column; gap: 12px; padding: 28px 5%; }
+  .aboutus-section-title { font-size: 1rem; }
+  .aboutus-section-text { font-size: 0.85rem; }
+  .aboutus-why-grid, .aboutus-services-grid { flex-direction: column; gap: 20px; }
+  .aboutus-service-card { width: 100%; height: auto; }
+}
+
+/* iPhone XR / 12 Pro / Galaxy S8+ (376–430px) */
+@media (min-width: 376px) and (max-width: 430px) {
+  .aboutus-main-title { font-size: 28px; }
+  .aboutus-subtitle { font-size: 0.9rem; }
+  .aboutus-service-card { width: 48%; height: 420px; }
+  .aboutus-section-title { font-size: 1.1rem; }
+  .aboutus-section-text { font-size: 0.9rem; }
+}
+
+/* iPhone 14 Pro Max / Pixel 7 / Galaxy A51/71 (431–550px) */
+@media (min-width: 431px) and (max-width: 550px) {
+  .aboutus-main-title { font-size: 32px; }
+  .aboutus-subtitle { font-size: 0.95rem; }
+  .aboutus-service-card { width: 45%; height: 430px; }
+  .aboutus-section-title { font-size: 1.2rem; }
+  .aboutus-section-text { font-size: 0.95rem; }
+}
+
+/* iPad Mini / Air / Fold phones / Surface Duo (551–850px) */
+@media (min-width: 551px) and (max-width: 850px) {
+  .aboutus-main-title { font-size: 38px; }
+  .aboutus-subtitle { font-size: 1rem; }
+  .aboutus-section { flex-direction: column; gap: 20px; padding: 40px 7%; }
+  .aboutus-section-title { font-size: 1.4rem; }
+  .aboutus-section-text { font-size: 1rem; }
+  .aboutus-services-grid { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .aboutus-service-card { width: 45%; height: 440px; }
+}
+
+/* ✅ FIXED — iPad Pro (1024 × 1366) */
+@media only screen 
+  and (width: 1024px) 
+  and (min-height: 1200px) {
+
+  .aboutus-container {
+    padding-left: 2%;
+    padding-right: 2%;
+    overflow-x: hidden;
+  }
+
+  .aboutus-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 2%;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .aboutus-services-grid {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .aboutus-service-card {
+    flex: 0 0 calc((100% - (5 * 16px)) / 6);
+    max-width: calc((100% - (5 * 16px)) / 6);
+    height: 460px;
+    padding: 20px;
+  }
+}
+
+/* ✅ FIXED — Nest Hub (1024 × 600) */
+@media only screen 
+  and (width: 1024px) 
+  and (max-height: 700px) {
+
+  .aboutus-container {
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    overflow-x: hidden;
+  }
+
+  .aboutus-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 1.5%;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .aboutus-services-grid {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    gap: 12px;
+  }
+
+  .aboutus-service-card {
+    flex: 0 0 calc((100% - (5 * 12px)) / 6);
+    max-width: calc((100% - (5 * 12px)) / 6);
+    height: 420px;
+    padding: 16px;
+  }
+}
+
+
+
+/* iPad Pro / Surface Pro 7 (851–1200px) */
+@media (min-width: 851px) and (max-width: 1200px) {
+  .aboutus-main-title { font-size: 44px; }
+  .aboutus-subtitle { font-size: 1.05rem; }
+  .aboutus-services-grid { flex-wrap: nowrap; justify-content: space-between; }
+  .aboutus-service-card { width: 200px; height: 450px; }
+}
+
+/* Foldables / Zenbook Fold (1201–1599px) */
+@media (min-width: 1201px) and (max-width: 1599px) {
+  .aboutus-main-title { font-size: 48px; }
+  .aboutus-subtitle { font-size: 1.1rem; }
+  .aboutus-service-card { width: 219px; height: 462px; }
+}
+
+
+
+/* Nest Hub / Nest Hub Max (≥1600px) */
+@media (min-width: 1600px) {
+  .aboutus-container { padding: 2% 10%; }
+  .aboutus-main-title { font-size: 50px; }
+  .aboutus-subtitle { font-size: 1.2rem; }
+  .aboutus-services-grid { justify-content: center; gap: 24px; }
+  .aboutus-service-card { width: 240px; height: 480px; }
+} */
+
+/* ============================= */
+/* RESPONSIVE MEDIA QUERIES (Same as Footer.css structure) */
+/* ============================= */
+
+/* Small Phones (≤600px) */
+{}
+@media (max-width: 600px) {
+  .aboutus-main-title {
+    font-size: 24px;
+    text-align: center;
+    padding: 0 5%;
+  }
+
+  .aboutus-subtitle {
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0 5%;
+  }
+
+  .aboutus-section {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 5%;
+  }
+
+  .aboutus-section-title {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .aboutus-section-text {
+    font-size: 0.85rem;
+    text-align: justify;
+  }
+
+  .aboutus-why-grid,
+  .aboutus-services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aboutus-service-card {
+    width: 90%;
+    height: auto;
+  }
+}
+
+/* Tablets (601px–768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+  .aboutus-main-title {
+    font-size: 32px;
+  }
+
+  .aboutus-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .aboutus-section {
+    flex-direction: column;
+    padding: 40px 6%;
+  }
+
+  .aboutus-section-title {
+    font-size: 1.3rem;
+  }
+
+  .aboutus-section-text {
+    font-size: 0.95rem;
+  }
+
+  .aboutus-services-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .aboutus-service-card {
+    width: 45%;
+    height: 430px;
+  }
+}
+
+/* Small Laptops / Tablets Landscape (769px–992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .aboutus-main-title {
+    font-size: 38px;
+  }
+
+  .aboutus-subtitle {
+    font-size: 1rem;
+  }
+
+  .aboutus-section {
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 8%;
+  }
+
+  .aboutus-section-title {
+    font-size: 1.4rem;
+  }
+
+  .aboutus-section-text {
+    font-size: 1rem;
+  }
+
+  .aboutus-services-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .aboutus-service-card {
+    width: 30%;
+    height: 450px;
+  }
+}
+
+/* Medium Desktops (993px–1200px) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .aboutus-main-title {
+    font-size: 44px;
+  }
+
+  .aboutus-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .aboutus-section {
+    flex-direction: row;
+    padding: 7%;
+  }
+
+  .aboutus-services-grid {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .aboutus-service-card {
+    width: 200px;
+    height: 450px;
+  }
+}
+
+/* Large Desktops (1201px–1600px) */
+@media (min-width: 1201px) and (max-width: 1600px) {
+  .aboutus-main-title {
+    font-size: 48px;
+  }
+
+  .aboutus-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .aboutus-service-card {
+    width: 219px;
+    height: 462px;
+  }
+}
+
+/* Extra Large Screens (≥1601px) */
+@media (min-width: 1601px) {
+  .aboutus-container {
+    padding: 2% 10%;
+  }
+
+  .aboutus-main-title {
+    font-size: 50px;
+  }
+
+  .aboutus-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .aboutus-services-grid {
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .aboutus-service-card {
+    width: 240px;
+    height: 480px;
+  }
+}
+
+/* ✅ FIXED — iPad Pro (1024 × 1366) */
+@media only screen 
+  and (width: 1024px) 
+  and (min-height: 1200px) {
+
+  .aboutus-container {
+    padding-left: 2%;
+    padding-right: 2%;
+    overflow-x: hidden;
+  }
+
+  .aboutus-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 2%;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .aboutus-services-grid {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .aboutus-service-card {
+    flex: 0 0 calc((100% - (5 * 16px)) / 6);
+    max-width: calc((100% - (5 * 16px)) / 6);
+    height: 460px;
+    padding: 20px;
+  }
+}
+
+/* ✅ FIXED — Nest Hub (1024 × 600) */
+@media only screen 
+  and (width: 1024px) 
+  and (max-height: 700px) {
+
+  .aboutus-container {
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    overflow-x: hidden;
+  }
+
+  .aboutus-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 1.5%;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .aboutus-services-grid {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    gap: 12px;
+  }
+
+  .aboutus-service-card {
+    flex: 0 0 calc((100% - (5 * 12px)) / 6);
+    max-width: calc((100% - (5 * 12px)) / 6);
+    height: 420px;
+    padding: 16px;
+  }
+}
+
+
+/* Nest Hub — landscape 1024 x 600 (short height) */
+@media only screen
+  and (min-width: 1024px)
+  and (max-height: 600px)
+  and (orientation: landscape) {
+
+  .aboutus-section { padding-inline: 3.5%; }
+  .aboutus-main-title { font-size: 40px; }
+  .aboutus-services-grid { gap: 12px; }
+  .aboutus-service-card {
+    flex: 0 0 calc((100% - (5 * 12px)) / 6);
+    max-width: calc((100% - (5 * 12px)) / 6);
+    height: 420px;
+    padding: 18px;
+  }
+  .aboutus-service-number { font-size: 6rem; left: -22px; }
+  .aboutus-service-title { font-size: 1rem; }
+  .aboutus-service-desc { font-size: 0.88rem; }
+}
+
+
+
+/* --- Nest Hub Max (1280 x 800) --- */
+@media only screen 
+  and (min-width: 1280px) 
+  and (max-width: 1280px) 
+  and (max-height: 800px) {
+
+  .aboutus-services-grid {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    gap: 12px;
+    overflow-x: hidden;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .aboutus-service-card {
+    width: calc(100% / 6 - 12px);
+    height: 460px;
+    padding: 24px;
+  }
+
+  .aboutus-section,
+  .aboutus-service-section {
+    overflow-x: hidden;
+  }
+}
