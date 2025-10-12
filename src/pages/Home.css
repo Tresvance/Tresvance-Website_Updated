@@ -85,6 +85,16 @@
   }
 }
 
+.carousel-item {
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+#carousel3D img {
+  transition: transform 0.3s ease-in-out;
+}
+#carousel3D img:hover {
+  transform: scale(1.05);
+}
+
 
 /* Marquee scroll keyframes */
 @keyframes marquee {

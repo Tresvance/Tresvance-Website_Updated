@@ -15,6 +15,14 @@ const Home = () => {
     "../src/assets/pic6.jpg"
   ];
 
+  let angle = 0;
+  const rotateCarousel = (direction) => {
+    const carousel = document.getElementById("carousel3D");
+    angle += direction * 60; // 6 items → 360/6 = 60°
+    carousel.style.transform = `rotateY(${angle}deg)`;
+  };
+
+
   return (
     <div className="bg-[#f9f9f2] min-h-screen font-sans">
       <main className="pt-16 md:pt-20"> 
@@ -22,8 +30,7 @@ const Home = () => {
           <div className="mainhead space-y-2 sm:space-y-3">
             <h1 className="text-6xl sm:text-6xl md:text-7xl font-light">
               Creative and Innovative
-            </h1>
-            <h1 className="text-6xl sm:text-6xl md:text-7xl font-light">
+              <br />
               Digital Solution
             </h1>
           </div>
@@ -45,11 +52,12 @@ const Home = () => {
             <h2 className="text-5xl md:text-6xl font-bold flex items-center justify-center relative">
               <div className="marquee-wrapper w-full">
                 <div className="marquee flex space-x-8 text-black/10 font-extrabold tracking-widest">
-                  METHOD
+                <span className="spinning-shape"></span>
+                ‎INNOVATE‎ 
                   <span className="spinning-shape"></span>
-                  METHOD
+                  ‎ INTEGRATE 
                   <span className="spinning-shape"></span>
-                  METHOD
+                  ‎ ELEVATE
                   <span className="spinning-shape"></span>
                 </div>
               </div>
@@ -171,33 +179,80 @@ const Home = () => {
             </p>
           </div>
       </section>
-        {/* Portfolio Section */}
-      <section className="py-12 sm:py-16 bg-[#f9f9f2] text-primary px-4 sm:px-8 text-center animate-fade-in">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">Our Works</h2>
+      {/* Portfolio Section */}
+ {/* Portfolio Section */}
+<section className="py-12 sm:py-16 bg-[#f9f9f2] text-primary px-4 sm:px-8 text-center animate-fade-in">
+  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">Our Works</h2>
 
-        {/* Carousel Container */}
-        <div className="relative w-full flex justify-center items-center perspective-[1200px]">
-          <div className="relative w-[900px] h-[300px] flex justify-center items-center [transform-style:preserve-3d] [animation:spin 20s linear infinite]">
-            {/* Placeholder Images */}
-            
-            <div className="absolute w-56 h-72 bg-gray-200 shadow-xl rounded-lg overflow-hidden [transform:rotateY(0deg)_translateZ(400px)]"></div>
-            <div className="absolute w-56 h-72 bg-gray-300 shadow-xl rounded-lg overflow-hidden [transform:rotateY(72deg)_translateZ(400px)]"></div>
-            <div className="absolute w-56 h-72 bg-gray-400 shadow-xl rounded-lg overflow-hidden [transform:rotateY(144deg)_translateZ(400px)]"></div>
-            <div className="absolute w-56 h-72 bg-gray-300 shadow-xl rounded-lg overflow-hidden [transform:rotateY(216deg)_translateZ(400px)]"></div>
-            <div className="absolute w-56 h-72 bg-gray-200 shadow-xl rounded-lg overflow-hidden [transform:rotateY(288deg)_translateZ(400px)]"></div>
-          </div>
-        </div>
+  {/* 3D Carousel Container */}
+  <div className="relative flex justify-center items-center perspective-[1200px]">
+    {/* Rotating carousel */}
+    <div
+      id="carousel3D"
+      className="relative w-[900px] h-[400px] flex justify-center items-center transition-transform duration-700 ease-in-out [transform-style:preserve-3d]"
+    >
+      {/* 6 Images */}
+      <div className="absolute w-60 h-80 overflow-hidden rounded-xl shadow-lg [transform:rotateY(0deg)_translateZ(420px)] carousel-item">
+        <img
+          src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d"
+          alt="Work 1"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="absolute w-60 h-80 overflow-hidden rounded-xl shadow-lg [transform:rotateY(60deg)_translateZ(420px)] carousel-item">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Work 2" className="w-full h-full object-cover" />
+      </div>
+      <div className="absolute w-60 h-80 overflow-hidden rounded-xl shadow-lg [transform:rotateY(120deg)_translateZ(420px)] carousel-item">
+        <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62" alt="Work 3" className="w-full h-full object-cover" />
+      </div>
+      <div className="absolute w-60 h-80 overflow-hidden rounded-xl shadow-lg [transform:rotateY(180deg)_translateZ(420px)] carousel-item">
+        <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702" alt="Work 4" className="w-full h-full object-cover" />
+      </div>
+      <div className="absolute w-60 h-80 overflow-hidden rounded-xl shadow-lg [transform:rotateY(240deg)_translateZ(420px)] carousel-item">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Work 5" className="w-full h-full object-cover" />
+      </div>
+      <div className="absolute w-60 h-80 overflow-hidden rounded-xl shadow-lg [transform:rotateY(300deg)_translateZ(420px)] carousel-item">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Work 6" className="w-full h-full object-cover" />
+      </div>
+    </div>
 
-        {/* Navigation Buttons */}
-        <div className="mt-8 flex justify-center space-x-4">
-          <button className="bg-white border border-black rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 transition-colors duration-300">
-            ←
-          </button>
-          <button className="bg-white border border-black rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 transition-colors duration-300">
-            →
-          </button>
-        </div>
-      </section>
+    {/* Fixed Arrow (front center) */}
+    <a
+      href="#ourworks"
+      className="absolute bottom-[70px] right-[46%] translate-x-1/2 bg-blue-500 text-white rounded-full p-3 hover:bg-blue-600 transition z-50 cursor-pointer"
+      id="frontArrow"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17 7l-10 10m0-10h10v10" />
+      </svg>
+    </a>
+  </div>
+
+  {/* Navigation Buttons */}
+  <div className="mt-8 flex justify-center space-x-4">
+    <button
+      onClick={() => rotateCarousel(1)}
+      className="bg-white border border-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition"
+    >
+      ←
+    </button>
+    <button
+      onClick={() => rotateCarousel(-1)}
+      className="bg-white border border-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition"
+    >
+      →
+    </button>
+  </div>
+</section>
+
+
       </main>
       {/* Footer can be added here */}
     </div>
