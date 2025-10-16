@@ -59,7 +59,7 @@ const Header =()=>
               <Link to="/" onClick={() => setIsMenuOpen(false)}><span>HOME</span></Link>
           </li>
           <li>
-               <Link to="/" onClick={() => setIsMenuOpen(false)}><span>ABOUT</span></Link>
+               <Link to="/about-us" onClick={() => setIsMenuOpen(false)}><span>ABOUT</span></Link>
           </li>
           <li>
                 <Link to="/choose-us" onClick={() => setIsMenuOpen(false)}><span>WHY CHOOSE US</span></Link>
