@@ -24,8 +24,8 @@
 /* Marquee content scroll */
 .marquee {
   display: inline-flex;
-  animation: marquee 4s linear infinite;
-  transition: 0.2s;
+  animation: marquee 8s linear infinite reverse;
+  transition: 0.15s;
 }
 
 /* Spinning 4-pointed concave shape */
@@ -34,14 +34,24 @@
   height: 60px;
   background-color: #000;
   clip-path: polygon(
-    50% 0%,    /* top */
-    70% 30%,   /* upper-right concave */
-    100% 50%,  /* right */
-    70% 70%,   /* lower-right concave */
-    50% 100%,  /* bottom */
-    30% 70%,   /* lower-left concave */
-    0% 50%,    /* left */
-    30% 30%    /* upper-left concave */
+    /* top tip */
+    50% 0%,
+
+    /* top-right concave curve */
+    65% 25%,  70% 30%,   /* inner control, outer control */
+    100% 50%,            /* right tip */
+
+    /* bottom-right concave curve */
+    70% 70%,  65% 75%,   /* outer control, inner control */
+    50% 100%,            /* bottom tip */
+
+    /* bottom-left concave curve */
+    35% 75%,  30% 70%,   /* inner control, outer control */
+    0% 50%,              /* left tip */
+
+    /* top-left concave curve */
+    30% 30%,  35% 25%,   /* outer control, inner control */
+    50% 0%               /* back to top tip */
   );
   animation: spin 2s linear infinite reverse;
 }
@@ -94,6 +104,15 @@
 #carousel3D img:hover {
   transform: scale(1.05);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
 
 
 /* Marquee scroll keyframes */
