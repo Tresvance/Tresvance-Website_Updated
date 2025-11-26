@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 import WhyChooseUs from "./whychooseus.jsx";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ThreeDImageRing from './draggable-3d-image-ring.jsx';
 
 
@@ -59,16 +59,12 @@ const Home = () => {
         "Our IoT-enabled logistics solutions provide real-time tracking, route optimization, and asset management.",
     },
   ];
-  // const rotateCarousel = (direction) => {
-  //   const carousel = document.getElementById("carousel3D");
-  //   angle += direction * 60; // 6 items → 360/6 = 60°
-  //   carousel.style.transform = `rotateY(${angle}deg)`;
-  // };
+
   const containerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.25, // delay between each child (for nice sequence)
+        staggerChildren: 0.25, 
       },
     },
   };
@@ -104,6 +100,34 @@ const Home = () => {
     },
   });
 
+  const videoSectionRef = useRef(null);
+  const [videoScale, setVideoScale] = useState(1);
+  const maxScale = 1.8; 
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = videoSectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const denominator = (vh + rect.height);
+      let raw = (vh - rect.top) / denominator; 
+      let progress = Math.max(0, Math.min(1, raw)); 
+      const sinVal = Math.sin(progress * Math.PI);
+      const scale = 1 + sinVal * (maxScale - 1);
+
+      setVideoScale(scale);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+
   return (
     <div className="bg-[#f9f9f2] min-h-screen font-sans">
       <main className="pt-16 md:pt-20"> 
@@ -128,18 +152,48 @@ const Home = () => {
             <p className="text-gray-500 text-xs mt-2">(scroll)</p>
           </div>
         </section>
+
+        <section
+          ref={videoSectionRef}
+          className="py-24 bg-[#f9f9f2] flex items-center justify-center"
+        >
+          <div className="w-full max-w-4xl px-6 sm:px-10">
+            <div className="relative flex flex-col items-center">
+              <motion.div
+                className="w-full rounded-2xl overflow-hidden shadow-2xl bg-black relative"
+                style={{ originX: 0.5, originY: 0.5 }}
+                animate={{ scale: videoScale }}
+                transition={{ type: "spring", stiffness: 120, damping: 18 }}
+              >
+                <div className="w-full aspect-[16/9] bg-gray-900 flex items-center justify-center">
+                  <img
+                    src="../src/assets/video-placeholder.jpg"
+                    alt="video placeholder"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="rounded-full bg-white/80 p-4 shadow-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-play">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
         <section className="py-20 bg-[#f9f9f2] text-[#111] px-6 sm:px-10 md:px-16 lg:px-24 animate-fade-in">
           <div className="overflow-hidden w-full mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold flex items-center justify-center relative">
+            <h2 className="text-5xl md:text-6xl font flex items-center justify-center relative">
               <div className="marquee-wrapper w-full">
-                <div className="marquee flex space-x-8 text-black font-bold tracking-widest">
-                <span className="spinning-shape"></span>
-                ‎INNOVATE‎ 
+                <div className="marquee flex space-x-8 text-black tracking-widest">
+                  ‎ INNOVATE‎ 
                   <span className="spinning-shape"></span>
                   ‎ INTEGRATE 
                   <span className="spinning-shape"></span>
                   ‎ ELEVATE
-                  <span className="spinning-shape"></span>
+                  <span className="spinning-shape"></span>           
                 </div>
               </div>
             </h2>
@@ -306,6 +360,7 @@ const Home = () => {
           {/* GREEN CIRCLE - from LEFT */}
           <motion.div
             variants={circleVariants("left")}
+            whileHover={{ scale: 1.1 }}
             className="absolute left-3 top-10 bg-lime-200 rounded-full 
               w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 
               flex flex-col items-center justify-center text-center 
@@ -318,6 +373,7 @@ const Home = () => {
           {/* PURPLE CIRCLE - from RIGHT */}
           <motion.div
             variants={circleVariants("right")}
+            whileHover={{ scale: 1.1 }}
             className="absolute right-3 top-0 bg-purple-200 rounded-full 
               w-40 sm:w-48 md:w-64 h-40 sm:h-48 md:h-64 
               flex flex-col items-center justify-center text-center 
@@ -330,6 +386,7 @@ const Home = () => {
           {/* BLACK CIRCLE - from BOTTOM */}
           <motion.div
             variants={circleVariants("bottom")}
+            whileHover={{ scale: 1.1 }}
             className="absolute bottom-[10px] left-1/3 bg-black rounded-full 
               w-28 sm:w-32 md:w-36 h-28 sm:h-32 md:h-36 
               flex flex-col items-center justify-center text-white text-center 
@@ -364,20 +421,16 @@ const Home = () => {
     </section>
       {/* Portfolio Section */}
       <section className="py-32 bg-[#f9f9f2] flex flex-col items-center justify-center">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-12 text-center">
-          OUR WORKS
-        </h2>
-        <div className="w-full flex justify-center items-center h-[500px] relative">
-          <ThreeDImageRing
-            images={images}
-            width={400}
-            perspective={2000}
-            imageDistance={550}
-            backgroundColor="#f9f9f2"
-            draggable={true}
-          />
-        </div>
-      </section>
+  <h2 className="text-4xl font-semibold sm:text-5xl md:text-6xl  mb-12 text-center">
+    OUR WORKS
+  </h2>
+  <div className="w-full flex justify-center items-center h-[500px] relative">
+    <ThreeDImageRing
+      images={images}
+    />
+  </div>
+</section>
+
 
       </main>
       {/* Footer can be added here */}
