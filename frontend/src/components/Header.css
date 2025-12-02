@@ -74,6 +74,14 @@ html, body {
     top:0;
 }
 
+
+.overlay-closing {
+  top: -100%;
+  background-color: white;
+  transition: top 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+
 .overlay-close
 {
   position: absolute;
@@ -93,7 +101,7 @@ html, body {
 .overlay-links li{
     position: relative;
     overflow: hidden;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight:500;
     font-family:Arial, Helvetica, sans-serif;
     margin: 1px 0;
@@ -123,7 +131,7 @@ html, body {
 }
 
 .overlay-open .overlay-links li span{
-    animation: revealDown 1s ease forwards;
+    animation: revealDown 1.2s ease forwards;
 }
 
 .overlay-open .overlay-links li:nth-child(1) span{
@@ -143,14 +151,25 @@ html, body {
 .overlay-open .overlay-links li:nth-child(5) span{
     animation-delay: 1s;
 }
+.overlay-open .overlay-links li:nth-child(6) span{
+    animation-delay: 1.2s;
+}
+
 
 
 .overlay-details
 {
     margin-left: 250px;
-    margin-top: 90px;
-    color: rgb(40, 38, 38)
-    
+    margin-top: 65px;
+    color: rgb(40, 38, 38); 
+}
+
+.overlay-details p {
+  display: flex;
+  align-items: center;
+  gap: 8px;              /* spacing between icon and text */
+  white-space: nowrap;   /* keeps icon + text in one line */
+  /*margin-bottom: 8px; */   /* small spacing between lines */
 }
 
 .overlay-vedio
@@ -160,7 +179,8 @@ html, body {
     right: 40px;
     width: 400px;     
     height: auto;
-    font-size: 3rem;
+    font-style: italic;
+    font-size: 2.5rem;
     font-weight: 900;
     line-height: 3pc;
     font-family:'Samarkan';

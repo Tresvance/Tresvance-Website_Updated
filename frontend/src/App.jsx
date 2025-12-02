@@ -7,6 +7,7 @@ import Choose from "./pages/Choose";
 import AboutUs from "./pages/AboutUs";
 import Footer from "./components/Footer";
 import JoinUs from "./pages/JoinUs";
+import OurWorks from "./pages/OurWorks";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/choose-us" element={<Choose />} />
           <Route path="/join-us" element={<JoinUs />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/our-works" element={<OurWorks />} />
         </Routes>
         <Footer />
       </Router>
@@ -27,3 +29,5 @@ function App() {
 }
 
 export default App;
+
+
