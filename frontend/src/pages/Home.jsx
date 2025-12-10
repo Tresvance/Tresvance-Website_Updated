@@ -4,9 +4,42 @@ import WhyChooseUs from "./whychooseus.jsx";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import ThreeDImageRing from './draggable-3d-image-ring.jsx';
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
+import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
+const ThinClose = ({ size, color, className, onClick }) => (
+  <svg
+    onClick={onClick}
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    fill="none"
+    stroke={color}
+    strokeWidth="0.25"
+    viewBox="0 0 24 24"
+    className={className}
+    style={{ cursor: "pointer" }}
+  >
+    <line x1="4" y1="4" x2="20" y2="20" />
+    <line x1="20" y1="4" x2="4" y2="20" />
+  </svg>
+);
 
 const Home = () => {
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleMenuOpen = () => setIsMenuOpen(true);
+
+  const handleMenuClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      setIsMenuOpen(false);
+    }, 500); 
+  };
 
   const [angle, setAngle] = useState(0);
   const [rotation, setRotation] = useState(0);
@@ -115,41 +148,125 @@ const Home = () => {
       let progress = Math.max(0, Math.min(1, raw)); 
       const sinVal = Math.sin(progress * Math.PI);
       const scale = 1 + sinVal * (maxScale - 1);
-
       setVideoScale(scale);
     };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
-  }, []);
 
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // Initial call
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div className="bg-[#f9f9f2] min-h-screen font-sans">
-      <main className="pt-16 md:pt-20"> 
-        <section className="flex flex-col items-center justify-center min-h-screen bg-[#f9f9f2] text-black px-6 sm:px-12 text-center relative">
-          <div className="mainhead space-y-2 sm:space-y-3">
-            <h1 className="text-6xl sm:text-6xl md:text-7xl font-light">
+      {/* Header with Logo and Menu */}
+      <div className={`header-container ${isMenuOpen ? "header-open" : ""}`}>
+        <div className="header-logo">
+          <img src={logo} alt="Logo" />
+        </div>
+        <div className="header-menu">
+          {isMenuOpen ? (
+            <a href="#" className="menu-btn" onClick={handleMenuClose}>
+              CLOSE
+            </a>
+          ) : (
+            <a href="#" className="menu-btn" onClick={handleMenuOpen}>
+              MENU
+            </a>
+          )}
+        </div>
+      </div>
+
+      {/* Overlay Menu */}
+      <div>
+        <div
+          className={`overlay 
+            ${isMenuOpen ? "overlay-open" : ""} 
+            ${isClosing ? "overlay-closing" : ""}
+          `}
+        >
+          <ThinClose
+            size={130}
+            color="white"
+            className="overlay-close"
+            onClick={handleMenuClose}
+          />
+
+          <ul className="overlay-links">
+            <li><Link to="/" onClick={handleMenuClose}><span>HOME</span></Link></li>
+            <li><Link to="/about-us" onClick={handleMenuClose}><span>ABOUT</span></Link></li>
+            <li><Link to="/our-works" onClick={handleMenuClose}><span>OUR WORKS</span></Link></li>
+            <li><Link to="/choose-us" onClick={handleMenuClose}><span>WHY CHOOSE US</span></Link></li>
+            <li><Link to="/join-us" onClick={handleMenuClose}><span>CAREERS</span></Link></li>
+            <li><Link to="/contact" onClick={handleMenuClose}><span>CONTACT</span></Link></li>
+          </ul>
+
+          <div className="overlay-details">
+            <p>TRESVANCE SOFTWARES</p>
+            <p><FaEnvelope style={{ marginRight: "8px" }} /> contact@tresvance</p>
+            <p><FaMapMarkerAlt style={{ marginRight: "8px" }} /> Cochin, India</p>
+          </div>
+
+          <p className="overlay-vedio">
+            <span>INNOVATE</span><br />
+            <span>INTEGRATE</span><br />
+            <span>ELEVATE</span>
+          </p>
+        </div>
+      </div>
+
+      <main> 
+        <section className="flex flex-col justify-center min-h-screen bg-[#f9f9f2] text-black px-6 sm:px-12 md:px-16 lg:px-24 pt-8 pb-12 relative">
+          {/* Main content */}
+          <div className="w-full">
+          <div className="relative mb-24">
+            
+            <div className="absolute left-[120px] sm:left-[120px] md:left-[180px] lg:left-[70px] top-[80%] -translate-y-1/2 max-w-[400px] hidden lg:block z-20">
+              <p className="text-s text-gray-600 leading-relaxed text-right">
+                We provide IT & Managed Services primarily to clients in the North America, Middle East and across the globe. We maintain a far-reaching network by software developers who are highly experienced and proficient.
+              </p>
+            </div>
+
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[115px] xl:text-[130px] font-light leading-[0.95] tracking-tight text-right pr-12 lg:pr-20">
               Creative and Innovative
               <br />
               Digital Solution
             </h1>
+
           </div>
-          <p className="max-w-sm sm:max-w-md md:max-w-lg mt-6 mb-10 text-sm sm:text-base text-gray-600">
-            We provide IT & Managed Services primarily to clients in the North America, Middle East and across the globe. 
-            We maintain a far-reaching network by software developers who are highly experienced and proficient.
-          </p>
-          <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full flex items-center gap-2 text-sm sm:text-base hover:bg-gray-800 transition-transform duration-300 transform hover:scale-105">
-            <span>How do we Work</span>
-            <span>▶</span>
-          </button>
-          <div className="absolute left-1/2 transform -translate-x-1/2 bottom-20 flex flex-col items-center">
-            <div className="text-blue-400 text-5xl animate-bounce">↓</div>
-            <p className="text-gray-500 text-xs mt-2">(scroll)</p>
+
+
+            {/* Button and scroll indicator at bottom */}
+            <div className="flex justify-between items-center px-6 sm:px-12 md:px-16 lg:px-20 -mt-24">
+              {/* Left side - Button and arrow */}
+              <div className="flex items-center gap-8">
+                {/* Blue arrow - curved down and left like in design */}
+                <svg
+                  className="w-32 h-40 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 4 L12 16" /> 
+                  <path d="M6 10 L12 16 L18 10" />
+                </svg>
+                
+                <button className="bg-black text-white px-8 py-4 rounded-full flex items-center gap-3 text-sm hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                  </svg>
+                  How do we Work
+                </button>
+              </div>
+
+              {/* Right side - Scroll indicator */}
+              <div className="flex flex-col items-center">
+                <div className="text-gray-400 text-xl mb-1">↓</div>
+                <p className="text-gray-400 text-xs tracking-wider">(Scroll)</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -418,7 +535,8 @@ const Home = () => {
           <span className="font-semibold">GROWTH, TRUST & EXCELLENCE.</span>
         </motion.p>
       </motion.div>
-    </section>
+        </section>
+
       {/* Portfolio Section */}
       <section className="py-32 bg-[#f9f9f2] flex flex-col items-center justify-center">
   <h2 className="text-4xl font-semibold sm:text-5xl md:text-6xl  mb-12 text-center">

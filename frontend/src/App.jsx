@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Choose from "./pages/Choose";
@@ -11,17 +10,18 @@ import OurWorks from "./pages/OurWorks";
 
 function App() {
   return (
-    <div id="top">
+    <div id="top" className="min-h-screen flex flex-col">
       <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/choose-us" element={<Choose />} />
-          <Route path="/join-us" element={<JoinUs />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/our-works" element={<OurWorks />} />
-        </Routes>
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/choose-us" element={<Choose />} />
+            <Route path="/join-us" element={<JoinUs />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/our-works" element={<OurWorks />} />
+          </Routes>
+        </main>
         <Footer />
       </Router>
     </div>
