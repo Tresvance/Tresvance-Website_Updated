@@ -8,12 +8,14 @@ import AboutUs from "./pages/AboutUs";
 import Footer from "./components/Footer";
 import JoinUs from "./pages/JoinUs";
 import OurWorks from "./pages/OurWorks";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
     <div id="top">
       <Router>
         <Header />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
@@ -22,6 +24,10 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/our-works" element={<OurWorks />} />
         </Routes>
+
+        {/* Chatbot visible on all pages */}
+        <Chatbot />
+
         <Footer />
       </Router>
     </div>
@@ -29,5 +35,3 @@ function App() {
 }
 
 export default App;
-
-

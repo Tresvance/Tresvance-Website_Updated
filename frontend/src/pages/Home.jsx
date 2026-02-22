@@ -4,6 +4,7 @@ import WhyChooseUs from "./whychooseus.jsx";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import ThreeDImageRing from './draggable-3d-image-ring.jsx';
+import { Play } from 'lucide-react';
 
 
 const Home = () => {
@@ -70,7 +71,7 @@ const Home = () => {
   };
 
   const handleClick = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
+    setCurrent((prev) => (prev + 1) % images.length)
   };
 
   useEffect(() => {
@@ -131,31 +132,56 @@ const Home = () => {
   return (
     <div className="bg-[#f9f9f2] min-h-screen font-sans">
       <main className="pt-16 md:pt-20"> 
-        <section className="flex flex-col items-center justify-center min-h-screen bg-[#f9f9f2] text-black px-6 sm:px-12 text-center relative">
-          <div className="mainhead space-y-2 sm:space-y-3">
-            <h1 className="text-6xl sm:text-6xl md:text-7xl font-light">
-              Creative and Innovative
-              <br />
-              Digital Solution
-            </h1>
-          </div>
-          <p className="max-w-sm sm:max-w-md md:max-w-lg mt-6 mb-10 text-sm sm:text-base text-gray-600">
-            We provide IT & Managed Services primarily to clients in the North America, Middle East and across the globe. 
-            We maintain a far-reaching network by software developers who are highly experienced and proficient.
-          </p>
-          <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full flex items-center gap-2 text-sm sm:text-base hover:bg-gray-800 transition-transform duration-300 transform hover:scale-105">
-            <span>How do we Work</span>
-            <span>▶</span>
-          </button>
-          <div className="absolute left-1/2 transform -translate-x-1/2 bottom-20 flex flex-col items-center">
-            <div className="text-blue-400 text-5xl animate-bounce">↓</div>
-            <p className="text-gray-500 text-xs mt-2">(scroll)</p>
+        <section className="relative min-h-screen bg-white px-6 md:px-12 pt-24 pb-12 font-sans text-black overflow-hidden">
+          
+          {/* Custom CSS for the Masked Animation */}
+          <style dangerouslySetInnerHTML={{ __html: `
+            @keyframes revealUp {
+              from { transform: translateY(110%); }
+              to { transform: translateY(0); }
+            }
+            .animate-reveal {
+              animation: revealUp 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            }
+            .delay-1 { animation-delay: 0.2s; }
+            .delay-2 { animation-delay: 0.4; }
+          `}} />
+
+          <div className="max-w-[1600px] mx-auto relative">
+            
+            {/* Main Content Area */}
+            <div className="flex flex-col items-center justify-center text-center">
+              
+              {/* H1 Wrapper (The Mask) */}
+              <div className="overflow-hidden pb-4 -mb-4">
+                <h1 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter lg:whitespace-nowrap translate-y-[110%] animate-reveal">
+                  Creative and Innovative
+                </h1>
+              </div>
+
+              {/* H2 Wrapper (The Mask) */}
+              <div className="overflow-hidden lg:-mt-6 pb-6 -mb-6">
+                <h2 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter translate-y-[110%] animate-reveal delay-1">
+                  Digital Solution
+                </h2>
+              </div>
+              
+            </div>
+
+            {/* The Blue Arrow - Aligned Left, slides up last */}
+            <div className="w-full flex justify-start mt-8 lg:mt-12 overflow-hidden">
+              <div className="w-12 md:w-20 lg:w-20 translate-y-[110%] animate-reveal delay-2">
+                <svg viewBox="0 0 60 100" fill="none" className="w-full h-auto">
+                    <path d="M30 0V85M30 85L5 60M30 85L55 60" stroke="#00AEEF" strokeWidth="3" />
+                </svg>
+              </div>
+            </div>
+
           </div>
         </section>
-
         <section
           ref={videoSectionRef}
-          className="py-24 bg-[#f9f9f2] flex items-center justify-center"
+          className="py-24 bg-[#f9f9f2] flex items-center justify-center -"
         >
           <div className="w-full max-w-4xl px-6 sm:px-10">
             <div className="relative flex flex-col items-center">
