@@ -41,7 +41,13 @@ const Footer = () => (
       </div>
       <a href="#" className="back-to-top">Back to Top ↑</a>
     </div>
-    <div className="footer-brand">TRESVANCE</div>
+    <div className="footer-brand">
+  {"TRESVANCE".split("").map((char, index) => (
+    <span key={index} className="letter">
+      {char}
+    </span>
+  ))}
+</div>
   </footer>
 );
 

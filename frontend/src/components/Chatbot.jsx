@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./Chatbot.css";
 
 const faqData = [
-  { keywords: ["services"], reply: "We provide software development, web apps, and AI solutions." },
+  { keywords: ["services", "service"], reply: "We provide software development, web apps, and AI solutions." },
   { keywords: ["pricing", "cost"], reply: "Pricing depends on the project scope. Contact us for a quote." },
   { keywords: ["contact"], reply: "Email: support@tresvance.com | Phone: +91-XXXXXXXXXX" },
 ];
@@ -21,13 +21,7 @@ function Chatbot() {
   ]);
 
   // Auto open chat after delay
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpen(true);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
+  
 
   useEffect(() => {
   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });

@@ -460,3 +460,13 @@
     font-size: 1.05rem;
   }
 }
+
+
+.letter {
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.letter:hover {
+  color: #00AEEF; /* light blue */
+}

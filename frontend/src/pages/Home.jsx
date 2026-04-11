@@ -354,7 +354,7 @@ const Home = () => {
 
 
         {/* Stats Section */}
-        <section className="py-12 sm:py-16 bg-[#f9f9f2] text-primary px-4 items-center justify-center ml-[90px] sm:px-8 overflow-x-hidden">
+        <section className="py-12 sm:py-16 bg-[#f9f9f2] text-primary px-4 items-center justify-center md:ml-[90px] sm:px-8 overflow-x-hidden">
       <motion.div
         className="flex flex-col md:flex-row items-center md:items-start justify-start md:space-x-12 mt-8"
         variants={containerVariants}
