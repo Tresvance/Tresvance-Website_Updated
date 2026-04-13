@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function ThreeDImageRing({
   images = [],
+  rotation = 0,
   width = 320,
   perspective = 7000,
   imageDistance = 400,
@@ -29,6 +30,8 @@ function ThreeDImageRing({
   const isDragging = useRef(false);
   const velocity = useRef(0);
   const activePointerId = useRef(null);
+  const animationRef = useRef(null); // ✅ NEW (prevents overlap)
+
   const [showImages, setShowImages] = useState(false);
   const [frontIndex, setFrontIndex] = useState(0);
 
@@ -43,6 +46,30 @@ function ThreeDImageRing({
     return () => unsubscribe();
   }, [rotationY]);
 
+  // ✅ FIXED AUTO ROTATION (NO GLITCH)
+  useEffect(() => {
+  // 🚫 Prevent overlapping animations
+  if (animationRef.current) return;
+
+  const target = currentRotationY.current + angle;
+
+  animationRef.current = animate(rotationY, target, {
+    duration: 1.2,
+    ease: "linear", // ✅ constant speed (IMPORTANT)
+    onUpdate: (latest) => {
+      currentRotationY.current = latest;
+
+      const normalized = ((latest % 360) + 360) % 360;
+      const newFront = Math.round(normalized / angle) % images.length;
+      setFrontIndex((images.length - newFront) % images.length);
+    },
+    onComplete: () => {
+      // ✅ allow next rotation only after finish
+      animationRef.current = null;
+    },
+  });
+}, [rotation]);
+
   const handleDragStart = (event) => {
     if (!draggable) return;
 
@@ -54,10 +81,11 @@ function ThreeDImageRing({
 
     if (event.pointerId) activePointerId.current = event.pointerId;
 
-    if (rotationY.stop) rotationY.stop();
+    if (animationRef.current) animationRef.current.stop(); // ✅ stop auto animation
     velocity.current = 0;
 
     if (ringRef.current) ringRef.current.style.cursor = "grabbing";
+
     document.addEventListener("mousemove", handleDrag);
     document.addEventListener("mouseup", handleDragEnd);
     document.addEventListener("touchmove", handleDrag, { passive: false });
@@ -68,22 +96,19 @@ function ThreeDImageRing({
 
   const handleDrag = (event) => {
     if (!isDragging.current) return;
-    if (activePointerId.current && event.pointerId && event.pointerId !== activePointerId.current) {
-      return;
-    }
-    if (event.type === "touchmove") {
-      event.preventDefault();
-    }
+
+    if (activePointerId.current && event.pointerId && event.pointerId !== activePointerId.current) return;
+
+    if (event.type === "touchmove") event.preventDefault();
 
     const clientX = event.touches ? event.touches[0].clientX : event.clientX;
     const deltaX = clientX - startX.current;
     startX.current = clientX;
 
-    const pixelToDegree = 0.6;
-    const deltaDeg = deltaX * pixelToDegree;
+    const deltaDeg = deltaX * 0.6;
 
     velocity.current = deltaDeg;
-    currentRotationY.current = currentRotationY.current + deltaDeg;
+    currentRotationY.current += deltaDeg;
     rotationY.set(currentRotationY.current);
 
     const normalized = ((currentRotationY.current % 360) + 360) % 360;
@@ -91,16 +116,13 @@ function ThreeDImageRing({
     setFrontIndex((images.length - newFront) % images.length);
   };
 
-  const handleDragEnd = (event) => {
+  const handleDragEnd = () => {
     if (!isDragging.current) return;
-    isDragging.current = false;
 
-    // release pointer id
+    isDragging.current = false;
     activePointerId.current = null;
 
-    if (ringRef.current) {
-      ringRef.current.style.cursor = "grab";
-    }
+    if (ringRef.current) ringRef.current.style.cursor = "grab";
 
     document.removeEventListener("mousemove", handleDrag);
     document.removeEventListener("mouseup", handleDragEnd);
@@ -108,9 +130,11 @@ function ThreeDImageRing({
     document.removeEventListener("touchend", handleDragEnd);
     document.removeEventListener("pointermove", handleDrag);
     document.removeEventListener("pointerup", handleDragEnd);
+
     const initial = rotationY.get();
     const velocityBoost = velocity.current * inertiaVelocityMultiplier;
     const target = initial + velocityBoost;
+
     animate(initial, target, {
       type: "inertia",
       velocity: velocityBoost,
@@ -120,21 +144,24 @@ function ThreeDImageRing({
       modifyTarget: (t) => Math.round(t / angle) * angle,
       onUpdate: (latest) => {
         rotationY.set(latest);
+
         const normalized = ((latest % 360) + 360) % 360;
         const newFront = Math.round(normalized / angle) % images.length;
         setFrontIndex((images.length - newFront) % images.length);
+
         currentRotationY.current = latest;
-      },
-      onComplete: () => {
-        velocity.current = 0;
       },
     });
 
     velocity.current = 0;
   };
+
   const handleArrowClick = (direction) => {
     const current = rotationY.get();
     const newRotation = current + direction * angle;
+
+    if (animationRef.current) animationRef.current.stop();
+
     animate(rotationY, newRotation, {
       duration: 0.8,
       ease: easeOut,
@@ -144,6 +171,7 @@ function ThreeDImageRing({
         setFrontIndex((images.length - newFront) % images.length);
       },
     });
+
     currentRotationY.current = newRotation;
   };
 
@@ -181,6 +209,7 @@ function ThreeDImageRing({
             {showImages &&
               images.map((imageUrl, index) => {
                 const isFront = index === frontIndex;
+
                 return (
                   <motion.div
                     key={index}
@@ -189,10 +218,9 @@ function ThreeDImageRing({
                       transformStyle: "preserve-3d",
                       backgroundImage: `url(${imageUrl})`,
                       backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat",
                       backgroundPosition: "center",
                       backfaceVisibility: "hidden",
-                      rotateY: index * -angle, // outward direction
+                      rotateY: index * -angle,
                       z: imageDistance,
                       transformOrigin: `50% 50% -${imageDistance}px`,
                     }}
@@ -205,7 +233,7 @@ function ThreeDImageRing({
                       duration: animationDuration,
                       ease: easeOut,
                     }}
-                    whileHover={{ scale: 1.05, transition: { duration: 0.15 } }}
+                    whileHover={{ scale: 1.05 }}
                   >
                     {isFront && (
                       <Link
@@ -221,18 +249,14 @@ function ThreeDImageRing({
           </AnimatePresence>
         </motion.div>
       </div>
-      <br></br>
+
+      <br />
+
       <div className="flex space-x-6 mt-8">
-        <button
-          onClick={() => handleArrowClick(1)}
-          className="p-3 bg-white shadow-md rounded-full hover:bg-gray-100 transition"
-        >
+        <button onClick={() => handleArrowClick(1)} className="p-3 bg-white shadow-md rounded-full hover:bg-gray-100">
           <ArrowLeft className="w-5 h-5" />
         </button>
-        <button
-          onClick={() => handleArrowClick(-1)}
-          className="p-3 bg-white shadow-md rounded-full hover:bg-gray-100 transition"
-        >
+        <button onClick={() => handleArrowClick(-1)} className="p-3 bg-white shadow-md rounded-full hover:bg-gray-100">
           <ArrowRight className="w-5 h-5" />
         </button>
       </div>

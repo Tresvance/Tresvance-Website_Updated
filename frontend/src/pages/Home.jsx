@@ -27,7 +27,7 @@ const Home = () => {
   const rotateCarousel = (direction) => {
     setRotation((prev) => prev + direction * anglePerItem);
   };
-
+  
   const content = [
     {
       title: "Smart Sensor Integration",
@@ -130,7 +130,7 @@ const Home = () => {
 
 
   return (
-    <div className="bg-[#f9f9f2] min-h-screen font-sans">
+    <div className="bg-[#ffffff] min-h-screen font-sans">
       <main className="pt-16 md:pt-20"> 
         <section className="relative min-h-screen bg-white px-6 md:px-12 pt-24 pb-12 font-sans text-black overflow-hidden">
           
@@ -181,7 +181,7 @@ const Home = () => {
         </section>
         <section
           ref={videoSectionRef}
-          className="py-24 bg-[#f9f9f2] flex items-center justify-center -"
+          className="py-24 bg-[#ffffff] flex items-center justify-center -"
         >
           <div className="w-full max-w-4xl px-6 sm:px-10">
             <div className="relative flex flex-col items-center">
@@ -209,7 +209,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="py-20 bg-[#f9f9f2] text-[#111] px-6 sm:px-10 md:px-16 lg:px-24 animate-fade-in">
+        <section className="py-20 bg-[#ffffff] text-[#111] px-6 sm:px-10 md:px-16 lg:px-20 animate-fade-in">
           <div className="overflow-hidden w-full mb-12">
             <h2 className="text-5xl md:text-6xl font flex items-center justify-center relative">
               <div className="marquee-wrapper w-full">
@@ -282,7 +282,7 @@ const Home = () => {
           </div>
         </section>
         {/*IOT device blah */}
-        <section className="py-20 bg-[#f9f9f2] text-[#111] flex flex-col items-center justify-center">
+        <section className="py-20 bg-[#ffffff] text-[#111] flex flex-col items-center justify-center">
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 px-6 sm:px-10 md:px-16 lg:px-24 text-center md:text-left">
         
         {/* LEFT SIDE — Title */}
@@ -354,7 +354,7 @@ const Home = () => {
 
 
         {/* Stats Section */}
-        <section className="py-12 sm:py-16 bg-[#f9f9f2] text-primary px-4 items-center justify-center md:ml-[90px] sm:px-8 overflow-x-hidden">
+        <section className="py-12 sm:py-16 bg-[#ffffff] text-primary px-4 items-center justify-center md:ml-[90px] sm:px-8 overflow-x-hidden">
       <motion.div
         className="flex flex-col md:flex-row items-center md:items-start justify-start md:space-x-12 mt-8"
         variants={containerVariants}
@@ -446,13 +446,14 @@ const Home = () => {
       </motion.div>
     </section>
       {/* Portfolio Section */}
-      <section className="py-32 bg-[#f9f9f2] flex flex-col items-center justify-center">
+      <section className="py-32 bg-[#ffffff] flex flex-col items-center justify-center">
   <h2 className="text-4xl font-semibold sm:text-5xl md:text-6xl  mb-12 text-center">
     OUR WORKS
   </h2>
   <div className="w-full flex justify-center items-center h-[500px] relative">
     <ThreeDImageRing
       images={images}
+      rotation={rotation}
     />
   </div>
 </section>

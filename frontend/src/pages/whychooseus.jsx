@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
   const reveals = [reveal1, reveal2, reveal3, reveal4];
 
   return (
-    <section ref={ref} className="relative h-[400vh] bg-[#f9f9f2] text-primary">
+    <section ref={ref} className="relative h-[400vh] lg:px-20 bg-[#ffffff] text-primary">
       <div className="sticky top-0 h-screen flex items-center justify-between px-12">
         {/* LEFT SIDE */}
         <motion.div style={{ opacity: leftOpacity }} className="w-1/2">
