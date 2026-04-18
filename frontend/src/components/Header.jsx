@@ -78,11 +78,11 @@ const Header = () => {
             <li><Link to="/contact" onClick={handleClose}><span>CONTACT</span></Link></li>
           </ul>
 
-          <div className="overlay-details">
+          {/* <div className="overlay-details">
             <p>TRESVANCE SOFTWARES</p>
             <p><FaEnvelope style={{ marginRight: "8px" }} /> contact@tresvance</p>
             <p><FaMapMarkerAlt style={{ marginRight: "8px" }} /> Cochin, India</p>
-          </div>
+          </div> */}
 
           <p className="overlay-vedio">
             <span>INNOVATE</span><br />

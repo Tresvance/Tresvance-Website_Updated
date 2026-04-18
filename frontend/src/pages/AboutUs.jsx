@@ -54,7 +54,7 @@ function AboutUs() {
     <div className="aboutus-container">
 
         {/* Main Title */}
-        <div className="aboutus-main-title">
+        <div className="aboutus-main-titlecd">
           EMPOWERING BUSINESSES WITH AI-DRIVEN DESIGN, DEVELOPMENT, AND STRATEGY
         </div>
         <div className="aboutus-subtitle">
@@ -72,7 +72,7 @@ function AboutUs() {
         </div>
 
         {/* About Us Section */}
-        <section className="aboutus-section">
+        <section className="aboutus-section font-sans">
           <div className="aboutus-section-title">About Us</div>
           <div className="aboutus-section-text">
             WE PROVIDE COMPREHENSIVE IT AND MANAGED SERVICES PRIMARILY TO CLIENTS IN NORTH AMERICA, THE MIDDLE EAST, AND ACROSS THE GLOBE. BACKED BY A FAR-REACHING NETWORK OF HIGHLY EXPERIENCED AND PROMINENT SOFTWARE PROFESSIONALS, WE ENSURE DELIVERED AND RELIABLE, SCALABLE, AND INNOVATIVE SOLUTIONS TAILORED TO DIVERSE BUSINESS NEEDS.

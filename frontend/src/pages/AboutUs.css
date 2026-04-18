@@ -489,6 +489,10 @@
     font-size: 0.95rem;
   }
 
+  .aboutus-section-text {
+  font-size: 18px;
+}
+
   .aboutus-services-grid {
     flex-wrap: wrap;
     justify-content: center;
@@ -731,3 +735,4 @@
     overflow-x: hidden;
   }
 }
+
