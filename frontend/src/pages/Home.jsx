@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { use } from 'react';
 import './Home.css';
 import WhyChooseUs from "./whychooseus.jsx";
-import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { motion, AnimatePresence, useAnimation, hover } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import ThreeDImageRing from './draggable-3d-image-ring.jsx';
 import { Play } from 'lucide-react';
+
 
 
 const Home = () => {
@@ -27,6 +28,7 @@ const Home = () => {
   const rotateCarousel = (direction) => {
     setRotation((prev) => prev + direction * anglePerItem);
   };
+
   
   const content = [
     {
@@ -80,6 +82,27 @@ const Home = () => {
     }, 4000);
     return () => clearInterval(autoRotate);
   }, []);
+
+  const hoverSound = useRef(null);
+
+useEffect(() => {
+  hoverSound.current = new Audio("/hover.mp3");
+  hoverSound.current.volume = 0.4;
+}, []);
+
+// 👉 PASTE HERE
+useEffect(() => {
+  const unlockAudio = () => {
+    if (hoverSound.current) {
+      hoverSound.current.play().catch(() => {});
+      hoverSound.current.pause();
+      hoverSound.current.currentTime = 0;
+    }
+    window.removeEventListener("click", unlockAudio);
+  };
+
+  window.addEventListener("click", unlockAudio);
+}, []);
 
   const circleVariants = (direction) => ({
     hidden: {
@@ -311,7 +334,15 @@ const Home = () => {
         <div
           className="relative w-[280px] sm:w-[340px] md:w-[380px] aspect-[3/4] rounded-[2rem] overflow-hidden shadow-lg cursor-pointer transition-transform duration-700 hover:scale-105 group"
           onClick={handleClick}
+          onMouseEnter={() => {
+            console.log("hover working");
+            if (hoverSound.current) {
+              hoverSound.current.currentTime = 0; // restart sound
+              hoverSound.current.play().catch((err) => console.log(err));
+            }
+          }}
         >
+          
           <AnimatePresence mode="wait">
             <motion.img
               key={current}
