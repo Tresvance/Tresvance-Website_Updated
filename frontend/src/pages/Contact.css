@@ -7,7 +7,7 @@
   width: 100vw;
   color: black;
   height: 430px; /* Full viewport height */
-  background: url('../src/assets/bg.png') no-repeat center center;
+  background: url('../assets/bg.png') no-repeat center center;
   background-size: cover;
 }
 
