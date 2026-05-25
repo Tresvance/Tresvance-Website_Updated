@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import JoinUs from "./pages/JoinUs";
 import OurWorks from "./pages/OurWorks";
 import Chatbot from "./components/Chatbot";
+import "./haptikos-redesign.css";
 
 function App() {
   return (
