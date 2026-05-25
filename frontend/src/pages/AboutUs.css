@@ -276,7 +276,7 @@
 /* ============================= */
 
 /* iPhone SE (320–375px) */
-@media (max-width: 375px) {
+/* @media (max-width: 375px) {
   .aboutus-main-title { font-size: 24px; }
   .aboutus-subtitle { font-size: 0.85rem; }
   .aboutus-section { flex-direction: column; gap: 12px; padding: 28px 5%; }
@@ -417,13 +417,14 @@
   .aboutus-subtitle { font-size: 1.2rem; }
   .aboutus-services-grid { justify-content: center; gap: 24px; }
   .aboutus-service-card { width: 240px; height: 480px; }
-}
+} */
 
 /* ============================= */
 /* RESPONSIVE MEDIA QUERIES (Same as Footer.css structure) */
 /* ============================= */
 
 /* Small Phones (≤600px) */
+{}
 @media (max-width: 600px) {
   .aboutus-main-title {
     font-size: 24px;
