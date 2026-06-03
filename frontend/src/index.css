@@ -1,8 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Apply Inter font to all headings EXCEPT those with .hero-preserve class */
+h1:not(.hero-preserve), 
+h2:not(.hero-preserve), 
+h3:not(.hero-preserve), 
+h4:not(.hero-preserve), 
+h5:not(.hero-preserve), 
+h6:not(.hero-preserve) {
+  font-family: 'Inter';
+}
+
+/* Hero section headings keep their original font */
+.hero-preserve h1,
+.hero-preserve h2,
+.hero-preserve h3,
+.hero-preserve h4,
+.hero-preserve h5,
+.hero-preserve h6 {
+  font-family: inherit;
+}
 
 /* 
 :root {

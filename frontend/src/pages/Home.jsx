@@ -90,7 +90,7 @@ useEffect(() => {
   hoverSound.current.volume = 0.4;
 }, []);
 
-// 👉 PASTE HERE
+
 useEffect(() => {
   const unlockAudio = () => {
     if (hoverSound.current) {
@@ -124,38 +124,39 @@ useEffect(() => {
     },
   });
 
-  const videoSectionRef = useRef(null);
-  const [videoScale, setVideoScale] = useState(1);
-  const maxScale = 1.8; 
-
-  useEffect(() => {
-    const onScroll = () => {
-      const el = videoSectionRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const denominator = (vh + rect.height);
-      let raw = (vh - rect.top) / denominator; 
-      let progress = Math.max(0, Math.min(1, raw)); 
-      const sinVal = Math.sin(progress * Math.PI);
-      const scale = 1 + sinVal * (maxScale - 1);
-
-      setVideoScale(scale);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
-  }, []);
+  // COMMENTED OUT VIDEO SECTION - KEEP FOR FUTURE REUSE
+  // const videoSectionRef = useRef(null);
+  // const [videoScale, setVideoScale] = useState(1);
+  // const maxScale = 1.8; 
+  //
+  // useEffect(() => {
+  //   const onScroll = () => {
+  //     const el = videoSectionRef.current;
+  //     if (!el) return;
+  //     const rect = el.getBoundingClientRect();
+  //     const vh = window.innerHeight;
+  //     const denominator = (vh + rect.height);
+  //     let raw = (vh - rect.top) / denominator; 
+  //     let progress = Math.max(0, Math.min(1, raw)); 
+  //     const sinVal = Math.sin(progress * Math.PI);
+  //     const scale = 1 + sinVal * (maxScale - 1);
+  //
+  //     setVideoScale(scale);
+  //   };
+  //   onScroll();
+  //   window.addEventListener('scroll', onScroll, { passive: true });
+  //   window.addEventListener('resize', onScroll);
+  //   return () => {
+  //     window.removeEventListener('scroll', onScroll);
+  //     window.removeEventListener('resize', onScroll);
+  //   };
+  // }, []);
 
 
   return (
-    <div className="bg-[#ffffff] min-h-screen font-sans">
-      <main className="pt-16 md:pt-20"> 
-        <section className="relative min-h-screen bg-white px-6 md:px-12 pt-24 pb-12 font-sans text-black overflow-hidden">
+    <div className="w-full bg-white font-sans m-0 p-0">
+      <main className="w-full pt-[80px] md:pt-[80px] bg-white m-0 p-0"> 
+        <section className="hero-preserve relative h-auto md:min-h-screen bg-white px-6 md:px-12 pb-8 md:pb-12 font-sans text-black overflow-hidden border-none m-0">
           
           {/* Custom CSS for the Masked Animation */}
           <style dangerouslySetInnerHTML={{ __html: `
@@ -173,18 +174,18 @@ useEffect(() => {
           <div className="max-w-[1600px] mx-auto relative">
             
             {/* Main Content Area */}
-            <div className="flex flex-col items-center justify-center text-center">
+            <div className="flex flex-col items-center justify-center text-center pt-12 md:pt-0">
               
               {/* H1 Wrapper (The Mask) */}
-              <div className="overflow-hidden pb-4 -mb-4">
-                <h1 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter lg:whitespace-nowrap translate-y-[110%] animate-reveal">
+              <div className="overflow-hidden pb-2 md:pb-4 md:-mb-4 md:lg:mt-16">
+                <h1 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter lg:whitespace-nowrap translate-y-[110%] animate-reveal font-sans">
                   Creative and Innovative
                 </h1>
               </div>
 
               {/* H2 Wrapper (The Mask) */}
-              <div className="overflow-hidden lg:-mt-6 pb-6 -mb-6">
-                <h2 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter translate-y-[110%] animate-reveal delay-1">
+              <div className="overflow-hidden md:lg:-mt-6 pb-3 md:pb-6 md:-mb-6">
+                <h2 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter translate-y-[110%] animate-reveal delay-1 font-sans">
                   Digital Solution
                 </h2>
               </div>
@@ -192,7 +193,7 @@ useEffect(() => {
             </div>
 
             {/* The Blue Arrow - Aligned Left, slides up last */}
-            <div className="w-full flex justify-start mt-8 lg:mt-12 overflow-hidden">
+            <div className="w-full flex justify-start mt-6 md:mt-8 lg:mt-12 overflow-hidden">
               <div className="w-12 md:w-20 lg:w-20 translate-y-[110%] animate-reveal delay-2">
                 <svg viewBox="0 0 60 100" fill="none" className="w-full h-auto">
                     <path d="M30 0V85M30 85L5 60M30 85L55 60" stroke="#00AEEF" strokeWidth="3" />
@@ -202,6 +203,8 @@ useEffect(() => {
 
           </div>
         </section>
+        
+        {/* COMMENTED OUT VIDEO SECTION - KEEP FOR FUTURE REUSE
         <section
           ref={videoSectionRef}
           className="py-24 bg-[#ffffff] flex items-center justify-center -"
@@ -232,6 +235,8 @@ useEffect(() => {
             </div>
           </div>
         </section>
+        */}
+        
         <section className="py-20 bg-[#ffffff] text-[#111] px-6 sm:px-10 md:px-16 lg:px-20 animate-fade-in">
           <div className="overflow-hidden w-full mb-12">
             <h2 className="text-5xl md:text-6xl font flex items-center justify-center relative">
@@ -256,7 +261,7 @@ useEffect(() => {
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold">
+              <h3 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight font-sans">
                 <br />
                 <br />
                 <br />
@@ -317,7 +322,7 @@ useEffect(() => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -80 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold"
+              className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight font-sans"
             >
               <br /><br />
               {content[current].title.split(" ").map((word, i) => (
@@ -403,7 +408,7 @@ useEffect(() => {
               transition: { duration: 1, ease: "easeOut" },
             },
           }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold"
+          className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight font-sans"
         >
           <br />
           Numbers That <br />Reflect<br /> Our Journey
@@ -478,7 +483,7 @@ useEffect(() => {
     </section>
       {/* Portfolio Section */}
       <section className="py-32 bg-[#ffffff] flex flex-col items-center justify-center">
-  <h2 className="text-4xl font-semibold sm:text-5xl md:text-6xl  mb-12 text-center">
+  <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight mb-12 text-center font-sans">
     OUR WORKS
   </h2>
   <div className="w-full flex justify-center items-center h-[500px] relative">

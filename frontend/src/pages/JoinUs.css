@@ -34,6 +34,7 @@ body {
   margin-bottom: 25px;
   line-height: 1.2;
   max-width: 800px;
+  font-family: 'Inter', sans-serif;
 }
 
 .jhero-description {
@@ -93,6 +94,7 @@ body {
   font-weight: 600;
   color: #000;
   margin-bottom: 70px;
+  font-family: 'Inter', sans-serif;
 }
 
 .jbenefits-grid {
@@ -122,6 +124,7 @@ body {
   color: #000;
   flex: 1;
   margin: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 .jcheckmark {
@@ -158,6 +161,7 @@ body {
   font-weight: 300;
   letter-spacing: 8px;
   margin-bottom: 35px;
+  font-family: 'Inter', sans-serif;
 }
 
 .join-description {
