@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
@@ -25,6 +25,28 @@ const ThinClose = ({ size, color, className, onClick }) => (
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Hide header when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setIsHeaderVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setIsHeaderVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const handleOpen = () => setIsMenuOpen(true);
 
@@ -38,7 +60,7 @@ const Header = () => {
 
   return (
     <>
-      <div className={`header-container ${isMenuOpen ? "header-open" : ""}`}>
+      <div className={`header-container ${isMenuOpen ? "header-open" : ""} ${isHeaderVisible ? "header-visible" : "header-hidden"}`}>
         <div className="header-logo">
           <img src={logo} alt="Logo" />
         </div>
