@@ -106,11 +106,11 @@ const Header = () => {
             <p><FaMapMarkerAlt style={{ marginRight: "8px" }} /> Cochin, India</p>
           </div> */}
 
-          <p className="overlay-vedio">
+          {/* <p className="overlay-vedio">
             <span>INNOVATE</span><br />
             <span>INTEGRATE</span><br />
             <span>ELEVATE</span>
-          </p>
+          </p> */}
         </div>
       </div>
     </>

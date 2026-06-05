@@ -32,35 +32,30 @@ const Home = () => {
   
   const content = [
     {
-      title: "Smart Sensor Integration",
-      description:
-        "We design IoT systems that use smart sensors to collect, analyze, and act on data in real time, driving automation and efficiency.",
+      title: "Full-Stack Software Engineering",
+      description: "Designing and building robust, scalable, tailor-made digital products—from intuitive web apps to complex enterprise systems—engineered to fit unique business workflows.",
     },
     {
-      title: "Industrial Automation",
-      description:
-        "Our IoT solutions enhance manufacturing and industrial systems, offering predictive maintenance and seamless machine-to-machine communication.",
+      title: "Next-Gen AI Development",
+      description: "Accelerating business efficiency by building and integrating smart AI models, automating workflows, and leveraging machine learning to solve complex operational challenges.",
+    },
+     {
+      title: "IoT Device Implementation",
+      description: "Transform your business with IoT integration, device management, and data-driven automation.",
     },
     {
-      title: "Connected Healthcare",
-      description:
-        "Implementing IoT in healthcare to enable remote monitoring, smart diagnostics, and better patient outcomes.",
+      title: "End-to-End Cybersecurity",
+      description: "Protecting digital assets with comprehensive security services, including threat detection, risk assessments, and robust defense protocols to safeguard your business.",
     },
     {
-      title: "Smart Homes & Buildings",
-      description:
-        "We provide IoT-powered automation for homes and commercial spaces—controlling lighting, temperature, and security remotely.",
+      title: "Results-Driven Digital Marketing",
+      description: "Scaling online presence and accelerating brand growth through targeted marketing strategies, SEO, social media management, and data-backed campaigns.",
     },
     {
-      title: "Environmental Monitoring",
-      description:
-        "IoT-based tracking systems monitor air, water, and soil conditions for sustainable environmental management.",
-    },
-    {
-      title: "Fleet & Asset Tracking",
-      description:
-        "Our IoT-enabled logistics solutions provide real-time tracking, route optimization, and asset management.",
-    },
+      title: "IT, Managed Services & Digital Strategy",
+      description: "Providing proactive IT management, cloud infrastructure support, and continuous network monitoring, alongside strategic digital transformation to modernize legacy systems and optimize operations.",
+    }
+   
   ];
 
   const containerVariants = {
