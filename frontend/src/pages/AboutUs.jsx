@@ -7,44 +7,44 @@ import { FaPhoneAlt, FaUserCog, FaChartLine, FaHandshake } from "react-icons/fa"
  const services = [
   {
     number: "01",
-    title: "AI DEVELOPMENT",
+    title: "Full-Stack Software Engineering",
     desc:
-      "Our ai powered solutions enhance business processes with machine learning models, chatbots, predictive analytics and automation tools.",
+      "We build the custom web apps and digital tools your business needs to grow.",
     img: "c:\Users\Hisham Haskar\Desktop\TRESVANCE\Blue and Green Modern AI Chatbot Development Services Poster (Instagram Post (45)).png", // replace with your image path or remove for text-only
   },
   {
     number: "02",
-    title: "IoT Device Implementation",
+    title: "Next-Gen AI Development",
     desc:
-      "Transform your business with IoT integration, device management, and data-driven automation.",
+      "We implement smart AI models to simplify your daily workflows and tackle tough challenge.",
     img: "your-image2.jpg",
   },
   {
     number: "03",
     title: "IoT Device Implementation",
     desc:
-      "Transform your business with IoT integration, device management, and data-driven automation.",
+      "We connect your smart devices and automate your systems to make everyday operations effortless.",
     img: "your-image3.jpg",
   },
   {
     number: "04",
-    title: "IoT Device Implementation",
+    title: "End-to-End Cybersecurity",
     desc:
-      "Transform your business with IoT integration, device management, and data-driven automation.",
+      "We secure your digital assets and protect your business data from online threats around the clock.",
     img: "your-image4.jpg",
   },
   {
     number: "05",
-    title: "IoT Device Implementation",
+    title: "Results-Driven Digital Marketing",
     desc:
-      "Transform your business with IoT integration, device management, and data-driven automation.",
+      "We grow your online brand, run targeted campaigns, and help real customers find your business",
     img: "your-image5.jpg",
   },
   {
     number: "06",
-    title: "IoT Device Implementation",
+    title: "IT & Digital Strategy",
     desc:
-      "Transform your business with IoT integration, device management, and data-driven automation.",
+      "We manage your cloud tech and build reliable infrastructure so your team can focus on what matters.",
     img: "your-image6.jpg",
   },
 ];
@@ -132,7 +132,7 @@ function AboutUs() {
 
         <section className="aboutus-service-section">
           <div className="aboutus-service-maintitle">OUR SERVICES</div>
-          <div className="aboutus-service-title">
+          <div className="aboutus-services-title">
             CUSTOM IT SOLUTIONS FOR YOUR SUCCESSFUL BUSINESS
           </div>
           <div className="aboutus-services-grid">
