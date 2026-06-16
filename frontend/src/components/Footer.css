@@ -5,7 +5,7 @@
   min-height: 300px;
   display: flex;
   flex-direction: column;
-  background: #161617;
+  background: #070707;
   color: #fff;
   padding: clamp(24px, 4vw, 60px) 0;
   /* padding: 40px 0 0 0; */

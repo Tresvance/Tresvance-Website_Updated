@@ -32,7 +32,7 @@ const WhyChooseUs = () => {
   const [hoveredPoint, setHoveredPoint] = useState(null);
 
   return (
-    <section className="relative w-full bg-white text-slate-900 px-6 lg:px-20 py-24 font-sans">
+    <section className="relative w-full bg-[#070707] text-white px-6 lg:px-20 py-24 font-sans">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-16">
         
         {/* LEFT SIDE: Sticky Title Panel */}
@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
           <h4 className="text-sm uppercase font-bold tracking-wider mb-4 font-sans" style={{ color: '#06A3DA' }}>
             WHY CHOOSE US
           </h4>
-          <h2 className="text-4xl lg:text-6xl font-black leading-tight tracking-tight text-slate-900 font-sans">
+          <h2 className="text-4xl lg:text-6xl font-black leading-tight tracking-tight text-white font-sans">
             Committed to <br /> Delivering Results <br /> & Success
           </h2>
         </div>
@@ -54,16 +54,18 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="flex items-center space-x-6 border-b border-gray-100 pb-6"
+              className="flex items-center space-x-6 border-b border-gray-800 pb-6"
               onMouseEnter={() => setHoveredPoint(point.number)}
               onMouseLeave={() => setHoveredPoint(null)}
             >
-              <span className="text-4xl lg:text-5xl font-black select-none w-16 font-sans" style={{ color: '#B0D9E9' }}>
+              {/* Darkened the watermark numbers so they don't overpower the white text */}
+              <span className="text-4xl lg:text-5xl font-black select-none w-16 font-sans text-gray-700">
                 {point.number}
               </span>
               <h3 
-                className="text-2xl lg:text-4xl font-semibold tracking-tight text-slate-800 transition-colors duration-300 font-sans"
-                style={{ color: hoveredPoint === point.number ? '#06A3DA' : '#1e293b' }}
+                className="text-2xl lg:text-4xl font-semibold tracking-tight transition-colors duration-300 font-sans"
+                // Flipped the base color to white, keeps the blue on hover
+                style={{ color: hoveredPoint === point.number ? '#06A3DA' : '#ffffff' }}
               >
                 {point.title}
               </h3>

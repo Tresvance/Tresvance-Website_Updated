@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import './Header.css';
@@ -28,16 +28,17 @@ const Header = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  const location = useLocation();
+  const isHome = location.pathname === "/"; 
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       // Hide header when scrolling down, show when scrolling up
       if (currentScrollY > lastScrollY) {
-        // Scrolling down
         setIsHeaderVisible(false);
       } else if (currentScrollY < lastScrollY) {
-        // Scrolling up
         setIsHeaderVisible(true);
       }
 
@@ -60,9 +61,20 @@ const Header = () => {
 
   return (
     <>
-      <div className={`header-container ${isMenuOpen ? "header-open" : ""} ${isHeaderVisible ? "header-visible" : "header-hidden"}`}>
+      <div 
+        className={`header-container ${isMenuOpen ? "header-open" : ""} ${isHeaderVisible ? "header-visible" : "header-hidden"} ${isHome ? "header-home" : ""}`}
+      >
         <div className="header-logo">
-          <img src={logo} alt="Logo" />
+          {/* LOGIC CHANGE: Show text logo ONLY if on home page AND menu is closed */}
+          {isHome && !isMenuOpen ? (
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <span className="text-logo">TRESVANCE</span>
+            </Link>
+          ) : (
+            <Link to="/">
+              <img src={logo} alt="Logo" />
+            </Link>
+          )}
         </div>
         <div className="header-menu">
           {isMenuOpen ? (
@@ -99,18 +111,6 @@ const Header = () => {
             <li><Link to="/join-us" onClick={handleClose}><span>CAREERS</span></Link></li>
             <li><Link to="/contact" onClick={handleClose}><span>CONTACT</span></Link></li>
           </ul>
-
-          {/* <div className="overlay-details">
-            <p>TRESVANCE SOFTWARES</p>
-            <p><FaEnvelope style={{ marginRight: "8px" }} /> contact@tresvance</p>
-            <p><FaMapMarkerAlt style={{ marginRight: "8px" }} /> Cochin, India</p>
-          </div> */}
-
-          {/* <p className="overlay-vedio">
-            <span>INNOVATE</span><br />
-            <span>INTEGRATE</span><br />
-            <span>ELEVATE</span>
-          </p> */}
         </div>
       </div>
     </>

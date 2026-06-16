@@ -34,7 +34,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="footer-bottom">
-      <div className="footer-location">📍 Cochin, India</div>
+      <div className="footer-location"> Cochin, India</div>
       <div className="footer-social">
         <a href="https://www.instagram.com/tresvance.connect/">INSTAGRAM</a>
         <a href="https://www.linkedin.com/company/tresvance/posts/?feedView=all">LINKEDIN</a>
