@@ -17,12 +17,12 @@ const Home = () => {
   const [current, setCurrent] = React.useState(0);
 
   const images = [
-    "../src/assets/pic1.png",
+    "/src/assets/web.png",
     "../src/assets/pic2.jpg",
-    "../src/assets/pic3.jpg",
-    "../src/assets/pic4.jpg",
-    "../src/assets/pic5.webp",
-    "../src/assets/pic6.jpg"
+    "/src/assets/iot.jpg",
+    "/src/assets/cyber.jpg",
+    "/src/assets/digital.jpg",
+    "/src/assets/strategy.jpg"
   ];
 
   const rotateCarousel = (direction) => {
@@ -120,7 +120,7 @@ const Home = () => {
       <main className="w-full pt-[80px] md:pt-[80px] bg-white m-0 p-0">
 
         {/* ── HERO SECTION ── */}
-        <section className="hero-preserve relative h-auto md:min-h-screen bg-white px-6 md:px-12 pb-8 md:pb-12 font-sans text-black overflow-hidden border-none m-0">
+        <section className="hero-preserve relative h-auto md:min-h-screen bg-white px-6 md:px-12 pb-8 md:pb-12 font-sans text-black border-none m-0">
 
           <style dangerouslySetInnerHTML={{ __html: `
             @keyframes revealUp {
@@ -133,91 +133,136 @@ const Home = () => {
           `}} />
 
           <div className="max-w-[1600px] mx-auto relative">
+            
+            <div className="w-full flex justify-center">
+              <div className="w-full md:w-max max-w-full flex flex-col relative">
 
-            {/* Line 1 — "Creative and Innovative" */}
-            <div className="overflow-hidden pt-12 md:pt-0 md:lg:mt-16">
-              <h1 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter translate-y-[110%] animate-reveal font-sans">
-                Creative and Innovative
-              </h1>
-            </div>
+                {/* Line 1 — "Creative and Innovative" */}
+                <div className="flex justify-center w-full pt-12 md:pt-0 md:lg:mt-16">
+                  <div className="overflow-hidden pb-8 -mb-8 w-full text-center">
+                    <h1 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter translate-y-[110%] animate-reveal font-sans">
+                      Creative and Innovative
+                    </h1>
+                  </div>
+                </div>
 
-            {/* Line 2 — Desktop: subtitle left + Digital Solution right | Mobile: Digital Solution then subtitle below */}
-            <style dangerouslySetInnerHTML={{ __html: `
-              .hero-line2 { display: flex; flex-direction: row; align-items: flex-start; width: 100%; gap: 1rem; }
-              .hero-subtitle-block { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; flex-shrink: 0; width: clamp(160px, 22vw, 320px); padding-top: clamp(1rem, 3vw, 2.5rem); order: 1; }
-              .hero-h2-block { overflow: hidden; flex: 1; order: 2; }
-              @media (max-width: 768px) {
-                .hero-line2 { flex-direction: column; gap: 0; }
-                .hero-h2-block { width: 100%; order: 1; }
-                .hero-subtitle-block { width: 100%; padding-top: 1.5rem; order: 2; }
-              }
-            `}} />
+                {/* Line 2 — Layout, Spacing, and Aggressive Nudge Rules */}
+                <style dangerouslySetInnerHTML={{ __html: `
+                  .hero-line2 { 
+                    display: flex; 
+                    flex-direction: row; 
+                    align-items: flex-start; 
+                    width: 100%; 
+                    /* REDUCED GAP heavily to kill empty white space */
+                    gap: clamp(1rem, 2vw, 2rem); 
+                  }
+                  .hero-subtitle-block { 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: flex-end; 
+                    text-align: right;     
+                    gap: 1.25rem; 
+                    flex-shrink: 0; 
+                    width: clamp(200px, 24vw, 360px); 
+                    padding-top: clamp(1.5rem, 3.5vw, 3.5rem); 
+                    order: 1; 
+                    /* INCREASED NUDGE RIGHT to close the gap further */
+                    position: relative;
+                    left: 2.5rem; 
+                  }
+                  .hero-h2-block { 
+                    flex: 1; 
+                    order: 2; 
+                    text-align: right; 
+                    /* INCREASED NUDGE LEFT to close the gap further */
+                    position: relative;
+                    right: 2rem;
+                  }
+                  
+                  /* Mobile Overrides: Reverts everything back to standard */
+                  @media (max-width: 768px) {
+                    .hero-line2 { flex-direction: column; gap: 0; }
+                    .hero-h2-block { 
+                      width: 100%; 
+                      order: 1; 
+                      text-align: left; 
+                      right: 0; /* Resets the left nudge */
+                    }
+                    .hero-subtitle-block { 
+                      width: 100%; 
+                      padding-top: 1.5rem; 
+                      order: 2; 
+                      align-items: flex-start; 
+                      text-align: left;        
+                      left: 0; /* Resets the right nudge */
+                    }
+                  }
+                `}} />
 
-            <div className="hero-line2">
+                <div className="hero-line2">
 
-              {/* Desktop LEFT / Mobile SECOND: subtitle + CTA */}
-              <div className="hero-subtitle-block">
-                <p style={{
-                  fontSize: 'clamp(0.82rem, 1.1vw, 0.92rem)',
-                  color: '#555',
-                  lineHeight: '1.7',
-                  fontWeight: 400,
-                  margin: 0,
-                }}>
-                  We provide IT &amp; Managed Services primarily to clients in
-                  the North America, Middle East and across the globe. We
-                  maintain a far-reaching network by software developers
-                  who are highly experienced and proficient.
-                </p>
+                  {/* Desktop LEFT / Mobile SECOND: subtitle + CTA */}
+                  <div className="hero-subtitle-block">
+                    <p className="text-[19px] md:text-[14px] text-[#0b0b0b] leading-[1.7] font-normal m-0 text-left md:text-right -mt-4">
+                      We provide IT &amp; Managed Services primarily to clients in
+                      the North America, Middle East and across the globe. We
+                      maintain a far-reaching network by software developers
+                      who are highly experienced and proficient.
+                    </p>
 
-                <a
-                  href="#"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.45rem',
-                    backgroundColor: '#111',
-                    color: '#fff',
-                    padding: '0.55rem 1.3rem',
-                    borderRadius: '999px',
-                    fontSize: 'clamp(0.78rem, 1vw, 0.88rem)',
-                    fontWeight: 500,
-                    textDecoration: 'none',
-                    letterSpacing: '0.02em',
-                    transition: 'background 0.3s ease',
-                    whiteSpace: 'nowrap',
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.background = '#333'}
-                  onMouseLeave={e => e.currentTarget.style.background = '#111'}
-                >
-                  <svg viewBox="0 0 24 24" style={{ width: '0.85em', height: '0.85em' }}>
-                    <polygon points="5 3 19 12 5 21 5 3" fill="white" />
-                  </svg>
-                  How do we Work
-                </a>
+                    <a
+                      href="#"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.45rem',
+                        backgroundColor: '#111',
+                        color: '#fff',
+                        padding: '0.55rem 1.3rem',
+                        borderRadius: '999px',
+                        fontSize: 'clamp(0.78rem, 1vw, 0.88rem)',
+                        fontWeight: 500,
+                        textDecoration: 'none',
+                        letterSpacing: '0.02em',
+                        transition: 'background 0.3s ease',
+                        whiteSpace: 'nowrap',
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.background = '#333'}
+                      onMouseLeave={e => e.currentTarget.style.background = '#111'}
+                    >
+                      <svg viewBox="0 0 24 24" style={{ width: '0.85em', height: '0.85em' }}>
+                        <polygon points="5 3 19 12 5 21 5 3" fill="white" />
+                      </svg>
+                      How do we Work
+                    </a>
+                  </div>
+
+                  {/* Desktop RIGHT / Mobile FIRST: "Digital Solution" */}
+                  <div className="hero-h2-block">
+                    <div className="overflow-hidden pb-8 -mb-8">
+                      <h2 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter translate-y-[110%] animate-reveal delay-1 font-sans">
+                        Digital Solution
+                      </h2>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Blue Arrow bottom left */}
+                <div className="mt-6 md:mt-10">
+                  <div className="overflow-hidden pb-4 -mb-4 w-10 md:w-14">
+                    <div className="translate-y-[110%] animate-reveal delay-2 w-full">
+                      <svg viewBox="0 0 60 100" fill="none" className="w-full h-auto">
+                        <path d="M30 0V85M30 85L5 60M30 85L55 60" stroke="#00AEEF" strokeWidth="3" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-
-              {/* Desktop RIGHT / Mobile FIRST: "Digital Solution" */}
-              <div className="hero-h2-block">
-                <h2 className="text-[clamp(3.6rem,10vw,10rem)] leading-none font-light tracking-tighter translate-y-[110%] animate-reveal delay-1 font-sans">
-                  Digital Solution
-                </h2>
-              </div>
-
             </div>
-
-            {/* Blue Arrow bottom left */}
-            <div className="overflow-hidden mt-6 md:mt-10">
-              <div className="w-10 md:w-14 translate-y-[110%] animate-reveal delay-2">
-                <svg viewBox="0 0 60 100" fill="none" className="w-full h-auto">
-                  <path d="M30 0V85M30 85L5 60M30 85L55 60" stroke="#00AEEF" strokeWidth="3" />
-                </svg>
-              </div>
-            </div>
-
           </div>
         </section>
-
         {/* ── MARQUEE + WHAT WE DO SECTION ── */}
         <section className="py-20 bg-[#ffffff] text-[#111] px-6 sm:px-10 md:px-16 lg:px-20 animate-fade-in">
           <div className="overflow-hidden w-full mb-12">
@@ -272,7 +317,7 @@ const Home = () => {
               viewport={{ once: true, amount: 0.4 }}
             >
               <img
-                src="../src/assets/img1.png"
+                src="/src/assets/web.png"
                 alt="AI product"
                 className="rounded-lg object-cover w-full h-48 sm:h-56 md:h-60 shadow-lg hover:scale-105 transition-transform duration-500"
               />
