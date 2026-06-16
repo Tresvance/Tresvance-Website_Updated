@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -25,12 +24,44 @@ html, body {
     justify-content: space-between; 
     align-items: center;            
     padding: 0 20px;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, background-color 0.3s ease;
     border: none;
     border-bottom: none;
     box-shadow: none;
     margin: 0;
 }
+
+/* =========================================
+   HOME PAGE CONDITIONAL STYLES
+   ========================================= */
+
+.header-container.header-home:not(.header-open) {
+    background-color: #070707; 
+}
+
+.text-logo {
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal; /* Removed boldness */
+    font-size: 27px; /* Increased from 24px to 27px */
+    letter-spacing: 0.2em; 
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-left: 15px; /* Nudged to the right */
+}
+
+/* Keep the text white if the blue menu overlay is open on the home page (Safety fallback) */
+.header-container.header-open .text-logo {
+    color: #ffffff; 
+}
+
+/* Turns the "MENU" text and its background to match the dark theme */
+.header-container.header-home:not(.header-open) .header-menu a {
+    background-color: transparent;
+    color: #ffffff;
+}
+/* ========================================= */
+
 
 .header-container.header-hidden {
     opacity: 0;
@@ -43,11 +74,12 @@ html, body {
 }
 
 .header-container.header-open {
-    background-color: #06A3DA; /* blue when overlay open */
+    background-color: #06A3DA; 
 }
 
 .header-container.header-open .header-menu a {
     background-color: #06A3DA;
+    color: #ffffff; 
 }
 
 .header-logo img {
@@ -65,17 +97,16 @@ html, body {
     font-style: inherit;
     cursor: pointer;
     padding: 8px 16px;
+    transition: color 0.3s ease;
 }
 
 .header-menu a:hover{
     text-decoration:underline;
-
 }
 
-.overlay
-{
+.overlay {
     position: fixed;
-    top: -100%; /*over the screen*/
+    top: -100%; 
     left:0;
     width: 100%;
     height:100%;
@@ -87,13 +118,11 @@ html, body {
     justify-content:flex-start;
     align-items:flex-start;
     padding: 70px 50px; 
-    
 }
 
 .overlay-open{
     top:0;
 }
-
 
 .overlay-closing {
   top: -100%;
@@ -101,13 +130,10 @@ html, body {
   transition: top 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
-
-.overlay-close
-{
+.overlay-close {
   position: absolute;
   bottom: 80px;
   left: 30px;
- 
 }
 
 .overlay-links {
@@ -115,7 +141,6 @@ html, body {
   list-style: none;
   text-align: center;
   padding: 0;
-   
 }
 
 .overlay-links li{
@@ -130,15 +155,12 @@ html, body {
     cursor: pointer;
     left: 220px;
     text-align: left;
-
 }
 
 .overlay-links li span{
     display: inline-block;
     transform: translateY(-100%);
     opacity: 0;
-    
-    /*color filling inside the letters*/
     background: linear-gradient(to bottom,black 0%,black 50%,white 50%,white 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -155,7 +177,7 @@ html, body {
 }
 
 .overlay-open .overlay-links li:nth-child(1) span{
-    animation-delay: 0.2s;                               /*This is for the display of the list items*/
+    animation-delay: 0.2s; 
 }
 
 .overlay-open .overlay-links li:nth-child(2) span{
@@ -175,10 +197,7 @@ html, body {
     animation-delay: 1.2s;
 }
 
-
-
-.overlay-details
-{
+.overlay-details {
     margin-left: 225px;
     margin-top: 70px;
     color: rgb(40, 38, 38); 
@@ -187,13 +206,11 @@ html, body {
 .overlay-details p {
   display: flex;
   align-items: center;
-  gap: 8px;              /* spacing between icon and text */
-  white-space: nowrap;   /* keeps icon + text in one line */
-  /*margin-bottom: 8px; */   /* small spacing between lines */
+  gap: 8px;              
+  white-space: nowrap;   
 }
 
-.overlay-vedio
-{
+.overlay-vedio {
     position: absolute;
     bottom: 100px;
     right: 40px;
@@ -204,22 +221,12 @@ html, body {
     font-weight: 900;
     line-height: 3pc;
     font-family:'Samarkan';
-    /*box-shadow: 0 4px 10px rgba(0,0,0,0.4);*/
 }
 
-
-
-
-
-
-
-
-.video-caption
-{
+.video-caption {
     position: absolute;
     bottom: 70px;
     right: 355px;
-    /*font-size:large;*/
 }
 
 @keyframes revealDown{
@@ -233,12 +240,8 @@ html, body {
    }
 }
 
-
 /* 📱 Responsive Styles (max 768px) */
-
-
 @media (max-width: 768px) {
-  /* Header adjustments */
   .header-container {
     height: 60px;
     padding: 0 16px;
@@ -248,19 +251,23 @@ html, body {
     height: 45px;
   }
 
+  /* Responsive for Text Logo */
+  .text-logo {
+      font-size: 21px; /* Increased from 18px */
+      margin-left: 10px;
+  }
+
   .header-menu a {
     font-size: 1rem;
     padding: 6px 12px;
   }
 
-  /* Overlay adjustments */
   .overlay {
     padding: 60px 20px;
     justify-content: flex-start;
     align-items: flex-start;
   }
 
-  /* Close button - keep bottom-left but scale down */
   .overlay-close {
     bottom: 40px;
     left: 20px;
@@ -268,20 +275,17 @@ html, body {
     height: 80px !important;
   }
 
-  /* Links stack vertically with smaller size */
   .overlay-links li {
     font-size: 2rem;
-    left: 20px; /* Move closer to left on small screens */
+    left: 20px; 
   }
 
-  /* Contact details */
   .overlay-details {
     margin-left: 20px;
     margin-top: 50px;
     font-size: 1.5rem;
   }
 
-  /* Video - responsive but stays bottom right */
   .overlay-vedio {
     width: 250px;
     bottom: 80px;
@@ -305,6 +309,11 @@ html, body {
 
   .header-logo img {
     height: 40px;
+  }
+
+  .text-logo {
+      font-size: 19px; /* Increased from 16px */
+      margin-left: 5px;
   }
 
   .overlay-links li {
@@ -379,12 +388,8 @@ html, body {
   }
 }
 
-
-
 /* 📱 iPad Mini / Tablet (600px – 900px) */
-
 @media (min-width: 600px) and (max-width: 900px) {
-  /* Header slightly more spacious */
   .header-container {
     height: 70px;
     padding: 0 25px;
@@ -394,19 +399,22 @@ html, body {
     height: 55px;
   }
 
+  .text-logo {
+      font-size: 25px; /* Increased from 22px */
+      margin-left: 12px;
+  }
+
   .header-menu a {
     font-size: 1.2rem;
     padding: 8px 14px;
   }
 
-  /* Overlay spacing */
   .overlay {
     padding: 70px 40px;
     justify-content: flex-start;
     align-items: flex-start;
   }
 
-  /* Links - comfortable size for tablet */
   .overlay-links li {
     font-size: 2.5rem;
     left: 60px;
@@ -418,7 +426,6 @@ html, body {
     font-size: 1.5rem;
   }
 
-  /* Close button stays bottom-left but sized properly */
   .overlay-close {
     bottom: 60px;
     left: 30px;
@@ -426,7 +433,6 @@ html, body {
     height: 100px !important;
   }
 
-  /* Video: slightly bigger but still bottom-right */
   .overlay-vedio {
     width: 320px;
     bottom: 90px;
@@ -441,10 +447,11 @@ html, body {
     font-size: 1rem;
   }
 }
+
 /* 📱 Font size boost for iPhone XR, 12 Pro, 14 Pro, etc. */
 @media (max-width: 430px) {
   .overlay-links li {
-    font-size: 2.2rem; /* increased from 2rem */
+    font-size: 2.2rem; 
   }
 
   .overlay-details p {
@@ -459,20 +466,14 @@ html, body {
     font-size: 1.1rem;
   }
 }
+
 /* 📱📲 Better alignment for iPad Air, iPad Pro, Surface Pro */
 @media (min-width: 900px) and (max-width: 1180px) {
   .overlay-links li {
-    left: 150px; /* shifted slightly left (was 250px) */
+    left: 150px; 
   }
 
   .overlay-details {
-    margin-left: 150px; /* match details alignment with links */
+    margin-left: 150px; 
   }
 }
-
-
-
-
-
-
-

@@ -1,21 +1,58 @@
+/* ==================================================
+   1. GLOBAL FONT OVERRIDE: NEUE MACHINA
+   ================================================== */
+@font-face {
+  font-family: 'Neue Machina';
+  /* Ensure your font files are actually inside the public/fonts/ folder! */
+  src: url('/fonts/NeueMachina-Regular.woff2') format('woff2'),
+       url('/fonts/NeueMachina-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Machina';
+  src: url('/fonts/NeueMachina-Bold.woff2') format('woff2'),
+       url('/fonts/NeueMachina-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Machina';
+  src: url('/fonts/NeueMachina-Black.woff2') format('woff2'),
+       url('/fonts/NeueMachina-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Force all headings and font-machina class to use it */
+h1, h2, h3, h4, h5, h6, .font-machina {
+  font-family: 'Neue Machina', sans-serif !important;
+}
+
+
+/* ==================================================
+   2. DARK MODE STYLES & ANIMATIONS
+   ================================================== */
 .text-primary {
-  color: #333; /* Dark text for contrast */
+  color: #ffffff; /* Changed to white for dark background contrast */
 }
   
 .text-accent {
-  color: #ff5733; /* Vibrant accent color */
+  color: #06A3DA; /* Vibrant accent color (Brand Blue) */
 }
 
-.mainhead{
+.mainhead {
   font-weight: bold;
-  font-family: 'Inter', sans-serif;
 }
 
-.mainhead h1:hover{
+.mainhead h1:hover {
   font-weight: bold;
   transition: 0.5s;
-  color: rgb(52, 49, 49)
+  color: #b0b0b0; /* Lighter hover color for dark mode */
 }
+
 /* Marquee wrapper: hides overflow */
 .marquee-wrapper {
   overflow: hidden;
@@ -33,23 +70,20 @@
 .spinning-shape {
   width: 60px;
   height: 60px;
-  background-color: #000;
+  /* CHANGED TO WHITE: So it is visible on the black background! */
+  background-color: #ffffff; 
   clip-path: polygon(
     /* top tip */
     50% 0%,
-
     /* top-right concave curve */
     65% 25%,  70% 30%,   /* inner control, outer control */
     100% 50%,            /* right tip */
-
     /* bottom-right concave curve */
     70% 70%,  65% 75%,   /* outer control, inner control */
     50% 100%,            /* bottom tip */
-
     /* bottom-left concave curve */
     35% 75%,  30% 70%,   /* inner control, outer control */
     0% 50%,              /* left tip */
-
     /* top-left concave curve */
     30% 30%,  35% 25%,   /* outer control, inner control */
     50% 0%               /* back to top tip */
@@ -69,7 +103,7 @@
 }
 
 .why-scroll-area::-webkit-scrollbar-thumb {
-  background-color: #aaa;
+  background-color: #555; /* Darkened scrollbar for dark mode */
   border-radius: 6px;
 }
 
@@ -87,21 +121,14 @@
   will-change: transform;
 }
 
-@keyframes spin {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
 .carousel-item {
   transition: transform 0.7s ease, opacity 0.7s ease;
 }
+
 #carousel3D img {
   transition: transform 0.3s ease-in-out;
 }
+
 #carousel3D img:hover {
   transform: scale(1.05);
 }
@@ -114,8 +141,6 @@ img {
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-
-
 /* Marquee scroll keyframes */
 @keyframes marquee {
   0% { transform: translateX(100%); }
@@ -127,26 +152,25 @@ img {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(-360deg); }
 }
+  
+/* Fade-in animation for sections */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
 
-  
-  /* Fade-in animation for sections */
-  .animate-fade-in {
+@keyframes fadeIn {
+  0% {
     opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
+    transform: translateY(20px);
   }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
   
-  /* Smooth image flyout animation */
+/* Smooth image flyout animation */
 @keyframes flyout {
   0% {
     opacity: 0;
@@ -166,24 +190,24 @@ img {
   animation: flyout 0.8s ease forwards;
 }
 
-  /* Responsive adjustments */
-  @media (max-width: 640px) {
-    .perspective-1000 {
-      perspective: none; /* Disable 3D effect on mobile for simplicity */
-    }
-    .flex-col\.sm\:flex-row {
-      flex-direction: column; /* Stack elements vertically on mobile */
-    }
-    .space-x-4 > * + * {
-      margin-left: 0;
-      margin-top: 1rem; /* Add vertical spacing for mobile */
-    }
-    .space-x-\[-20px\] > * + * {
-      margin-left: 0;
-      margin-top: 1rem;
-    }
-    .space-x-\[-30px\] > * + * {
-      margin-left: 0;
-      margin-top: 1rem;
-    }
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .perspective-1000 {
+    perspective: none; /* Disable 3D effect on mobile for simplicity */
   }
+  .flex-col\.sm\:flex-row {
+    flex-direction: column; /* Stack elements vertically on mobile */
+  }
+  .space-x-4 > * + * {
+    margin-left: 0;
+    margin-top: 1rem; /* Add vertical spacing for mobile */
+  }
+  .space-x-\[-20px\] > * + * {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  .space-x-\[-30px\] > * + * {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
