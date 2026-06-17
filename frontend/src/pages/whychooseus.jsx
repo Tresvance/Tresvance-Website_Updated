@@ -37,10 +37,12 @@ const WhyChooseUs = () => {
         
         {/* LEFT SIDE: Sticky Title Panel */}
         <div className="w-full lg:w-5/12 lg:sticky lg:top-36 self-start">
-          <h4 className="text-sm uppercase font-bold tracking-wider mb-4 font-sans" style={{ color: '#06A3DA' }}>
+          {/* Changed font-bold to font-normal */}
+          <h4 className="text-sm uppercase font-normal tracking-wider mb-4 font-sans" style={{ color: '#06A3DA' }}>
             WHY CHOOSE US
           </h4>
-          <h2 className="text-4xl lg:text-6xl font-black leading-tight tracking-tight text-white font-sans">
+          {/* Changed font-black to font-normal */}
+          <h2 className="text-4xl lg:text-6xl font-normal leading-tight tracking-tight text-white font-sans">
             Committed to <br /> Delivering Results <br /> & Success
           </h2>
         </div>
@@ -62,8 +64,9 @@ const WhyChooseUs = () => {
               <span className="text-4xl lg:text-5xl font-black select-none w-16 font-sans text-gray-700">
                 {point.number}
               </span>
+              {/* Changed font-semibold to font-normal */}
               <h3 
-                className="text-2xl lg:text-4xl font-semibold tracking-tight transition-colors duration-300 font-sans"
+                className="text-2xl lg:text-4xl font-normal tracking-tight transition-colors duration-300 font-sans"
                 // Flipped the base color to white, keeps the blue on hover
                 style={{ color: hoveredPoint === point.number ? '#06A3DA' : '#ffffff' }}
               >

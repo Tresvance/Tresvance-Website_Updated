@@ -1,15 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import WhyChooseUs from "./whychooseus.jsx";
 import { motion, AnimatePresence } from "framer-motion";
-import ThreeDImageRing from './draggable-3d-image-ring.jsx';
 
 const Home = () => {
-  const [rotation, setRotation] = useState(0);
-  const totalItems = 6;
-  const anglePerItem = 360 / totalItems;
-  const [current, setCurrent] = React.useState(0);
-
   const images = [
     "/src/assets/web.png",
     "../src/assets/pic2.jpg",
@@ -18,10 +12,6 @@ const Home = () => {
     "/src/assets/digital.jpg",
     "/src/assets/strategy.jpg"
   ];
-
-  const rotateCarousel = (direction) => {
-    setRotation((prev) => prev + direction * anglePerItem);
-  };
 
   const content = [
     {
@@ -54,21 +44,15 @@ const Home = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.25,
+        staggerChildren: 0.15,
       },
     },
   };
 
-  const handleClick = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
-
-  useEffect(() => {
-    const autoRotate = setInterval(() => {
-      rotateCarousel(-1);
-    }, 4000);
-    return () => clearInterval(autoRotate);
-  }, []);
 
   const hoverSound = useRef(null);
 
@@ -109,16 +93,35 @@ const Home = () => {
     },
   });
 
-  // Array for the 3D Ribbon Hero
   const ribbonFaces = Array.from({ length: 16 });
 
+  // Grid Data for "Our Works" Section
+  const worksCards = [
+    { id: 1, title: "Employee Handbook", image: images[1] },
+    { id: 2, title: "Project Reports", image: images[2] },
+    { id: 3, title: "Hiring", image: images[3] },
+    { id: 4, title: "Annual Report", image: images[4] },
+    { id: 5, title: "New Products", image: images[5] },
+    { id: 6, title: "Company Culture", image: images[1] }
+  ];
+
   return (
-    <div className="w-full bg-[#070707] text-white font-sans m-0 p-0">
+    <div className="w-full bg-[#070707] text-white font-sans m-0 p-0 overflow-x-hidden">
       <main className="w-full pt-[80px] md:pt-[80px] bg-[#070707] m-0 p-0">
+        
+        {/* Hiding scrollbars for the horizontal slider */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+          .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+        `}} />
 
         {/* ── HERO SECTION (3D KINETIC RIBBON) ── */}
         <section className="relative w-full min-h-[calc(100vh-80px)] bg-[#070707] text-white flex flex-col md:flex-row items-center overflow-hidden px-6 md:px-20 py-24 md:py-0 m-0">
-          
           <style dangerouslySetInnerHTML={{ __html: `
             .ribbon-scene {
               perspective: 1200px;
@@ -155,7 +158,6 @@ const Home = () => {
             <h1 className="text-6xl md:text-[5.5rem] font-machina font-normal leading-[1.05] tracking-tight">
               Creative & <br /> Innovative <br /> Digital Solution!
             </h1>
-            
             <p className="text-base md:text-[1.1rem] text-gray-300 font-light mt-2 leading-relaxed">
               And you're it! <br />
               <span className="text-gray-500">(Sorry, we can't find the page, too.)</span>
@@ -202,25 +204,30 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start py-20 px-6 md:px-12">
-            <motion.div
+  <motion.div
               className="flex flex-col justify-center"
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <h3 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight font-machina">
+              {/* Heading */}
+              <h3 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina">
                 <br /><br /><br />
                 What We <br /> Do at <br /> Tresvance
               </h3>
-              <p className="text-base md:text-2xl text-gray-300 leading-relaxed mb-8">
+              
+              {/* Reduced font size: changed from md:text-2xl to md:text-lg and text-base to text-sm */}
+              <p className="text-[20px] text-gray-300 leading-relaxed mb-8">
                 <br /><br />
                 Tresvance leverages Artificial Intelligence <br />
                 to build smarter, faster, and more intuitive solutions. <br />
                 We combine intelligent automation, data-driven insights, <br />
                 and innovative design to help businesses stay ahead in the digital era.
               </p>
-              <a href="#" className="underline text-lg font-medium text-white hover:text-[#a14d2e] transition-colors duration-300">
+              
+              {/* Reduced link font size: changed from text-lg to text-base */}
+              <a href="#" className="underline text-base font-normal text-white hover:text-[#a14d2e] transition-colors duration-300">
                 Learn more about us
               </a>
             </motion.div>
@@ -239,71 +246,82 @@ const Home = () => {
           </div>
         </section>
 
-        {/* ── SERVICES CAROUSEL SECTION ── */}
-        <section className="py-20 bg-[#070707] text-white flex flex-col items-center justify-center">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12 px-6 sm:px-10 md:px-16 lg:px-24 text-center md:text-left">
-            
-            <div className="md:w-1/3">
-              <AnimatePresence mode="wait">
-                <motion.h3
-                  key={current}
-                  initial={{ opacity: 0, x: -80 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -80 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                  className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight font-machina"
-                >
-                  <br /><br />
-                  {content[current].title.split(" ").map((word, i) => (
-                    <span key={i}>{word}<br /></span>
-                  ))}
-                </motion.h3>
-              </AnimatePresence>
-            </div>
+        {/* ── OUR SERVICES (HORIZONTAL SLIDER CARDS) ── */}
+        <section className="py-20 bg-[#070707] text-white pl-6 sm:pl-10 md:pl-16 lg:pl-20 overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            {/* Changed font-black to font-normal */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina">
+              Our Services
+            </h2>
+          </motion.div>
 
-            <div
-              className="relative w-[280px] sm:w-[340px] md:w-[380px] aspect-[3/4] rounded-[2rem] overflow-hidden shadow-lg cursor-pointer transition-transform duration-700 hover:scale-105 group"
-              onClick={handleClick}
-              onMouseEnter={() => {
-                if (hoverSound.current) {
-                  hoverSound.current.currentTime = 0;
-                  hoverSound.current.play().catch((err) => console.log(err));
-                }
-              }}
-            >
-              <AnimatePresence mode="wait">
+          {/* Slider Container */}
+          <div className="flex gap-6 overflow-x-auto pb-10 snap-x snap-mandatory hide-scrollbar pr-6 md:pr-20">
+            {content.map((service, index) => (
+              <motion.div
+                key={index}
+                className="relative min-w-[300px] md:min-w-[360px] h-[480px] rounded-[2rem] overflow-hidden bg-[#111] border border-gray-800 snap-center group cursor-pointer"
+                whileHover="hover"
+                initial="initial"
+                onMouseEnter={() => {
+                  if (hoverSound.current) {
+                    hoverSound.current.currentTime = 0;
+                    hoverSound.current.play().catch((err) => console.log(err));
+                  }
+                }}
+              >
+                {/* Background Image */}
                 <motion.img
-                  key={current}
-                  src={images[current]}
-                  alt="Service"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.05 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  className="absolute inset-0 w-full h-full object-cover rounded-[2rem]"
+                  src={images[index]}
+                  alt={service.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out opacity-60 group-hover:opacity-10 group-hover:scale-105"
                 />
-              </AnimatePresence>
-            </div>
 
-            <div className="md:w-1/3">
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={current}
-                  initial={{ opacity: 0, x: 80 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 80 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                  className="text-base md:text-2xl text-gray-300 leading-relaxed mb-8"
+                {/* Card Sequence Number (Kept Bold as it's a number style) */}
+                <div className="absolute top-8 left-8 text-3xl font-bold font-machina text-white/50 group-hover:text-white transition-colors duration-300 z-20">
+                  0{index + 1}
+                </div>
+
+                {/* Default State: Title (Slides out on hover) */}
+                <motion.div
+                  className="absolute inset-0 p-8 flex flex-col justify-end z-10"
+                  variants={{
+                    initial: { opacity: 1, y: 0 },
+                    hover: { opacity: 0, y: -20 }
+                  }}
+                  transition={{ duration: 0.4 }}
                 >
-                  <br /><br />
-                  {content[current].description}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-          </div>
+                  {/* Changed font-bold to font-normal */}
+                  <h3 className="text-2xl md:text-3xl font-normal leading-tight font-machina text-white drop-shadow-md">
+                    {service.title}
+                  </h3>
+                </motion.div>
 
-          <div className="mt-8 text-gray-400 font-medium text-sm tracking-widest">
-            {`0${current + 1}/0${images.length}`}
+                {/* Hover State: Description (Slides in on hover) */}
+                <motion.div
+                  className="absolute inset-0 p-8 flex flex-col justify-center bg-black/60 z-10"
+                  variants={{
+                    initial: { opacity: 0, y: 20 },
+                    hover: { opacity: 1, y: 0 }
+                  }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                >
+                  {/* Changed font-bold to font-normal */}
+                  <h3 className="text-xl md:text-2xl font-normal mb-4 font-machina text-white">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    {service.description}
+                  </p>
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
         </section>
 
@@ -319,12 +337,13 @@ const Home = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
+            {/* Changed font-black to font-normal */}
             <motion.h2
               initial={{ opacity: 0, x: -100 }}
               variants={{
                 visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
               }}
-              className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight font-machina"
+              className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina"
             >
               <br />
               Numbers That <br />Reflect<br /> Our Journey
@@ -339,6 +358,7 @@ const Home = () => {
                 whileHover={{ scale: 1.1 }}
                 className="absolute left-3 top-10 bg-lime-200 rounded-full w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 flex flex-col items-center justify-center text-center z-20 shadow-md text-black"
               >
+                {/* Numbers kept bold for readability */}
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold">25</div>
                 <div className="text-xs sm:text-sm text-gray-700">Projects Done</div>
               </motion.div>
@@ -379,13 +399,92 @@ const Home = () => {
           </motion.div>
         </section>
 
-        {/* ── PORTFOLIO SECTION ── */}
-        <section className="py-32 bg-[#070707] text-black flex flex-col items-center justify-center">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight mb-12 text-center font-machina">
-            OUR WORKS
-          </h2>
-          <div className="w-full flex justify-center items-center h-[500px] relative">
-            <ThreeDImageRing images={images} rotation={rotation} />
+        {/* ── OUR WORKS SECTION (IMAGE GRID) ── */}
+        <section className="py-24 bg-[#070707] text-white flex justify-center px-6 md:px-16">
+          <div className="w-full max-w-6xl">
+            {/* Section Header */}
+            {/* Changed font-black to font-normal */}
+            <motion.h2
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina mb-12"
+            >
+              Our Works
+            </motion.h2>
+
+            {/* Grid Layout */}
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[160px] md:auto-rows-[180px]"
+            >
+              {/* Tall Card (Spans 2 Rows) */}
+              <motion.div 
+                variants={cardVariants}
+                className="col-span-2 md:col-span-1 row-span-2 rounded-[2rem] p-6 flex flex-col justify-between relative group cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              >
+                {/* Background Image */}
+                <img 
+                  src={images[0]} 
+                  alt="Team Updates" 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
+
+                {/* Arrow Icon */}
+                <div className="relative z-10 self-end w-8 h-8 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+                
+                {/* Content */}
+                <div className="relative z-10 flex flex-col justify-end h-full mt-10">
+                  {/* Changed font-bold to font-normal */}
+                  <h3 className="text-2xl font-normal leading-tight text-white drop-shadow-md">Team<br/>Updates</h3>
+                </div>
+              </motion.div>
+
+              {/* Standard Square Cards */}
+              {worksCards.map((card) => (
+                <motion.div 
+                  key={card.id}
+                  variants={cardVariants}
+                  className="col-span-1 row-span-1 rounded-[2rem] p-5 flex flex-col justify-end relative group cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl overflow-hidden"
+                >
+                  {/* Background Image */}
+                  <img 
+                    src={card.image} 
+                    alt={card.title} 
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
+
+                  {/* Arrow Icon */}
+                  <div className="absolute top-4 right-4 z-10 w-7 h-7 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                  
+                  {/* Content */}
+                  {/* Changed font-bold to font-normal */}
+                  <h3 className="relative z-10 text-[1.1rem] font-normal leading-tight text-white drop-shadow-md pr-4">
+                    {card.title.split(' ').map((word, i) => (
+                      <React.Fragment key={i}>{word}<br/></React.Fragment>
+                    ))}
+                  </h3>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
