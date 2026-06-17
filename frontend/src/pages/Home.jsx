@@ -167,8 +167,7 @@ const Home = () => {
               Creative & <br /> Innovative <br /> Digital Solution!
             </h1>
             <p className="text-base md:text-[1.1rem] text-gray-300 font-light mt-2 leading-relaxed">
-              And you're it! <br className="hidden sm:block" />
-              <span className="text-gray-500 block sm:inline mt-1 sm:mt-0">(Sorry, we can't find the page, too.)</span>
+             Turning bold ideas into seamless digital experiences.<br></br> Let’s build the future of your business together. <br className="hidden sm:block" />
             </p>
           </div>
 
