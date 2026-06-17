@@ -121,7 +121,7 @@ const Home = () => {
         `}} />
 
         {/* ── HERO SECTION (3D KINETIC RIBBON) ── */}
-        <section className="relative w-full min-h-[calc(100vh-80px)] bg-[#070707] text-white flex flex-col md:flex-row items-center overflow-hidden px-6 md:px-20 py-24 md:py-0 m-0">
+        <section className="relative w-full min-h-[calc(100vh-80px)] bg-[#070707] text-white flex flex-col md:flex-row items-center overflow-hidden px-6 md:px-20 py-12 md:py-0 m-0">
           <style dangerouslySetInnerHTML={{ __html: `
             .ribbon-scene {
               perspective: 1200px;
@@ -152,25 +152,34 @@ const Home = () => {
                          scaleY(1.3);
               backface-visibility: visible;
             }
+
+            /* Responsive Scaling for the 3D Element */
+            @media (max-width: 768px) {
+              .ribbon-scene {
+                 transform: scale(0.65);
+              }
+            }
           `}} />
 
-          <div className="relative z-20 w-full md:w-[45%] flex flex-col items-start gap-4 md:gap-6 mt-10 md:mt-0">
-            <h1 className="text-6xl md:text-[5.5rem] font-machina font-normal leading-[1.05] tracking-tight">
+          {/* Text Content */}
+          <div className="relative z-20 w-full md:w-[45%] flex flex-col items-start gap-4 md:gap-6 mt-12 md:mt-0">
+            <h1 className="text-5xl sm:text-6xl md:text-[5.5rem] font-machina font-normal leading-[1.1] md:leading-[1.05] tracking-tight">
               Creative & <br /> Innovative <br /> Digital Solution!
             </h1>
             <p className="text-base md:text-[1.1rem] text-gray-300 font-light mt-2 leading-relaxed">
-              And you're it! <br />
-              <span className="text-gray-500">(Sorry, we can't find the page, too.)</span>
+              And you're it! <br className="hidden sm:block" />
+              <span className="text-gray-500 block sm:inline mt-1 sm:mt-0">(Sorry, we can't find the page, too.)</span>
             </p>
           </div>
 
-          <div className="absolute right-[-10%] md:right-[5%] top-1/2 -translate-y-1/2 w-full md:w-[50%] h-[70vh] md:h-screen pointer-events-none flex items-center justify-center opacity-80 md:opacity-100 z-10">
+          {/* 3D Ribbon Container */}
+          <div className="absolute right-0 md:right-[5%] top-[65%] md:top-1/2 -translate-y-1/2 w-full md:w-[50%] h-[60vh] md:h-screen pointer-events-none flex items-center justify-center opacity-30 md:opacity-100 z-10">
             <div className="ribbon-scene w-full h-full flex items-center justify-center">
               <div className="ribbon-wrapper">
                 {ribbonFaces.map((_, i) => (
                   <div 
                     key={i} 
-                    className={`ribbon-face font-machina font-black text-5xl md:text-7xl tracking-tighter ${
+                    className={`ribbon-face font-machina font-black text-4xl md:text-7xl tracking-tighter ${
                       i % 2 === 0 ? 'text-white drop-shadow-2xl' : 'text-transparent'
                     }`}
                     style={{ 
@@ -203,45 +212,40 @@ const Home = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start py-20 px-6 md:px-12">
-  <motion.div
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center py-20 px-6 md:px-12">
+            <motion.div
               className="flex flex-col justify-center"
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              {/* Heading */}
               <h3 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina">
-                <br /><br /><br />
                 What We <br /> Do at <br /> Tresvance
               </h3>
               
-              {/* Reduced font size: changed from md:text-2xl to md:text-lg and text-base to text-sm */}
-              <p className="text-[20px] text-gray-300 leading-relaxed mb-8">
-                <br /><br />
-                Tresvance leverages Artificial Intelligence <br />
-                to build smarter, faster, and more intuitive solutions. <br />
-                We combine intelligent automation, data-driven insights, <br />
+              <p className="text-[20px] text-gray-300 leading-relaxed mt-8 mb-8">
+                Tresvance leverages Artificial Intelligence <br className="hidden lg:block"/>
+                to build smarter, faster, and more intuitive solutions. <br className="hidden lg:block"/>
+                We combine intelligent automation, data-driven insights, <br className="hidden lg:block"/>
                 and innovative design to help businesses stay ahead in the digital era.
               </p>
               
-              {/* Reduced link font size: changed from text-lg to text-base */}
-              <a href="#" className="underline text-base font-normal text-white hover:text-[#a14d2e] transition-colors duration-300">
+              <a href="#" className="w-fit underline text-base font-normal text-white hover:text-[#a14d2e] transition-colors duration-300">
                 Learn more about us
               </a>
             </motion.div>
 
             <motion.div
-              className="grid grid-cols-1 gap-2"
+              className="flex flex-col gap-4"
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <img src="/src/assets/web.png" alt="AI product" className="rounded-lg object-cover w-full h-48 sm:h-56 md:h-60 shadow-lg hover:scale-105 transition-transform duration-500" />
-              <img src="../src/assets/img2.png" alt="Office" className="rounded-lg object-cover w-full h-48 sm:h-56 md:h-60 shadow-lg hover:scale-105 transition-transform duration-500" />
-              <img src="../src/assets/img3.png" alt="Branding" className="rounded-lg object-cover w-full h-60 sm:h-72 md:h-80 shadow-lg hover:scale-105 transition-transform duration-500" />
+              <img src="/src/assets/web.png" alt="AI product" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500" />
+              <img src="../src/assets/img2.png" alt="Office" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500" />
+              <img src="../src/assets/img3.png" alt="Branding" className="rounded-lg object-cover w-full h-48 md:h-56 shadow-lg hover:scale-105 transition-transform duration-500" />
             </motion.div>
           </div>
         </section>
@@ -255,13 +259,11 @@ const Home = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            {/* Changed font-black to font-normal */}
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina">
               Our Services
             </h2>
           </motion.div>
 
-          {/* Slider Container */}
           <div className="flex gap-6 overflow-x-auto pb-10 snap-x snap-mandatory hide-scrollbar pr-6 md:pr-20">
             {content.map((service, index) => (
               <motion.div
@@ -276,19 +278,16 @@ const Home = () => {
                   }
                 }}
               >
-                {/* Background Image */}
                 <motion.img
                   src={images[index]}
                   alt={service.title}
                   className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out opacity-60 group-hover:opacity-10 group-hover:scale-105"
                 />
 
-                {/* Card Sequence Number (Kept Bold as it's a number style) */}
                 <div className="absolute top-8 left-8 text-3xl font-bold font-machina text-white/50 group-hover:text-white transition-colors duration-300 z-20">
                   0{index + 1}
                 </div>
 
-                {/* Default State: Title (Slides out on hover) */}
                 <motion.div
                   className="absolute inset-0 p-8 flex flex-col justify-end z-10"
                   variants={{
@@ -297,13 +296,11 @@ const Home = () => {
                   }}
                   transition={{ duration: 0.4 }}
                 >
-                  {/* Changed font-bold to font-normal */}
                   <h3 className="text-2xl md:text-3xl font-normal leading-tight font-machina text-white drop-shadow-md">
                     {service.title}
                   </h3>
                 </motion.div>
 
-                {/* Hover State: Description (Slides in on hover) */}
                 <motion.div
                   className="absolute inset-0 p-8 flex flex-col justify-center bg-black/60 z-10"
                   variants={{
@@ -312,7 +309,6 @@ const Home = () => {
                   }}
                   transition={{ duration: 0.4, delay: 0.1 }}
                 >
-                  {/* Changed font-bold to font-normal */}
                   <h3 className="text-xl md:text-2xl font-normal mb-4 font-machina text-white">
                     {service.title}
                   </h3>
@@ -337,7 +333,6 @@ const Home = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            {/* Changed font-black to font-normal */}
             <motion.h2
               initial={{ opacity: 0, x: -100 }}
               variants={{
@@ -358,7 +353,6 @@ const Home = () => {
                 whileHover={{ scale: 1.1 }}
                 className="absolute left-3 top-10 bg-lime-200 rounded-full w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 flex flex-col items-center justify-center text-center z-20 shadow-md text-black"
               >
-                {/* Numbers kept bold for readability */}
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold">25</div>
                 <div className="text-xs sm:text-sm text-gray-700">Projects Done</div>
               </motion.div>
@@ -401,9 +395,7 @@ const Home = () => {
 
         {/* ── OUR WORKS SECTION (IMAGE GRID) ── */}
         <section className="py-24 bg-[#070707] text-white flex justify-center px-6 md:px-16">
-          <div className="w-full max-w-6xl">
-            {/* Section Header */}
-            {/* Changed font-black to font-normal */}
+          <div className="w-full max-w-7xl">
             <motion.h2
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -414,29 +406,24 @@ const Home = () => {
               Our Works
             </motion.h2>
 
-            {/* Grid Layout */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[160px] md:auto-rows-[180px]"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 auto-rows-[180px] md:auto-rows-[220px]"
             >
-              {/* Tall Card (Spans 2 Rows) */}
               <motion.div 
                 variants={cardVariants}
                 className="col-span-2 md:col-span-1 row-span-2 rounded-[2rem] p-6 flex flex-col justify-between relative group cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
               >
-                {/* Background Image */}
                 <img 
                   src={images[0]} 
                   alt="Team Updates" 
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                 />
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
 
-                {/* Arrow Icon */}
                 <div className="relative z-10 self-end w-8 h-8 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -444,30 +431,24 @@ const Home = () => {
                   </svg>
                 </div>
                 
-                {/* Content */}
                 <div className="relative z-10 flex flex-col justify-end h-full mt-10">
-                  {/* Changed font-bold to font-normal */}
                   <h3 className="text-2xl font-normal leading-tight text-white drop-shadow-md">Team<br/>Updates</h3>
                 </div>
               </motion.div>
 
-              {/* Standard Square Cards */}
               {worksCards.map((card) => (
                 <motion.div 
                   key={card.id}
                   variants={cardVariants}
                   className="col-span-1 row-span-1 rounded-[2rem] p-5 flex flex-col justify-end relative group cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl overflow-hidden"
                 >
-                  {/* Background Image */}
                   <img 
                     src={card.image} 
                     alt={card.title} 
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                   />
-                  {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
 
-                  {/* Arrow Icon */}
                   <div className="absolute top-4 right-4 z-10 w-7 h-7 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -475,8 +456,6 @@ const Home = () => {
                     </svg>
                   </div>
                   
-                  {/* Content */}
-                  {/* Changed font-bold to font-normal */}
                   <h3 className="relative z-10 text-[1.1rem] font-normal leading-tight text-white drop-shadow-md pr-4">
                     {card.title.split(' ').map((word, i) => (
                       <React.Fragment key={i}>{word}<br/></React.Fragment>
