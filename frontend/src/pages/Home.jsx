@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Home = () => {
   const images = [
-    "/src/assets/web.png",
-    "../src/assets/pic2.jpg",
-    "/src/assets/iot.jpg",
-    "/src/assets/cyber.jpg",
-    "/src/assets/digital.jpg",
-    "/src/assets/strategy.jpg"
+    "/assets/web.png",
+    "/assets/pic2.jpg",
+    "/assets/iot.jpg",
+    "/assets/cyber.jpg",
+    "/assets/digital.jpg",
+    "/assets/strategy.jpg"
   ];
 
   const content = [
@@ -242,9 +242,9 @@ const Home = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <img src="/src/assets/web.png" alt="AI product" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500" />
-              <img src="../src/assets/img2.png" alt="Office" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500" />
-              <img src="../src/assets/img3.png" alt="Branding" className="rounded-lg object-cover w-full h-48 md:h-56 shadow-lg hover:scale-105 transition-transform duration-500" />
+              <img src="/assets/web.png" alt="AI product" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500" />
+              <img src="/assets/img2.png" alt="Office" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500" />
+              <img src="/assets/img3.png" alt="Branding" className="rounded-lg object-cover w-full h-48 md:h-56 shadow-lg hover:scale-105 transition-transform duration-500" />
             </motion.div>
           </div>
         </section>
