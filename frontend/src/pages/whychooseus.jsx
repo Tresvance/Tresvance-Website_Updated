@@ -1,78 +1,116 @@
-import { motion as Motion } from "framer-motion";
-import { useState } from "react";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 
-const whyChooseUsPoints = [
+const points = [
   {
-    number: "01",
-    title: "Intelligent AI Integration"
+    num: "01",
+    title: "Cutting-Edge Expertise",
+    description: "We don't just follow tech trends; we build them. From advanced machine learning models to enterprise full-stack ecosystems, our engineering team brings deep, specialized technical mastery to every single line of code."
   },
   {
-    number: "02",
-    title: "Scalable IT Frameworks"
+    num: "02",
+    title: "Precision Security Frameworks",
+    description: "Every digital product we deploy is hardened against vulnerabilities from day one. With zero-trust architecture blueprints and absolute adherence to global security protocols, your asset scales safely."
   },
   {
-    number: "03",
-    title: "End-to-End Product Innovation"
+    num: "03",
+    title: "Client-Centric Product Architecture",
+    description: "We don't do vendor lock-ins or black-box solutions. You get full code ownership, transparent documentation, agile delivery pipelines, and regular iterative showcases that adapt cleanly to market demands."
   },
   {
-    number: "04",
-    title: "Data-Driven Operational Efficiency"
-  },
-  {
-    number: "05",
-    title: "Enterprise-Grade Cyber Security"
-  },
-  {
-    number: "06",
-    title: "24/7 Global Managed Support"
+    num: "04",
+    title: "Scalable Data & Automation Engines",
+    description: "We architect data pipelines and IoT bridges built for massive operational volumes. Your workflows automate smoothly, turning real-time streaming data into immediate, tactical business logic."
   }
 ];
 
+const optimizedViewport = { once: true, margin: "0px 0px -100px 0px" };
+
 const WhyChooseUs = () => {
-  const [hoveredPoint, setHoveredPoint] = useState(null);
+  // ── THE BRUTE FORCE FIX ──
+  // This forcefully overrides any lingering global overflow-hidden properties
+  // that are breaking the scroll context on page load.
+  useEffect(() => {
+    const root = document.getElementById("root");
+    const top = document.getElementById("top");
+    
+    if (root) root.style.overflow = "visible";
+    if (top) top.style.overflow = "visible";
+    document.body.style.overflowX = "visible";
+    document.documentElement.style.overflowX = "visible";
+
+    return () => {
+      // Cleanup on unmount
+      if (root) root.style.overflow = "";
+      if (top) top.style.overflow = "";
+      document.body.style.overflowX = "";
+      document.documentElement.style.overflowX = "";
+    };
+  }, []);
 
   return (
-    <section className="relative w-full bg-[#070707] text-white px-6 lg:px-20 py-24 font-sans">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-16">
+    <section 
+      className="w-full bg-[#070707] px-6 sm:px-10 md:px-16 lg:px-20 py-24 relative" 
+      style={{ overflow: "visible" }}
+    >
+      <div 
+        className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 relative" 
+        style={{ overflow: "visible", alignItems: "flex-start" }}
+      >
         
-        {/* LEFT SIDE: Sticky Title Panel */}
-        <div className="w-full lg:w-5/12 lg:sticky lg:top-36 self-start">
-          {/* Changed font-bold to font-normal */}
-          <h4 className="text-sm uppercase font-normal tracking-wider mb-4 font-sans" style={{ color: '#06A3DA' }}>
-            WHY CHOOSE US
-          </h4>
-          {/* Changed font-black to font-normal */}
-          <h2 className="text-4xl lg:text-6xl font-normal leading-tight tracking-tight text-white font-sans">
-            Committed to <br /> Delivering Results <br /> & Success
-          </h2>
+        {/* ── LEFT SIDE SECTION (STICKY) ── */}
+        {/* Using pure inline styles guarantees the browser respects the sticky positioning */}
+        <div 
+          className="w-full md:w-[40%] z-20"
+          style={{ 
+            position: "sticky", 
+            top: "120px", 
+            alignSelf: "flex-start" 
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={optimizedViewport}
+            className="flex flex-col gap-6"
+          >
+            <span className="text-lime-200 uppercase font-mono tracking-widest text-sm">
+              // Core Advantages
+            </span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina text-white">
+              Why Forward-Thinking <br /> Businesses Choose <br /> Tresvance.
+            </h2>
+            <p className="text-gray-400 text-lg leading-relaxed mt-4 max-w-md">
+              We engineer mission-critical systems and elegant user interfaces that transform raw digital potential into unfair competitive advantages.
+            </p>
+          </motion.div>
         </div>
 
-        {/* RIGHT SIDE: Sans-Serif Big Titles Layout */}
-        <div className="w-full lg:w-7/12 space-y-10 lg:py-4">
-          {whyChooseUsPoints.map((point) => (
-            <Motion.div
-              key={point.number}
-              initial={{ opacity: 0, y: 25 }}
+        {/* ── RIGHT SIDE SECTION (SCROLLABLE) ── */}
+        <div className="w-full md:w-[60%] flex flex-col gap-8">
+          {points.map((point, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
-              className="flex items-center space-x-6 border-b border-gray-800 pb-6"
-              onMouseEnter={() => setHoveredPoint(point.number)}
-              onMouseLeave={() => setHoveredPoint(null)}
+              transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
+              viewport={optimizedViewport}
+              className="w-full p-8 md:p-12 bg-[#111111] border border-gray-900 rounded-[2rem] flex flex-col gap-6 group hover:border-gray-800 transition-colors duration-300"
             >
-              {/* Darkened the watermark numbers so they don't overpower the white text */}
-              <span className="text-4xl lg:text-5xl font-black select-none w-16 font-sans text-gray-700">
-                {point.number}
-              </span>
-              {/* Changed font-semibold to font-normal */}
-              <h3 
-                className="text-2xl lg:text-4xl font-normal tracking-tight transition-colors duration-300 font-sans"
-                // Flipped the base color to white, keeps the blue on hover
-                style={{ color: hoveredPoint === point.number ? '#06A3DA' : '#ffffff' }}
-              >
+              <div className="flex justify-between items-center">
+                <span className="text-3xl font-machina font-bold text-gray-600 group-hover:text-lime-200 transition-colors duration-300">
+                  {point.num}
+                </span>
+                <div className="w-2 h-2 rounded-full bg-gray-800 group-hover:bg-lime-200 transition-colors duration-300" />
+              </div>
+              <h3 className="text-2xl font-machina text-white font-normal tracking-tight">
                 {point.title}
               </h3>
-            </Motion.div>
+              <p className="text-gray-400 font-light leading-relaxed text-base md:text-md">
+                {point.description}
+              </p>
+            </motion.div>
           ))}
         </div>
 

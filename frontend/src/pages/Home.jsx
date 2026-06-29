@@ -111,7 +111,7 @@ const Home = () => {
   const optimizedViewport = { once: true, margin: "0px 0px -100px 0px" };
 
   return (
-    <div className="w-full bg-[#070707] text-white font-sans m-0 p-0 overflow-x-hidden">
+    <div className="w-full bg-[#070707] text-white font-sans m-0 p-0 ">
       <main className="w-full pt-[80px] md:pt-[80px] bg-[#070707] m-0 p-0">
         
         <style dangerouslySetInnerHTML={{ __html: `
@@ -191,13 +191,19 @@ const Home = () => {
         {/* ── MARQUEE + WHAT WE DO SECTION ── */}
         <section className="py-20 bg-[#070707] px-6 sm:px-10 md:px-16 lg:px-20">
           <div className="overflow-hidden w-full mb-12">
-            <h2 className="text-5xl md:text-6xl font-machina flex items-center justify-center relative" style={{ willChange: "transform" }}>
-              <div className="marquee-wrapper w-full">
-                <div className="marquee flex space-x-8 tracking-widest">
-                  ‎ INNOVATE‎ <span className="spinning-shape"></span>
-                  ‎ INTEGRATE <span className="spinning-shape"></span>
-                  ‎ ELEVATE <span className="spinning-shape"></span>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-machina flex items-center justify-center relative select-none pointer-events-none" style={{ willChange: "transform" }}>
+              <div className="marquee-wrapper w-full flex overflow-hidden whitespace-nowrap">
+                
+                {/* Single Track Layout with clean uniform element gaps */}
+                <div className="marquee flex flex-row flex-nowrap whitespace-nowrap items-center gap-12 tracking-widest w-max flex-shrink-0">
+                  <span>INNOVATE</span>
+                  <span className="spinning-shape"></span>
+                  <span>INTEGRATE</span>
+                  <span className="spinning-shape"></span>
+                  <span>ELEVATE</span>
+                  <span className="spinning-shape"></span>
                 </div>
+
               </div>
             </h2>
           </div>
