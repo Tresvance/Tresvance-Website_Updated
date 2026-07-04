@@ -28,8 +28,6 @@ const optimizedViewport = { once: true, margin: "0px 0px -100px 0px" };
 
 const WhyChooseUs = () => {
   // ── THE BRUTE FORCE FIX ──
-  // This forcefully overrides any lingering global overflow-hidden properties
-  // that are breaking the scroll context on page load.
   useEffect(() => {
     const root = document.getElementById("root");
     const top = document.getElementById("top");
@@ -40,7 +38,6 @@ const WhyChooseUs = () => {
     document.documentElement.style.overflowX = "visible";
 
     return () => {
-      // Cleanup on unmount
       if (root) root.style.overflow = "";
       if (top) top.style.overflow = "";
       document.body.style.overflowX = "";
@@ -58,8 +55,7 @@ const WhyChooseUs = () => {
         style={{ overflow: "visible", alignItems: "flex-start" }}
       >
         
-        {/* ── LEFT SIDE SECTION (STICKY) ── */}
-        {/* Using pure inline styles guarantees the browser respects the sticky positioning */}
+        {/* ── LEFT SIDE SECTION (STICKY & BOXED) ── */}
         <div 
           className="w-full md:w-[40%] z-20"
           style={{ 
@@ -73,12 +69,13 @@ const WhyChooseUs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={optimizedViewport}
-            className="flex flex-col gap-6"
+            // Applying the card design: background, border, padding, rounding, and a shadow for elevation
+            className="flex flex-col gap-6 p-8 md:p-12 bg-[#111111] border border-gray-900 rounded-[2rem] shadow-2xl shadow-black/50"
           >
             <span className="text-lime-200 uppercase font-mono tracking-widest text-sm">
               // Core Advantages
             </span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina text-white">
+            <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight font-machina text-white">
               Why Forward-Thinking <br /> Businesses Choose <br /> Tresvance.
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed mt-4 max-w-md">
