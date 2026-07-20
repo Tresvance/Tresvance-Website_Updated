@@ -1,0 +1,268 @@
+/* =====================================================
+   WHY CHOOSE US
+===================================================== */
+
+.why-choose-us-section {
+    width: 100%;
+    background: #070707;
+    padding: 120px 40px;
+}
+
+.why-choose-us-container {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    gap: 80px;
+    align-items:start;
+}
+
+/* ===========================
+   LEFT
+=========================== */
+
+.why-choose-us-left {
+    position: relative;
+}
+
+.why-choose-us-sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px;
+
+    background: #020202;
+    border: 1px solid #717171;
+    border-radius: 32px;
+    padding: 60px 50px;
+    
+}
+
+.why-subtitle {
+    display: block;
+
+    color: #bef264;
+
+    text-transform: uppercase;
+
+    letter-spacing: .3em;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+.why-choose-us-sticky h2 {
+
+    color: white;
+
+    font-size: 56px;
+
+    line-height: 1.1;
+
+    font-weight: 400;
+
+    margin-bottom: 30px;
+}
+
+.why-choose-us-sticky p {
+
+    color: #9ca3af;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+/* ===========================
+   RIGHT
+=========================== */
+
+.why-choose-us-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:35px;
+
+    max-height: calc(100vh - 180px);
+
+    overflow-y: auto;
+
+    padding-right: 16px;
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+
+}
+
+.why-choose-us-right::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.point-card {
+
+    background: #000000;
+
+    border-radius: 28px;
+
+    border: 1px solid #3f3f3f;
+
+    padding: 50px;
+
+    transition: .35s ease;
+
+    box-shadow: 0 25px 60px rgba(0,0,0,.35);
+}
+
+.point-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #bef264;
+}
+
+.card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.card-number {
+
+    color: #666;
+
+    font-size: 42px;
+
+    font-weight: bold;
+}
+
+.card-dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #bef264;
+}
+
+.point-card h3 {
+
+    color: white;
+
+    font-size: 30px;
+
+    margin-top: 30px;
+
+    margin-bottom: 20px;
+
+    font-weight: 500;
+}
+
+.point-card p {
+
+    color: #9ca3af;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width:1024px){
+
+.why-choose-us-container{
+
+gap:50px;
+
+}
+
+.why-choose-us-sticky h2{
+
+font-size:46px;
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+.why-choose-us-section{
+
+padding:80px 20px;
+
+}
+
+.why-choose-us-container{
+
+flex-direction:column;
+
+gap:40px;
+
+}
+
+.why-choose-us-left,
+
+.why-choose-us-right{
+
+width:100%;
+
+}
+
+.why-choose-us-sticky{
+
+position:sticky;
+
+position:-webkit-sticky;
+
+top:80px;
+
+padding:40px 30px;
+
+}
+
+.why-choose-us-sticky h2{
+
+font-size:38px;
+
+}
+
+.point-card{
+
+padding:35px 25px;
+
+}
+
+.point-card h3{
+
+font-size:24px;
+
+}
+
+.point-card p{
+
+font-size:16px;
+
+}
+
+}
