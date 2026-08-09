@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 
 // Static data moved OUTSIDE the component to prevent lag from constant recreation
 const images = [
-  "/assets/web.png",
-  "/assets/pic2.jpg",
-  "/assets/iot.jpg",
-  "/assets/cyber.jpg",
-  "/assets/digital.jpg",
+  "/works_images/bmc.png",
+  "/works_images/qpet.png",
+  "/works_images/east_west.png",
+  "/works_images/sweetbloom.png",
+  "/works_images/biohippo.png",
   "/assets/strategy.jpg"
 ];
 
@@ -24,8 +24,8 @@ const content = [
 ];
 
 const worksCards = [
-  { id: 1, title: "Employee Handbook", image: images[1] },
-  { id: 2, title: "Project Reports", image: images[2] },
+  { id: 1, title: "BMCE", image: images[1] },
+  { id: 2, title: "BMCE", image: images[2] },
   { id: 3, title: "Hiring", image: images[3] },
   { id: 4, title: "Annual Report", image: images[4] },
   { id: 5, title: "New Products", image: images[5] },
@@ -240,9 +240,9 @@ const Home = () => {
               viewport={optimizedViewport}
               style={{ willChange: "transform, opacity" }}
             >
-              <img src="/assets/web.png" alt="AI product" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
-              <img src="/assets/img2.png" alt="Office" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
-              <img src="/assets/img3.png" alt="Branding" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-48 md:h-56 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
+              <img src="/what_we/img1.png" alt="AI product" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
+              <img src="/what_we/img2.png" alt="Office" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
+              <img src="/what_we/img3.png" alt="Branding" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-48 md:h-56 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
             </motion.div>
           </div>
         </section>
@@ -390,7 +390,7 @@ const Home = () => {
                 style={{ willChange: "transform, opacity" }}
                 className="col-span-2 md:col-span-1 row-span-2 rounded-[2rem] p-6 flex flex-col justify-between relative group cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden bg-[#111]"
               >
-                <img src={images[0]} alt="Team Updates" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
+                <img src={images[0]} alt="BMCE" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
 
                 <div className="relative z-10 self-end w-8 h-8 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">

@@ -43,8 +43,7 @@ const Contact = () => {
                   <h2 className="font-semibold text-sky-500 text-lg">
                     Call Us on
                   </h2>
-                  <p>Trivandrum: +91 8921187643</p>
-                  <p>Kochi: +91 8129108139</p>
+                  <p>Kochi: +91 9778057201</p>
                 </div>
               </div>
     

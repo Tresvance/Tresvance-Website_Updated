@@ -22,7 +22,7 @@ function App() {
           <Route path="/choose-us" element={<Choose />} />
           <Route path="/join-us" element={<JoinUs />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/our-works" element={<OurWorks />} />
+          {/* <Route path="/our-works" element={<OurWorks />} /> */}
         </Routes>
 
         {/* Chatbot visible on all pages */}
