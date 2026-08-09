@@ -29,8 +29,8 @@ const Contact = () => {
                   <h2 className="font-semibold text-sky-500 text-lg">
                     Email Address
                   </h2>
-                  <p>Logotrivandrum@gmail.com</p>
-                  <p>Logokochi@gmail.com</p>
+                  <p>info@tresvance.com</p>
+                  <p>contact@tresvance.com</p>
                 </div>
               </div>
     
@@ -43,13 +43,13 @@ const Contact = () => {
                   <h2 className="font-semibold text-sky-500 text-lg">
                     Call Us on
                   </h2>
-                  <p>Trivandrum: +91 98760975435</p>
-                  <p>Kochi: +91 98760975435</p>
+                  <p>Trivandrum: +91 8921187643</p>
+                  <p>Kochi: +91 8129108139</p>
                 </div>
               </div>
     
               {/* Location */}
-              <div className="flex items-start gap-4">
+              {/* <div className="flex items-start gap-4">
                 <div className="bg-sky-500 text-white p-3 rounded-full text-2xl">
                   <MdLocationOn />
                 </div>
@@ -68,7 +68,7 @@ const Contact = () => {
                     </a>
                   </p>
                 </div>
-              </div>
+              </div> */}
     
               {/* Social Media */}
               <div className="pt-4 border-t">

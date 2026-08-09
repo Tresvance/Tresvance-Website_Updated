@@ -1,4 +1,5 @@
 import React from "react";
+import "./whychooseus.css";
 import "./WhyChooseUs.css";
 
 const points = [
@@ -16,6 +17,15 @@ const points = [
   },
   {
     num: "03",
+    title: "Client-Centric Architecture",
+    description:
+      "You receive complete code ownership, transparent documentation, agile delivery, and scalable solutions built exactly around your core business parameters.",
+  },
+  {
+    num: "04",
+    title: "Scalable Data Engines",
+    description:
+      "From AI workflows to IoT integrations, we automate complex business operations and transform raw data into intelligent, structured decision-making.",
     title: "Client-Centric Product Architecture",
     description:
       "You receive complete code ownership, transparent documentation, agile delivery, and scalable solutions built around your business goals.",
@@ -30,6 +40,44 @@ const points = [
 
 const WhyChooseUs = () => {
   return (
+    <section className="arch-values-section">
+      <div className="arch-container">
+        
+        {/* UTILITY HEADER */}
+        <header className="arch-utility-header">
+          <div className="utility-left">
+            <span>FILTER: VALUES / ADVANTAGES</span>
+          </div>
+          <div className="utility-right">
+            <span className="active-metric">METRIC</span>
+            <span className="metric-divider"></span>
+            <span className="inactive-metric">IMPERIAL</span>
+          </div>
+        </header>
+
+        {/* COLLECTION LIST */}
+        <div className="arch-collection-list">
+          {points.map((point) => (
+            <div key={point.num} className="arch-collection-row">
+              
+              <div className="row-number">
+                {point.num}
+              </div>
+
+              <div className="row-content">
+                <h2 className="row-title">{point.title}</h2>
+                <div className="row-description-wrapper">
+                  <p className="row-description">{point.description}</p>
+                </div>
+              </div>
+
+              <div className="row-action">
+                <div className="minimal-plus">
+                  <span className="horizontal"></span>
+                  <span className="vertical"></span>
+                </div>
+              </div>
+
     <section className="why-choose-us-section">
       <div className="why-choose-us-container">
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import WhyChooseUs from "./whychooseus.jsx";
+import CustomerReviews from "./CustomerReviews.jsx";
 import { motion } from "framer-motion";
 
 // Static data moved OUTSIDE the component to prevent lag from constant recreation
@@ -431,6 +432,9 @@ const Home = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* ── CUSTOMER REVIEWS SECTION ── */}
+        <CustomerReviews />
 
       </main>
     </div>
