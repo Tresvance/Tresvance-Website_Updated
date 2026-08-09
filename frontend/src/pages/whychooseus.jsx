@@ -5,7 +5,7 @@ import "./WhyChooseUs.css";
 const points = [
   {
     num: "01",
-    title: "Cutting-Edge Expertise",
+    title: "Cutting-Edge Expertise in Tech",
     description:
       "We don't just follow tech trends; we build them. From advanced machine learning models to enterprise full-stack ecosystems, our engineering team brings deep technical mastery to every line of code.",
   },
