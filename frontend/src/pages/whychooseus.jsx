@@ -1,5 +1,6 @@
 import React from "react";
 import "./whychooseus.css";
+import "./WhyChooseUs.css";
 
 const points = [
   {
@@ -25,6 +26,15 @@ const points = [
     title: "Scalable Data Engines",
     description:
       "From AI workflows to IoT integrations, we automate complex business operations and transform raw data into intelligent, structured decision-making.",
+    title: "Client-Centric Product Architecture",
+    description:
+      "You receive complete code ownership, transparent documentation, agile delivery, and scalable solutions built around your business goals.",
+  },
+  {
+    num: "04",
+    title: "Scalable Data & Automation Engines",
+    description:
+      "From AI workflows to IoT integrations, we automate business operations and transform data into intelligent decision-making.",
   },
 ];
 
@@ -68,6 +78,50 @@ const WhyChooseUs = () => {
                 </div>
               </div>
 
+    <section className="why-choose-us-section">
+      <div className="why-choose-us-container">
+
+        {/* LEFT SIDE */}
+        <div className="why-choose-us-left">
+          <div className="why-choose-us-sticky">
+            <span className="why-subtitle">
+              // Core Advantages
+            </span>
+
+            <h2>
+              Why Forward-Thinking
+              <br />
+              Businesses Choose
+              <br />
+              Tresvance.
+            </h2>
+
+            <p>
+              We engineer mission-critical systems and elegant user
+              interfaces that transform raw digital potential into
+              unfair competitive advantages.
+            </p>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE */}
+        <div className="why-choose-us-right">
+          {points.map((point) => (
+            <div
+              key={point.num}
+              className="point-card"
+            >
+              <div className="card-top">
+                <span className="card-number">
+                  {point.num}
+                </span>
+
+                <span className="card-dot"></span>
+              </div>
+
+              <h3>{point.title}</h3>
+
+              <p>{point.description}</p>
             </div>
           ))}
         </div>
