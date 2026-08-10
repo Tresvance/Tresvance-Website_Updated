@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import WhyChooseUs from "./whychooseus.jsx";
 import CustomerReviews from "./CustomerReviews.jsx";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 // Static data moved OUTSIDE the component to prevent lag from constant recreation
 const images = [
@@ -219,7 +219,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center py-20 px-6 md:px-12">
-            <motion.div
+            <Motion.div
               className="flex flex-col justify-center"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -239,9 +239,9 @@ const Home = () => {
               <a href="#" className="w-fit underline text-base font-normal hover:text-[#a14d2e] transition-colors duration-300">
                 Learn more about us
               </a>
-            </motion.div>
+            </Motion.div>
 
-            <motion.div
+            <Motion.div
               className="flex flex-col gap-4"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -252,13 +252,13 @@ const Home = () => {
               <img src="/what_we/img1.png" alt="AI product" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
               <img src="/what_we/img2.png" alt="Office" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
               <img src="/what_we/img3.png" alt="Branding" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-48 md:h-56 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
-            </motion.div>
+            </Motion.div>
           </div>
         </section>
 
         {/* ── OUR SERVICES ── */}
         <section className="py-20 bg-[#070707] pl-6 sm:pl-10 md:pl-16 lg:pl-20 overflow-hidden">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -293,11 +293,11 @@ const Home = () => {
                 </svg>
               </button>
             </div>
-          </motion.div>
+          </Motion.div>
 
           <div ref={servicesRowRef} className="flex gap-6 overflow-x-auto pb-10 snap-x snap-mandatory hide-scrollbar pr-6 md:pr-20" style={{ transform: "translateZ(0)" }}>
             {content.map((service, index) => (
-              <motion.div
+              <Motion.div
                 key={index}
                 className="relative min-w-[300px] md:min-w-[360px] h-[480px] rounded-[2rem] overflow-hidden bg-[#111] border border-gray-800 snap-center group cursor-pointer"
                 whileHover="hover"
@@ -305,7 +305,7 @@ const Home = () => {
                 onMouseEnter={playHoverSound}
                 style={{ willChange: "transform" }}
               >
-                <motion.img
+                <Motion.img
                   src={images[index]}
                   alt={service.title}
                   loading="lazy"
@@ -317,7 +317,7 @@ const Home = () => {
                   0{index + 1}
                 </div>
 
-                <motion.div
+                <Motion.div
                   className="absolute inset-0 p-8 flex flex-col justify-end z-10"
                   variants={{ initial: { opacity: 1, y: 0 }, hover: { opacity: 0, y: -20 } }}
                   transition={{ duration: 0.3 }}
@@ -325,9 +325,9 @@ const Home = () => {
                   <h3 className="text-2xl md:text-3xl font-normal leading-tight font-machina drop-shadow-md">
                     {service.title}
                   </h3>
-                </motion.div>
+                </Motion.div>
 
-                <motion.div
+                <Motion.div
                   className="absolute inset-0 p-8 flex flex-col justify-center bg-black/60 z-10"
                   variants={{ initial: { opacity: 0, y: 20 }, hover: { opacity: 1, y: 0 } }}
                   transition={{ duration: 0.3 }}
@@ -338,8 +338,8 @@ const Home = () => {
                   <p className="text-gray-300 text-base md:text-lg leading-relaxed">
                     {service.description}
                   </p>
-                </motion.div>
-              </motion.div>
+                </Motion.div>
+              </Motion.div>
             ))}
           </div>
         </section>
@@ -348,40 +348,40 @@ const Home = () => {
 
         {/* ── STATS SECTION ── */}
         <section className="py-12 sm:py-16 bg-[#070707] px-4 flex items-center justify-center md:ml-[90px] sm:px-8 overflow-x-hidden">
-          <motion.div
+          <Motion.div
             className="flex flex-col md:flex-row items-center md:items-start justify-start md:space-x-12 mt-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={optimizedViewport}
           >
-            <motion.h2
+            <Motion.h2
               variants={{ visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
               initial={{ opacity: 0, x: -50 }}
               style={{ willChange: "transform, opacity" }}
               className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina"
             >
               <br /> Numbers That <br />Reflect<br /> Our Journey
-            </motion.h2>
+            </Motion.h2>
 
-            <motion.div className="relative flex justify-center items-center w-[380px] md:w-[420px] h-[300px] md:h-[340px] ml-0 md:ml-8" variants={containerVariants}>
-              <motion.div variants={circleVariants("left")} whileHover={{ scale: 1.05 }} className="absolute left-3 top-10 bg-lime-200 rounded-full w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 flex flex-col items-center justify-center text-center z-20 shadow-md text-black will-change-transform">
+            <Motion.div className="relative flex justify-center items-center w-[380px] md:w-[420px] h-[300px] md:h-[340px] ml-0 md:ml-8" variants={containerVariants}>
+              <Motion.div variants={circleVariants("left")} whileHover={{ scale: 1.05 }} className="absolute left-3 top-10 bg-lime-200 rounded-full w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 flex flex-col items-center justify-center text-center z-20 shadow-md text-black will-change-transform">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold">25</div>
                 <div className="text-xs sm:text-sm text-gray-700">Projects Done</div>
-              </motion.div>
+              </Motion.div>
 
-              <motion.div variants={circleVariants("right")} whileHover={{ scale: 1.05 }} className="absolute right-3 top-0 bg-purple-200 rounded-full w-40 sm:w-48 md:w-64 h-40 sm:h-48 md:h-64 flex flex-col items-center justify-center text-center z-10 shadow-md text-black will-change-transform">
+              <Motion.div variants={circleVariants("right")} whileHover={{ scale: 1.05 }} className="absolute right-3 top-0 bg-purple-200 rounded-full w-40 sm:w-48 md:w-64 h-40 sm:h-48 md:h-64 flex flex-col items-center justify-center text-center z-10 shadow-md text-black will-change-transform">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold">5+</div>
                 <div className="text-xs sm:text-sm text-gray-700">Years Of Experience</div>
-              </motion.div>
+              </Motion.div>
 
-              <motion.div variants={circleVariants("bottom")} whileHover={{ scale: 1.05 }} className="absolute bottom-[10px] left-1/3 bg-[#1a1a1a] border border-gray-700 rounded-full w-28 sm:w-32 md:w-36 h-28 sm:h-32 md:h-36 flex flex-col items-center justify-center text-center z-30 shadow-lg will-change-transform">
+              <Motion.div variants={circleVariants("bottom")} whileHover={{ scale: 1.05 }} className="absolute bottom-[10px] left-1/3 bg-[#1a1a1a] border border-gray-700 rounded-full w-28 sm:w-32 md:w-36 h-28 sm:h-32 md:h-36 flex flex-col items-center justify-center text-center z-30 shadow-lg will-change-transform">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold">20</div>
                 <div className="text-xs sm:text-sm md:text-base text-gray-300">Happy Clients</div>
-              </motion.div>
-            </motion.div>
+              </Motion.div>
+            </Motion.div>
 
-            <motion.p
+            <Motion.p
               variants={{ visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
               initial={{ opacity: 0, x: 50 }}
               style={{ willChange: "transform, opacity" }}
@@ -393,14 +393,14 @@ const Home = () => {
               Every project, client, and innovation<br />
               we deliver contributes to a story of<br />
               <span className="font-semibold text-white">GROWTH, TRUST & EXCELLENCE.</span>
-            </motion.p>
-          </motion.div>
+            </Motion.p>
+          </Motion.div>
         </section>
 
         {/* ── OUR WORKS SECTION ── */}
         <section className="py-24 bg-[#070707] flex justify-center px-6 md:px-16">
           <div className="w-full max-w-7xl">
-            <motion.h2
+            <Motion.h2
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
@@ -409,16 +409,16 @@ const Home = () => {
               className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina mb-12"
             >
               Our Works
-            </motion.h2>
+            </Motion.h2>
 
-            <motion.div 
+            <Motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={optimizedViewport}
               className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 auto-rows-[180px] md:auto-rows-[220px]"
             >
-              <motion.div 
+              <Motion.div 
                 variants={cardVariants}
                 style={{ willChange: "transform, opacity" }}
                 className="col-span-2 md:col-span-1 row-span-2 rounded-[2rem] p-6 flex flex-col justify-between relative group cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden bg-[#111]"
@@ -436,10 +436,10 @@ const Home = () => {
                 <div className="relative z-10 flex flex-col justify-end h-full mt-10">
                   <h3 className="text-2xl font-normal leading-tight drop-shadow-md">Team<br/>Updates</h3>
                 </div>
-              </motion.div>
+              </Motion.div>
 
               {worksCards.map((card) => (
-                <motion.div 
+                <Motion.div 
                   key={card.id}
                   variants={cardVariants}
                   style={{ willChange: "transform, opacity" }}
@@ -460,9 +460,9 @@ const Home = () => {
                       <React.Fragment key={i}>{word}<br/></React.Fragment>
                     ))}
                   </h3>
-                </motion.div>
+                </Motion.div>
               ))}
-            </motion.div>
+            </Motion.div>
           </div>
         </section>
 

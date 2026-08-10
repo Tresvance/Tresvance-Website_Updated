@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 // Static data outside the component to prevent re-renders
 const reviewsData = [
@@ -92,7 +92,7 @@ const CustomerReviews = () => {
     <section className="py-24 bg-[#070707] pl-6 sm:pl-10 md:pl-16 lg:pl-20 overflow-hidden">
       
       {/* Header Section */}
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -132,10 +132,10 @@ const CustomerReviews = () => {
             </svg>
           </button>
         </div>
-      </motion.div>
+      </Motion.div>
 
       {/* Scrollable Slider */}
-      <motion.div 
+      <Motion.div 
         ref={reviewsRowRef}
         variants={containerVariants}
         initial="hidden"
@@ -145,7 +145,7 @@ const CustomerReviews = () => {
         style={{ transform: "translateZ(0)" }}
       >
         {reviewsData.map((review) => (
-          <motion.div
+          <Motion.div
             key={review.id}
             variants={cardVariants}
             style={{ willChange: "transform, opacity" }}
@@ -172,9 +172,9 @@ const CustomerReviews = () => {
               <p className="text-gray-400 text-sm mt-1">{review.role}</p>
               <p className="text-gray-500 text-sm mt-0.5">{review.date}</p>
             </div>
-          </motion.div>
+          </Motion.div>
         ))}
-      </motion.div>
+      </Motion.div>
 
     </section>
   );
