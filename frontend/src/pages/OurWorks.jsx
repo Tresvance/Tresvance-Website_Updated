@@ -9,29 +9,29 @@ const slidesData = [
     title: "BMCE College Website",
     description:
       "A comprehensive web application designed for BMCE College to streamline academic operations and enhance digital accessibility. . Built with a focus on performance, scalability, and user-friendly navigation to support a modern educational experience.",
-    imgUrl: img,
+    imgUrl: "/public/works_images/bmc.png",
     link: "https://www.bmce.ac.in/",
   },
   {
     title: "BioHippo ",
     description:
       "An innovative web platform crafted for scientists and researchers to source, compare, and purchase laboratory materials efficiently. BioHippo bridges the gap between suppliers and research institutions by offering a centralized digital marketplace for biological reagents, chemicals, and laboratory consumables.",
-    imgUrl: img,
+    imgUrl: "/public/works_images/biohippo.jpeg",
     link: "https://theresahebiohippocom.wpcomstaging.com/",
   },
   {
     title: "SweetBloom ",
     description:
       "An elegant and feature-rich e-commerce platform built for SweetBloom, a luxury chocolate and flower boutique based in Qatar. The website provides a beautiful product showcase, real-time inventory updates, secure order management, and a smooth checkout experience.",
-    imgUrl: img,
+    imgUrl: "/public/works_images/workssweetbloom.png",
     link: "/projects/sweetbloom",
   },
   {
-    title: "Final Showcase",
+    title: "QPet",
     description:
-      "A curated collection of our most impactful digital projects — spanning AI-driven systems, e-commerce solutions, and research platforms. Each project demonstrates our dedication to innovation, performance, and human-centered design. This showcase reflects the evolution of our creative and technical journey toward redefining digital experiences through technology.",
-    imgUrl: img,
-    link: "/projects/showcase",
+      "QPet is a pet boarding service in Qatar is designed to provide personalized care, daily attention, and a calm environment that keeps dogs and cats relaxed, happy, and well cared.",
+    imgUrl: "/public/works_images/worksqpet.png",
+    link: "/projects/qpet",
   },
 ];
 
@@ -74,15 +74,15 @@ const OurWorks = () => {
               }}
             >
        
-              <div className="w-1/2  h-full  ">
+              <div className="w-1/2 h-full">
                 <img
                   src={slide.imgUrl}
                   alt={slide.title}
-                  className=" object-cover h-full w-full"
+                  className="object-cover h-full w-full blur-[2px]"
                 />
               </div>
 
-              
+
               <div className="w-1/2 flex flex-col justify-between h-72 p-6">
                 <div>
                   <h2 className="text-3xl font-bold mb-4">{slide.title}</h2>
