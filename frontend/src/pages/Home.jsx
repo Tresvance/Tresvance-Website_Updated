@@ -74,6 +74,15 @@ const circleVariants = (direction) => ({
 const Home = () => {
   const hoverSound = useRef(null);
   const isPlayingRef = useRef(false);
+  const servicesRowRef = useRef(null);
+
+  const scrollServices = (direction) => {
+    if (!servicesRowRef.current) return;
+    servicesRowRef.current.scrollBy({
+      left: direction * 420,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     // Preload audio
@@ -255,14 +264,38 @@ const Home = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={optimizedViewport}
             style={{ willChange: "transform, opacity" }}
-            className="mb-12"
+            className="mb-8 flex items-end justify-between gap-4 pr-6 md:pr-20"
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina">
               Our Services
             </h2>
+
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                aria-label="Scroll services left"
+                onClick={() => scrollServices(-1)}
+                className="flex h-10 w-10 items-center justify-center text-3xl font-black leading-none text-white transition-all duration-300 hover:-translate-x-0.5 hover:text-[#f5b276]"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+
+              <button
+                type="button"
+                aria-label="Scroll services right"
+                onClick={() => scrollServices(1)}
+                className="flex h-10 w-10 items-center justify-center text-3xl font-black leading-none text-white transition-all duration-300 hover:translate-x-0.5 hover:text-[#f5b276]"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
           </motion.div>
 
-          <div className="flex gap-6 overflow-x-auto pb-10 snap-x snap-mandatory hide-scrollbar pr-6 md:pr-20" style={{ transform: "translateZ(0)" }}>
+          <div ref={servicesRowRef} className="flex gap-6 overflow-x-auto pb-10 snap-x snap-mandatory hide-scrollbar pr-6 md:pr-20" style={{ transform: "translateZ(0)" }}>
             {content.map((service, index) => (
               <motion.div
                 key={index}

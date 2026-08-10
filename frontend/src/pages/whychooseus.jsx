@@ -36,13 +36,13 @@ const WhyChooseUs = () => {
         {/* UTILITY HEADER */}
         <header className="arch-utility-header">
           <div className="utility-left">
-            <span>FILTER: VALUES / ADVANTAGES</span>
+            <span>WHY CHOOSE US</span>
           </div>
-          <div className="utility-right">
+          {/* <div className="utility-right">
             <span className="active-metric">METRIC</span>
             <span className="metric-divider"></span>
             <span className="inactive-metric">IMPERIAL</span>
-          </div>
+          </div> */}
         </header>
 
         {/* COLLECTION LIST */}
