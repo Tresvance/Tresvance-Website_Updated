@@ -78,6 +78,15 @@ const StarIcon = () => (
 
 const CustomerReviews = () => {
   const optimizedViewport = { once: true, margin: "0px 0px -100px 0px" };
+  const reviewsRowRef = React.useRef(null);
+
+  const scrollReviews = (direction) => {
+    if (!reviewsRowRef.current) return;
+    reviewsRowRef.current.scrollBy({
+      left: direction * 420,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="py-24 bg-[#070707] pl-6 sm:pl-10 md:pl-16 lg:pl-20 overflow-hidden">
@@ -89,18 +98,45 @@ const CustomerReviews = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={optimizedViewport}
         style={{ willChange: "transform, opacity" }}
-        className="mb-12 pr-6 md:pr-16"
+        className="mb-8 flex items-end justify-between gap-4 pr-6 md:pr-16"
       >
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina text-white">
-          What <span className="text-[#F59E0B]">people</span> say
-        </h2>
-        <p className="text-gray-400 text-lg md:text-xl mt-4 font-light max-w-2xl">
-          A few thoughts from people who have experienced the value of working together.
-        </p>
+        <div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina text-white">
+            What <span className="text-[#F59E0B]">people</span> say
+          </h2>
+          <p className="text-gray-400 text-lg md:text-xl mt-4 font-light max-w-2xl">
+            A few thoughts from people who have experienced the value of working together.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            aria-label="Scroll reviews left"
+            onClick={() => scrollReviews(-1)}
+            className="flex h-10 w-10 items-center justify-center text-3xl font-black leading-none text-white transition-all duration-300 hover:-translate-x-0.5 hover:text-[#f5b276]"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            aria-label="Scroll reviews right"
+            onClick={() => scrollReviews(1)}
+            className="flex h-10 w-10 items-center justify-center text-3xl font-black leading-none text-white transition-all duration-300 hover:translate-x-0.5 hover:text-[#f5b276]"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
       </motion.div>
 
       {/* Scrollable Slider */}
       <motion.div 
+        ref={reviewsRowRef}
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

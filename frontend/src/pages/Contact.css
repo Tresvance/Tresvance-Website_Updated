@@ -2,9 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-.contact-hero {
-  position: relative;
-  width: 100vw;
+.conversational-input {
+  /* Removed the grey background, made it transparent */
+  background-color: transparent;
+  
+  /* Inline block ensures it sits seamlessly inside the sentence */
+  display: inline-block;
+  
+  /* Remove default borders and outlines */
+  border: none;
+  outline: none;
+  
+  /* Spacing to make it look like a cohesive block */
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+  
+  /* Inherit the exact text styling of the paragraph */
+  font-family: inherit;
+  font-size: inherit;
   color: black;
   height: 430px; /* Full viewport height */
   /* background: url('../src/assets/bg.png') no-repeat center center; */
@@ -12,15 +27,14 @@
   background-size: cover;
 }
 
-.bg-secondary {
-  background-color: #f9f9f2; /* Light gray background */
+/* On focus, the bottom border turns solid black to show active state */
+.conversational-input:focus {
+  background-color: transparent;
+  border-bottom: 3px solid black;
 }
 
-.text-primary {
-  color: #333; /* Dark text for contrast */
+/* Placeholder styling */
+.conversational-input::placeholder {
+  color: #9ca3af; /* A softer grey for the placeholder text */
+  font-weight: 400;
 }
-
-.text-accent {
-  color: #ff5733; /* Vibrant accent color */
-}
-
