@@ -21,10 +21,10 @@
   font-family: inherit;
   font-size: inherit;
   color: black;
-  
-  /* Added a subtle light-grey bottom border so the input is visible */
-  border-bottom: 3px solid #e5e7eb;
-  transition: all 0.3s ease;
+  height: 430px; /* Full viewport height */
+  /* background: url('../src/assets/bg.png') no-repeat center center; */
+    /* background: url('/public/contact.png') no-repeat center center; */
+  background-size: cover;
 }
 
 /* On focus, the bottom border turns solid black to show active state */

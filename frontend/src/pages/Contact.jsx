@@ -48,37 +48,36 @@ const Contact = () => {
                 Kochi, Kerala
               </p>
             </div>
-            
-            <div>
-              {/* Changed text-gray-400 to text-black */}
-              <h2 className="text-xs font-bold text-black uppercase tracking-widest mb-3">Locations</h2>
-              <p className="text-xl font-medium leading-relaxed text-black">
-                Available on-site in<br />
-                Trivandrum and Kochi,<br />
-                or virtually worldwide.
-              </p>
-            </div>
-          </div>
-        </aside>
-
-        {/* Right Column - Premium Minimalist Form */}
-        <div className="max-w-3xl w-full" ref={formRef}>
-          <h3 className="text-3xl md:text-4xl font-medium tracking-tight text-black mb-12 leading-tight">
-            Write us briefly about your project and we will get back to you.
-          </h3>
-          
-          <form className="space-y-8">
-            
-            {/* Name Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="flex flex-col gap-3">
-                {/* Changed text-gray-500 to text-black */}
-                <label className="text-xs font-bold uppercase tracking-widest text-black">First Name</label>
-                <input 
-                  type="text" 
-                  placeholder="John" 
-                  className="w-full bg-transparent border border-gray-300 rounded-2xl px-6 py-4 text-lg text-black focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all placeholder-gray-400"
-                />
+        </section>
+          {/* Contact Details + Form */}
+          <section className="grid md:grid-cols-2 gap-10 p-10">
+            {/* Left side - Contact Info */}
+            <div className="space-y-8">
+              {/* Email */}
+              <div className="flex items-start gap-4">
+                <div className="bg-sky-500 text-white p-3 rounded-full text-2xl">
+                  <MdEmail />
+                </div>
+                <div>
+                  <h2 className="font-semibold text-sky-500 text-lg">
+                    Email Address
+                  </h2>
+                  <p>info@tresvance.com</p>
+                  <p>contact@tresvance.com</p>
+                </div>
+              </div>
+    
+              {/* Phone */}
+              <div className="flex items-start gap-4">
+                <div className="bg-sky-500 text-white p-3 rounded-full text-2xl">
+                  <MdPhone />
+                </div>
+                <div>
+                  <h2 className="font-semibold text-sky-500 text-lg">
+                    Call Us on
+                  </h2>
+                  <p>Kochi: +91 9778057201</p>
+                </div>
               </div>
               <div className="flex flex-col gap-3">
                 <label className="text-xs font-bold uppercase tracking-widest text-black">Last Name</label>
