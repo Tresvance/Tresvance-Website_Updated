@@ -200,7 +200,7 @@ const Home = () => {
                       WebkitTextStroke: i % 2 !== 0 ? '1px rgba(255, 255, 255, 0.4)' : 'none'
                     }}
                   >
-                    KEEP EXPLORING
+                    BUILD BEYEOND
                   </div>
                 ))}
               </div>
