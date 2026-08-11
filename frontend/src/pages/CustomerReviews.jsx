@@ -5,50 +5,50 @@ import { motion as Motion } from 'framer-motion';
 const reviewsData = [
   {
     id: 1,
-    text: "I asked and Nik delivered honestly. I didn't want a generic website, i wanted something i could build as a hobby and actoually be proud of. He got that instantly and gave me what I needed. I [...]",
-    name: "Giovanni",
-    role: "Website Design",
+    text: "Tresvance completely revitalized our college's web presence. The new front-end is incredibly intuitive for both students and prospective applicants. Their attention to detail and smooth handling of the repository updates made the entire transition flawless.",
+    name: "Dr. Mathew Thomas",
+    role: "Academic Director, BMCE",
     date: "March 2026",
     stars: 5
   },
   {
     id: 2,
-    text: "Nikola Radeski is very talented doing vibe coding + designing. I have an AI startup and I needed help with vibe code and design directions (for my team) so Nikola did exactly that as he's cl [...]",
-    name: "Oliver S.",
-    role: "Design & Vibe Coding",
+    text: "We needed a highly specialized, secure web platform tailored exclusively for our gold loan services. The team delivered a scalable architecture that perfectly fits our unique daily workflows. Their software engineering expertise is top-tier.",
+    name: "Jobin Jose",
+    role: "Operations Head, FinTrust Banking",
     date: "February 2026",
     stars: 5
   },
   {
     id: 3,
-    text: "I have been working with Nik for a month now and he is working on my company as a Team Leader and Designer and im very impressed so much of things have changed on the team for a good way and [...]",
-    name: "Rilind",
-    role: "Design / Creative Lead",
-    date: "September 2025",
+    text: "The digital transformation for our clinic was beyond our expectations. From the intuitive web app to streamlining our client data, they made everything so much easier for our staff and the pet owners we serve. Truly exceptional work.",
+    name: "Dr. Ajil J Samuel",
+    role: "Founder, QPET Clinic",
+    date: "January 2026",
     stars: 5
   },
   {
     id: 4,
-    text: "Fast, reliable, and talented, he turned a vague idea into a polished product. Just like he mentions, his design sense is really phenomenal and pushes the boundaries of standard web apps.",
-    name: "Sarah T.",
-    role: "Product Manager",
-    date: "August 2025",
+    text: "Scaling our brand online felt like a daunting task until we partnered with Tresvance. The new e-commerce layout combined with their targeted digital strategy doubled our online engagement in just under three months. Highly recommended!",
+    name: "Josel Xavier",
+    role: "Marketing Director, SWEETBLOOM",
+    date: "December 2025",
     stars: 5
   },
   {
     id: 5,
-    text: "I worked with Nikola on a Webflow project and was impressed right away. He got things moving quickly, kept everything clear, and delivered a site that exceeded our expectations.",
-    name: "Marcus J.",
-    role: "Startup Founder",
-    date: "July 2025",
+    text: "Integrating smart automation into our research workflows was a game-changer. The development team understood our complex operational challenges and built an AI-integrated model that has saved us countless hours of manual work.",
+    name: "Jibin Samuel",
+    role: "Lead Researcher, BIOHIPPO",
+    date: "November 2025",
     stars: 5
   },
   {
     id: 6,
-    text: "I asked for minimal but strong, and that's exactly what I got. The design feels timeless. The execution was flawless and communication was top tier throughout the entire process.",
-    name: "Elena V.",
-    role: "Creative Director",
-    date: "June 2025",
+    text: "We brought them in to overhaul our legacy systems and implement end-to-end cybersecurity. The proactive IT management and cloud infrastructure support they provided gave us the peace of mind we needed to focus on scaling globally.",
+    name: "Anto Thomas.",
+    role: "CTO, West-East ",
+    date: "October 2025",
     stars: 5
   }
 ];
