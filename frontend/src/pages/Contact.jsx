@@ -54,7 +54,7 @@ const Contact = () => {
               <h2 className="text-xs font-bold text-black uppercase tracking-widest mb-3">Locations</h2>
               <p className="text-xl font-medium leading-relaxed text-black">
                 Available on-site in<br />
-                Trivandrum and Kochi,<br />
+                Kochi,<br />
                 or virtually worldwide.
               </p>
             </div>
