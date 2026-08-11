@@ -4,14 +4,24 @@ import WhyChooseUs from "./whychooseus.jsx";
 import CustomerReviews from "./CustomerReviews.jsx";
 import { motion as Motion } from "framer-motion";
 
-// Static data moved OUTSIDE the component to prevent lag from constant recreation
-const images = [
-  "/works_images/bmc.png",
-  "/works_images/qpet.png",
-  "/works_images/east_west.png",
-  "/works_images/sweetbloom.png",
-  "/works_images/biohippo.png",
-  "/assets/strategy.jpg"
+// Separate arrays for Services and Works to prevent sharing the same photos
+const serviceImages = [
+  "/assets/web.png", // 1. Full-Stack Software Engineering
+  "/assets/ai.jpg",       // 2. Next-Gen AI Development
+  "/assets/iot.jpg",   // 3. IoT Device Implementation
+  "/assets/cyber.jpg",        // 4. End-to-End Cybersecurity
+  "/assets/digital.jpg",    // 5. Results-Driven Digital Marketing
+  "/assets/strategy.jpg"           // 6. IT, Managed Services & Digital Strategy
+];
+
+const workImages = [
+  "/works_images/bmc.png",        // Used for the large main card (Optional if using our_products.png)
+  "/works_images/qpet_2.png",     // Used for worksCards[0]
+  "/works_images/ewt.png",  // Used for worksCards[1]
+  "/works_images/sweetbloom2.png", // Used for worksCards[2]
+  "/works_images/biohippo2.png",   // Used for worksCards[3]
+  "/works_images/bmce.png",       // Used for worksCards[4]
+  "/works_images/venad.png"        // Used for worksCards[5]
 ];
 
 const content = [
@@ -24,12 +34,12 @@ const content = [
 ];
 
 const worksCards = [
-  { id: 1, title: "BMCE", image: images[1] },
-  { id: 2, title: "BMCE", image: images[2] },
-  { id: 3, title: "Hiring", image: images[3] },
-  { id: 4, title: "Annual Report", image: images[4] },
-  { id: 5, title: "New Products", image: images[5] },
-  { id: 6, title: "Company Culture", image: images[1] }
+  { id: 1, title: "Pet Clinic", image: workImages[1] },
+  { id: 2, title: "E-commerce Platform", image: workImages[2] },
+  { id: 3, title: "E-commerce Platform", image: workImages[3] },
+  { id: 4, title: "Website", image: workImages[4] },
+  { id: 5, title: "Website", image: workImages[5] },
+  { id: 6, title: "Website", image: workImages[6] } // Fixed: now points to workImages[6] instead of duplicating [1]
 ];
 
 const ribbonFaces = Array.from({ length: 16 });
@@ -182,7 +192,7 @@ const Home = () => {
                 {ribbonFaces.map((_, i) => (
                   <div 
                     key={i} 
-                    className={`ribbon-face font-machina font-black text-4xl md:text-7xl tracking-tighter ${
+                    className={`ribbon-face font-machina font-black text-3xl md:text-6xl tracking-tighter ${
                       i % 2 === 0 ? 'text-white drop-shadow-2xl' : 'text-transparent'
                     }`}
                     style={{ 
@@ -198,13 +208,12 @@ const Home = () => {
           </div>
         </section>
 
-        {/* ── MARQUEE + WHAT WE DO SECTION ── */}
+        {/* ── MARQUEE + ABOUT US (STORY) SECTION ── */}
         <section className="py-20 bg-[#070707] px-6 sm:px-10 md:px-16 lg:px-20">
+          
           <div className="overflow-hidden w-full mb-12">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-machina flex items-center justify-center relative select-none pointer-events-none" style={{ willChange: "transform" }}>
               <div className="marquee-wrapper w-full flex overflow-hidden whitespace-nowrap">
-                
-                {/* Single Track Layout with clean uniform element gaps */}
                 <div className="marquee flex flex-row flex-nowrap whitespace-nowrap items-center gap-12 tracking-widest w-max flex-shrink-0">
                   <span>INNOVATE</span>
                   <span className="spinning-shape"></span>
@@ -213,46 +222,69 @@ const Home = () => {
                   <span>ELEVATE</span>
                   <span className="spinning-shape"></span>
                 </div>
-
               </div>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center py-20 px-6 md:px-12">
-            <Motion.div
-              className="flex flex-col justify-center"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={optimizedViewport}
-              style={{ willChange: "transform, opacity" }}
-            >
-              <h3 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina">
-                What We <br /> Do at <br /> Tresvance
-              </h3>
-              <p className="text-[20px] text-gray-300 leading-relaxed mt-8 mb-8">
-                Tresvance leverages Artificial Intelligence <br className="hidden lg:block"/>
-                to build smarter, faster, and more intuitive solutions. <br className="hidden lg:block"/>
-                We combine intelligent automation, data-driven insights, <br className="hidden lg:block"/>
-                and innovative design to help businesses stay ahead.
-              </p>
-              <a href="#" className="w-fit underline text-base font-normal hover:text-[#a14d2e] transition-colors duration-300">
-                Learn more about us
-              </a>
-            </Motion.div>
+          {/* New Story-Driven About Us Section */}
+          <div className="max-w-7xl mx-auto mt-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              
+              {/* Left Column: The Story */}
+              <Motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={optimizedViewport}
+                className="lg:col-span-6 flex flex-col justify-center"
+              >
+                <h4 className="text-white font-medium tracking-widest text-sm uppercase mb-4">
+                  Our Story
+                </h4>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina text-white mb-8">
+                  Beyond the <br /> Screen.
+                </h2>
+                
+                <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
+                  <p>
+                    Tresvance began with a simple realization: in a world obsessed with moving fast, the human element was being left behind. We saw flawless systems that felt cold, and beautiful designs that lacked strategic depth.
+                  </p>
+                  <p>
+                    We wanted to build something different. We assembled a collective that thinks strategically—always anticipating the next move—but builds with the passion of artists. For us, every line of code, every pixel crafted, and every intelligent algorithm is a deliberate step toward a larger vision.
+                  </p>
+                  <p>
+                    We aren't just an agency. We are relentless problem-solvers dedicated to bridging the gap between raw engineering and genuine human connection. We partner with dreamers to build digital experiences that inspire, empower, and endure.
+                  </p>
+                </div>
 
-            <Motion.div
-              className="flex flex-col gap-4"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={optimizedViewport}
-              style={{ willChange: "transform, opacity" }}
-            >
-              <img src="/what_we/img1.png" alt="AI product" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
-              <img src="/what_we/img2.png" alt="Office" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-40 md:h-48 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
-              <img src="/what_we/img3.png" alt="Branding" loading="lazy" decoding="async" className="rounded-lg object-cover w-full h-48 md:h-56 shadow-lg hover:scale-105 transition-transform duration-500 will-change-transform" />
-            </Motion.div>
+                <div className="mt-10">
+                  <p className="text-xl font-machina italic text-gray-400 border-l-2 border-[#0ba3f5] pl-6 py-2">
+                    "Technology is just a tool. It's the people behind it that make it magic."
+                  </p>
+                </div>
+              </Motion.div>
+
+              {/* Right Column: Inspiring Visual */}
+              <Motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                viewport={optimizedViewport}
+                className="lg:col-span-6 relative h-[500px] md:h-[650px] w-full rounded-[2rem] overflow-hidden border border-gray-800 group"
+              >
+                <img 
+                  src="/assets/our_story.jpg" 
+                  alt="A visionary looking towards the future" 
+                  loading="lazy" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-in-out" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-transparent opacity-90"></div>
+                
+                {/* Subtle glowing accent */}
+                <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#0c0c0c22] blur-[100px] opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+              </Motion.div>
+
+            </div>
           </div>
         </section>
 
@@ -306,7 +338,7 @@ const Home = () => {
                 style={{ willChange: "transform" }}
               >
                 <Motion.img
-                  src={images[index]}
+                  src={serviceImages[index]}
                   alt={service.title}
                   loading="lazy"
                   decoding="async"
@@ -400,13 +432,14 @@ const Home = () => {
         {/* ── OUR WORKS SECTION ── */}
         <section className="py-24 bg-[#070707] flex justify-center px-6 md:px-16">
           <div className="w-full max-w-7xl">
+            {/* FIXED: Removed invalid font-family CSS from the className */}
             <Motion.h2
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={optimizedViewport}
               style={{ willChange: "transform, opacity" }}
-              className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-tight font-machina mb-12"
+              className="text-4xl sm:text-5xl md:text-6xl font-machina font-normal tracking-tight leading-tight mb-12"
             >
               Our Works
             </Motion.h2>
@@ -423,7 +456,7 @@ const Home = () => {
                 style={{ willChange: "transform, opacity" }}
                 className="col-span-2 md:col-span-1 row-span-2 rounded-[2rem] p-6 flex flex-col justify-between relative group cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden bg-[#111]"
               >
-                <img src={images[0]} alt="BMCE" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
+                <img src="/assets/our_products.png" alt="Our Products" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
 
                 <div className="relative z-10 self-end w-8 h-8 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
@@ -434,7 +467,8 @@ const Home = () => {
                 </div>
                 
                 <div className="relative z-10 flex flex-col justify-end h-full mt-10">
-                  <h3 className="text-2xl font-normal leading-tight drop-shadow-md">Team<br/>Updates</h3>
+                  {/* FIXED: Removed invalid font-family CSS from the className */}
+                  <h3 className="text-2xl font-machina font-normal leading-tight drop-shadow-md">Our<br/>Products</h3>
                 </div>
               </Motion.div>
 
