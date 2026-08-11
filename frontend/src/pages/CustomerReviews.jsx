@@ -14,7 +14,7 @@ const reviewsData = [
   {
     id: 2,
     text: "We needed a highly specialized, secure web platform tailored exclusively for our gold loan services. The team delivered a scalable architecture that perfectly fits our unique daily workflows. Their software engineering expertise is top-tier.",
-    name: "Jobin Jose",
+    name: "Roy Samuel",
     role: "Operations Head, FinTrust Banking",
     date: "February 2026",
     stars: 5
@@ -22,7 +22,7 @@ const reviewsData = [
   {
     id: 3,
     text: "The digital transformation for our clinic was beyond our expectations. From the intuitive web app to streamlining our client data, they made everything so much easier for our staff and the pet owners we serve. Truly exceptional work.",
-    name: "Dr. Ajil J Samuel",
+    name: "Dr. Sunil",
     role: "Founder, QPET Clinic",
     date: "January 2026",
     stars: 5
@@ -30,7 +30,7 @@ const reviewsData = [
   {
     id: 4,
     text: "Scaling our brand online felt like a daunting task until we partnered with Tresvance. The new e-commerce layout combined with their targeted digital strategy doubled our online engagement in just under three months. Highly recommended!",
-    name: "Josel Xavier",
+    name: "Anil Antony",
     role: "Marketing Director, SWEETBLOOM",
     date: "December 2025",
     stars: 5
@@ -46,7 +46,7 @@ const reviewsData = [
   {
     id: 6,
     text: "We brought them in to overhaul our legacy systems and implement end-to-end cybersecurity. The proactive IT management and cloud infrastructure support they provided gave us the peace of mind we needed to focus on scaling globally.",
-    name: "Anto Thomas.",
+    name: "Robin Sam",
     role: "CTO, West-East ",
     date: "October 2025",
     stars: 5
