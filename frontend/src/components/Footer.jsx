@@ -1,6 +1,7 @@
 // Footer.jsx
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer className="footer">
@@ -9,8 +10,8 @@ const Footer = () => (
         <div>
         <nav className="footer-nav">
           <a href="https://tresvance.com/index.html">Home</a>
-          <a href="https://tresvance.com/about.html">About</a>
-          <a href="https://tresvance.com/feature.html">Services</a>
+          <Link to="/" state={{ scrollTo: "about-us" }}>About</Link>
+          <Link to="/" state={{ scrollTo: "our-services"}}>Services</Link>
           <a href="https://tresvance.com/contact.html">Contact Us</a>
         </nav>
         </div>

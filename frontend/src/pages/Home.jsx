@@ -316,7 +316,7 @@ useEffect(() => {
         </section>
 
         {/* ── OUR SERVICES ── */}
-        <section className="py-20 bg-[#070707] pl-6 sm:pl-10 md:pl-16 lg:pl-20 overflow-hidden">
+        <section id="our-services"className="py-20 bg-[#070707] pl-6 sm:pl-10 md:pl-16 lg:pl-20 overflow-hidden">
           <Motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
