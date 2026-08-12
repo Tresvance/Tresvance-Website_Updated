@@ -16,7 +16,7 @@ const Contact = () => {
       {/* Massive Hero Typography */}
       <div className="px-8 md:px-12 lg:px-20 mb-12 md:mb-16">
         <h1 className="text-[18vw] md:text-[12vw] font-bold text-black tracking-tighter leading-none m-0">
-          get in touch.
+          get <span className="text-[#06A3DA]">in</span> touch.
         </h1>
       </div>
 
@@ -27,13 +27,13 @@ const Contact = () => {
         <aside className="space-y-16">
           
           <div className="flex flex-wrap gap-4 text-sm font-medium uppercase tracking-widest">
-            <button onClick={scrollToForm} className="border border-black px-6 py-3 rounded-full hover:bg-black hover:text-white transition-colors">
+            <button onClick={scrollToForm} className="border border-black px-6 py-3 rounded-full hover:bg-[#0ba3f5] hover:border-[#0ba3f5] hover:text-white transition-colors">
               info@tresvance.com
             </button>
-            <button onClick={scrollToForm} className="border border-black px-6 py-3 rounded-full hover:bg-black hover:text-white transition-colors">
+            <button onClick={scrollToForm} className="border border-black px-6 py-3 rounded-full hover:bg-[#0ba3f5] hover:border-[#0ba3f5] hover:text-white transition-colors">
               contact@tresvance.com
             </button>
-            <a href="tel:+918921187643" className="border border-black px-6 py-3 rounded-full hover:bg-black hover:text-white transition-colors">
+            <a href="tel:+918921187643" className="border border-black px-6 py-3 rounded-full hover:bg-[#0ba3f5] hover:border-[#0ba3f5] hover:text-white transition-colors">
               +91 8921187643
             </a>
           </div>
@@ -140,7 +140,7 @@ const Contact = () => {
             <div className="pt-6">
               <button 
                 type="submit" 
-                className="border-2 border-black rounded-full px-10 py-4 text-lg uppercase tracking-widest font-bold text-black hover:bg-black hover:text-white transition-colors"
+                className="border-2 border-black rounded-full px-10 py-4 text-lg uppercase tracking-widest font-bold text-black hover:bg-[#0ba3f5] hover:border-[#0ba3f5] hover:text-white transition-colors"
               >
                 Send
               </button>
