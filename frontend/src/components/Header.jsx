@@ -105,9 +105,9 @@ const Header = () => {
 
           <ul className="overlay-links">
             <li><Link to="/" onClick={handleClose}><span>HOME</span></Link></li>
-            <li><Link to="/about-us" onClick={handleClose}><span>ABOUT</span></Link></li>
-            <li><Link to="/our-works" onClick={handleClose}><span>OUR WORKS</span></Link></li>
-            <li><Link to="/choose-us" onClick={handleClose}><span>WHY CHOOSE US</span></Link></li>
+            <li><Link to="/" state={{ scrollTo: "about-us" }} onClick={handleClose}><span>ABOUT</span></Link></li>
+            <li><Link to="/" state={{ scrollTo: "our-works" }} onClick={handleClose}><span>OUR WORKS</span></Link></li>
+            <li><Link to="/" state={{ scrollTo: "why-choose-us" }} onClick={handleClose}><span>WHY CHOOSE US</span></Link></li>
             <li><Link to="/join-us" onClick={handleClose}><span>CAREERS</span></Link></li>
             <li><Link to="/contact" onClick={handleClose}><span>CONTACT</span></Link></li>
           </ul>

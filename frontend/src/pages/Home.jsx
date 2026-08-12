@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
 import './Home.css';
 import WhyChooseUs from "./whychooseus.jsx";
 import CustomerReviews from "./CustomerReviews.jsx";
@@ -83,6 +84,8 @@ const circleVariants = (direction) => ({
 
 const Home = () => {
   const hoverSound = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
   const isPlayingRef = useRef(false);
   const servicesRowRef = useRef(null);
 
@@ -115,6 +118,30 @@ const Home = () => {
     return () => window.removeEventListener("pointerdown", unlockAudio);
   }, []);
 
+useEffect(() => {
+  const scrollTo = location.state?.scrollTo;
+
+  if (!scrollTo) return;
+
+  const timer = setTimeout(() => {
+    const section = document.getElementById(scrollTo);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    // Clear the scroll state so refresh doesn't scroll again
+    navigate("/", {
+      replace: true,
+      state: {},
+    });
+  }, 500);
+
+  return () => clearTimeout(timer);
+}, [location, navigate]);
   const playHoverSound = () => {
     if (hoverSound.current && !isPlayingRef.current) {
       isPlayingRef.current = true;
@@ -209,7 +236,7 @@ const Home = () => {
         </section>
 
         {/* ── MARQUEE + ABOUT US (STORY) SECTION ── */}
-        <section className="py-20 bg-[#070707] px-6 sm:px-10 md:px-16 lg:px-20">
+        <section id= "about-us" className="py-20 bg-[#070707] px-6 sm:px-10 md:px-16 lg:px-20">
           
           <div className="overflow-hidden w-full mb-12">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-machina flex items-center justify-center relative select-none pointer-events-none" style={{ willChange: "transform" }}>
@@ -430,7 +457,7 @@ const Home = () => {
         </section>
 
         {/* ── OUR WORKS SECTION ── */}
-        <section className="py-24 bg-[#070707] flex justify-center px-6 md:px-16">
+        <section id="our-works" className="py-24 bg-[#070707] flex justify-center px-6 md:px-16">
           <div className="w-full max-w-7xl">
             {/* FIXED: Removed invalid font-family CSS from the className */}
             <Motion.h2

@@ -30,7 +30,7 @@ const points = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="arch-values-section">
+    <section id="why-choose-us" className="arch-values-section">
       <div className="arch-container">
         
         {/* UTILITY HEADER */}
