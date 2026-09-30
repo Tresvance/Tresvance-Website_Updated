@@ -8,6 +8,7 @@ import AboutUs from "./pages/AboutUs";
 import Footer from "./components/Footer";
 import JoinUs from "./pages/JoinUs";
 import OurWorks from "./pages/OurWorks";
+import TresAiAssistant from "./pages/TresAiAssistant";
 import Chatbot from "./components/Chatbot";
 import Seo from "./components/Seo";
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/join-us" element={<JoinUs />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/our-works" element={<OurWorks />} />
+          <Route path="/tres-ai-assistant" element={<TresAiAssistant />} />
         </Routes>
 
         {/* Chatbot visible on all pages */}

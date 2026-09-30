@@ -4,6 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand card: blue edge, blue-to-black gradient and soft glow (home page cards) */
+@layer components {
+  .brand-card {
+    border: 1px solid rgba(6, 163, 218, 0.3);
+    background-color: #070707;
+    background-image: linear-gradient(to bottom right, rgba(6, 163, 218, 0.14), #0c0d10 50%, #070707);
+    box-shadow: 0 0 80px -30px rgba(6, 163, 218, 0.7);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .brand-card:hover {
+    border-color: rgba(6, 163, 218, 0.6);
+    box-shadow: 0 0 90px -24px rgba(6, 163, 218, 0.85);
+  }
+}
+
 /* Apply Inter font to all headings EXCEPT those with .hero-preserve class */
 h1:not(.hero-preserve), 
 h2:not(.hero-preserve), 

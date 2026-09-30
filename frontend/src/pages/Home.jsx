@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Home.css';
 import WhyChooseUs from "./whychooseus.jsx";
 import CustomerReviews from "./CustomerReviews.jsx";
 import { motion as Motion } from "framer-motion";
+import TresAiLogo, { TresAiMark } from "../components/TresAiLogo";
+import tresAiVisual from "../assets/Tres AI/tres-ai-visual.webp";
 
 // Separate arrays for Services and Works to prevent sharing the same photos
 const serviceImages = [
@@ -212,6 +214,23 @@ useEffect(() => {
             <p className="text-base md:text-[1.1rem] text-gray-300 font-light mt-2 leading-relaxed">
               Turning bold ideas into seamless digital experiences.<br/> Let’s build the future of your business together. <br className="hidden sm:block" />
             </p>
+
+            {/* New product promo: TRES AI Assistant */}
+            <Link
+              to="/tres-ai-assistant"
+              className="group mt-2 inline-flex max-w-full items-center gap-3 rounded-full border border-[#06A3DA]/40 bg-[#06A3DA]/[0.08] py-1.5 pl-1.5 pr-4 shadow-[0_0_40px_-12px_rgba(6,163,218,0.8)] transition-all duration-300 hover:border-[#06A3DA] hover:bg-[#06A3DA]/[0.16]"
+            >
+              <span className="rounded-full bg-[#06A3DA] px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-white">New</span>
+              <TresAiMark size={22} title="" className="shrink-0" />
+              <span className="truncate text-sm text-white md:text-[0.95rem]">
+                <span className="font-semibold">TRES AI Assistant</span>
+                <span className="hidden text-white/60 sm:inline"> &middot; from &ldquo;Hi&rdquo; to booked, 24/7</span>
+              </span>
+              <svg className="shrink-0 text-[#06A3DA] transition-transform duration-300 group-hover:translate-x-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </Link>
           </div>
 
           <div className="absolute right-0 md:right-[5%] top-[65%] md:top-1/2 -translate-y-1/2 w-full md:w-[50%] h-[60vh] md:h-screen pointer-events-none flex items-center justify-center opacity-30 md:opacity-100 z-10">
@@ -234,6 +253,69 @@ useEffect(() => {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* ── HERO FEATURE BANNER: TRES AI ASSISTANT ── */}
+        <section className="bg-[#070707] px-6 pb-16 md:px-20 md:pb-24">
+          <Motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            viewport={optimizedViewport}
+            className="group relative mx-auto grid max-w-7xl items-center gap-8 overflow-hidden rounded-[2rem] brand-card p-6 md:gap-12 md:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:p-14"
+          >
+            <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#06A3DA]/20 blur-3xl" />
+
+            <div className="relative z-10 order-2 lg:order-1">
+              <p className="inline-flex items-center gap-2 rounded-full bg-[#06A3DA] px-3 py-1 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-white">
+                New product
+              </p>
+              <TresAiLogo className="mt-6 h-8 w-auto md:h-10" />
+              <h2 className="mt-6 text-3xl font-normal leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl">
+                Turn every &ldquo;Hi&rdquo; into a <span className="text-[#06A3DA]">booking</span>.
+              </h2>
+              <p className="mt-5 max-w-lg text-base font-light leading-relaxed text-gray-300 md:text-lg">
+                Our AI business assistant answers customers instantly, qualifies leads, books appointments and follows up, 24/7 on your website, WhatsApp and social inbox.
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {["24/7 replies", "Lead qualification", "Smart booking", "Auto follow-ups"].map((item) => (
+                  <li key={item} className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5 text-xs text-white/80 md:text-sm">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/tres-ai-assistant"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#06A3DA] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(6,163,218,0.8)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0bb4ef]"
+                >
+                  Explore TRES AI
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </Link>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:border-white/50 hover:bg-white/[0.05]"
+                >
+                  Book a demo
+                </Link>
+              </div>
+            </div>
+
+            <Link to="/tres-ai-assistant" className="relative z-10 order-1 block overflow-hidden rounded-[1.25rem] border border-white/10 lg:order-2" aria-label="Explore TRES AI Assistant">
+              <img
+                src={tresAiVisual}
+                width="1672"
+                height="941"
+                loading="lazy"
+                decoding="async"
+                alt="TRES AI Assistant answering questions, qualifying leads and scheduling bookings across website, WhatsApp, Instagram, Messenger and email"
+                className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            </Link>
+          </Motion.div>
         </section>
 
         {/* ── MARQUEE + ABOUT US (STORY) SECTION ── */}
@@ -298,7 +380,7 @@ useEffect(() => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                 viewport={optimizedViewport}
-                className="lg:col-span-6 relative h-[500px] md:h-[650px] w-full rounded-[2rem] overflow-hidden border border-gray-800 group"
+                className="lg:col-span-6 relative h-[500px] md:h-[650px] w-full rounded-[2rem] overflow-hidden brand-card group"
               >
                 <img 
                   src="/assets/our_story.jpg" 
@@ -359,7 +441,7 @@ useEffect(() => {
             {content.map((service, index) => (
               <Motion.div
                 key={index}
-                className="relative min-w-[300px] md:min-w-[360px] h-[480px] rounded-[2rem] overflow-hidden bg-[#111] border border-gray-800 snap-center group cursor-pointer"
+                className="relative min-w-[300px] md:min-w-[360px] h-[480px] rounded-[2rem] overflow-hidden brand-card snap-center group cursor-pointer"
                 whileHover="hover"
                 initial="initial"
                 onMouseEnter={playHoverSound}
@@ -425,17 +507,17 @@ useEffect(() => {
             </Motion.h2>
 
             <Motion.div className="relative flex justify-center items-center w-[380px] md:w-[420px] h-[300px] md:h-[340px] ml-0 md:ml-8" variants={containerVariants}>
-              <Motion.div variants={circleVariants("left")} whileHover={{ scale: 1.05 }} className="absolute left-3 top-10 bg-lime-200 rounded-full w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 flex flex-col items-center justify-center text-center z-20 shadow-md text-black will-change-transform">
+              <Motion.div variants={circleVariants("left")} whileHover={{ scale: 1.05 }} className="absolute left-3 top-10 brand-card rounded-full w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 flex flex-col items-center justify-center text-center z-20 text-white will-change-transform">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold">25</div>
-                <div className="text-xs sm:text-sm text-gray-700">Projects Done</div>
+                <div className="text-xs sm:text-sm text-gray-300">Projects Done</div>
               </Motion.div>
 
-              <Motion.div variants={circleVariants("right")} whileHover={{ scale: 1.05 }} className="absolute right-3 top-0 bg-purple-200 rounded-full w-40 sm:w-48 md:w-64 h-40 sm:h-48 md:h-64 flex flex-col items-center justify-center text-center z-10 shadow-md text-black will-change-transform">
+              <Motion.div variants={circleVariants("right")} whileHover={{ scale: 1.05 }} className="absolute right-3 top-0 brand-card rounded-full w-40 sm:w-48 md:w-64 h-40 sm:h-48 md:h-64 flex flex-col items-center justify-center text-center z-10 text-white will-change-transform">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold">5+</div>
-                <div className="text-xs sm:text-sm text-gray-700">Years Of Experience</div>
+                <div className="text-xs sm:text-sm text-gray-300">Years Of Experience</div>
               </Motion.div>
 
-              <Motion.div variants={circleVariants("bottom")} whileHover={{ scale: 1.05 }} className="absolute bottom-[10px] left-1/3 bg-[#1a1a1a] border border-gray-700 rounded-full w-28 sm:w-32 md:w-36 h-28 sm:h-32 md:h-36 flex flex-col items-center justify-center text-center z-30 shadow-lg will-change-transform">
+              <Motion.div variants={circleVariants("bottom")} whileHover={{ scale: 1.05 }} className="absolute bottom-[10px] left-1/3 brand-card rounded-full w-28 sm:w-32 md:w-36 h-28 sm:h-32 md:h-36 flex flex-col items-center justify-center text-center z-30 will-change-transform">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold">20</div>
                 <div className="text-xs sm:text-sm md:text-base text-gray-300">Happy Clients</div>
               </Motion.div>
@@ -482,9 +564,10 @@ useEffect(() => {
               <Motion.div 
                 variants={cardVariants}
                 style={{ willChange: "transform, opacity" }}
-                className="col-span-2 md:col-span-1 row-span-2 rounded-[2rem] p-6 flex flex-col justify-between relative group cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden bg-[#111]"
+                className="col-span-2 md:col-span-1 row-span-2 rounded-[2rem] p-6 flex flex-col justify-between relative group cursor-pointer brand-card hover:-translate-y-1 overflow-hidden"
               >
-                <img src="/assets/our_products.png" alt="Tresvance software products and client projects" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
+                <Link to="/tres-ai-assistant" className="absolute inset-0 z-20 rounded-[2rem]" aria-label="Our Products: TRES AI Assistant" />
+                <img src={tresAiVisual} alt="TRES AI Assistant chat interface booking a consultation" loading="lazy" decoding="async" style={{ objectPosition: "70% center" }} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
 
                 <div className="relative z-10 self-end w-8 h-8 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
@@ -497,6 +580,7 @@ useEffect(() => {
                 <div className="relative z-10 flex flex-col justify-end h-full mt-10">
                   {/* FIXED: Removed invalid font-family CSS from the className */}
                   <h3 className="text-2xl font-machina font-normal leading-tight drop-shadow-md">Our<br/>Products</h3>
+                  <TresAiLogo className="mt-3 h-6 w-auto self-start md:h-5 lg:h-6" />
                 </div>
               </Motion.div>
 
@@ -505,7 +589,7 @@ useEffect(() => {
                   key={card.id}
                   variants={cardVariants}
                   style={{ willChange: "transform, opacity" }}
-                  className="col-span-1 row-span-1 rounded-[2rem] p-5 flex flex-col justify-end relative group cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl overflow-hidden bg-[#111]"
+                  className="col-span-1 row-span-1 rounded-[2rem] p-5 flex flex-col justify-end relative group cursor-pointer brand-card hover:-translate-y-1 overflow-hidden"
                 >
                   <img src={card.image} alt={card.alt} style={{ objectPosition: card.position }} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>

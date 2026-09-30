@@ -149,7 +149,7 @@ const CustomerReviews = () => {
             key={review.id}
             variants={cardVariants}
             style={{ willChange: "transform, opacity" }}
-            className="relative min-w-[300px] md:min-w-[360px] lg:min-w-[400px] bg-transparent border border-gray-800 rounded-[2rem] p-8 flex flex-col justify-between hover:border-gray-600 hover:-translate-y-1 transition-all duration-300 snap-center cursor-pointer"
+            className="relative min-w-[300px] md:min-w-[360px] lg:min-w-[400px] brand-card rounded-[2rem] p-8 flex flex-col justify-between hover:-translate-y-1 snap-center cursor-pointer"
           >
             <div>
               {/* Stars */}
@@ -167,7 +167,7 @@ const CustomerReviews = () => {
 
             {/* Footer / Author Info */}
             <div className="mt-auto">
-              <hr className="border-gray-800 mb-4" />
+              <hr className="border-[#06A3DA]/20 mb-4" />
               <h4 className="text-white font-bold text-lg">{review.name}</h4>
               <p className="text-gray-400 text-sm mt-1">{review.role}</p>
               <p className="text-gray-500 text-sm mt-0.5">{review.date}</p>

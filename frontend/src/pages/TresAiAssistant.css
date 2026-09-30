@@ -1,0 +1,245 @@
+/* =====================================================
+   TRES AI ASSISTANT - PRODUCT PAGE
+   Palette follows the Tresvance logo: black, white, brand blue.
+===================================================== */
+
+.tres-page {
+  --tres-bg: #050505;
+  --tres-surface: #0c0d10;
+  --tres-surface-2: #121419;
+  --tres-line: rgba(255, 255, 255, 0.08);
+  --tres-line-strong: rgba(255, 255, 255, 0.16);
+  --tres-blue: #06a3da;
+  --tres-blue-soft: rgba(6, 163, 218, 0.14);
+  background-color: var(--tres-bg);
+  color: #ffffff;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Faint engineering grid that fades out from the center */
+.tres-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+}
+
+.tres-glow {
+  background: radial-gradient(circle at center, rgba(6, 163, 218, 0.35) 0%, rgba(6, 163, 218, 0.08) 40%, transparent 70%);
+  filter: blur(20px);
+}
+
+.tres-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
+  border: 1px solid var(--tres-line);
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.tres-card:hover {
+  border-color: rgba(6, 163, 218, 0.45);
+  transform: translateY(-3px);
+}
+
+.tres-card.tres-static:hover {
+  border-color: var(--tres-line);
+  transform: none;
+}
+
+.tres-glass {
+  background: rgba(14, 16, 20, 0.72);
+  border: 1px solid var(--tres-line-strong);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 30px 80px -20px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(6, 163, 218, 0.05),
+    0 0 60px -20px rgba(6, 163, 218, 0.35);
+}
+
+.tres-gradient-text {
+  background: linear-gradient(90deg, #ffffff 0%, #9fdcf3 45%, #06a3da 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tres-btn-primary {
+  background-color: var(--tres-blue);
+  color: #ffffff;
+  box-shadow: 0 10px 40px -10px rgba(6, 163, 218, 0.7);
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tres-btn-primary:hover {
+  background-color: #0bb4ef;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 44px -8px rgba(6, 163, 218, 0.85);
+}
+
+.tres-btn-ghost {
+  border: 1px solid var(--tres-line-strong);
+  color: #ffffff;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.tres-btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Floating status chips in the hero */
+@keyframes tres-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.tres-float {
+  animation: tres-float 6s ease-in-out infinite;
+}
+
+.tres-float-delay {
+  animation-delay: -3s;
+}
+
+/* Live status dot */
+@keyframes tres-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.tres-live-dot {
+  position: relative;
+}
+
+.tres-live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background-color: inherit;
+  animation: tres-ping 1.8s ease-out infinite;
+}
+
+/* Typing indicator */
+@keyframes tres-typing {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.tres-typing span {
+  animation: tres-typing 1.2s ease-in-out infinite;
+}
+
+.tres-typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.tres-typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Journey rail: a light pulse travelling across the five stages */
+.tres-rail {
+  background: linear-gradient(90deg, transparent, var(--tres-line-strong) 8%, var(--tres-line-strong) 92%, transparent);
+}
+
+@keyframes tres-rail-pulse {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.tres-rail-pulse {
+  position: absolute;
+  top: -2px;
+  width: 120px;
+  height: 5px;
+  margin-left: -60px;
+  border-radius: 9999px;
+  background: radial-gradient(ellipse at center, #06a3da 0%, rgba(6, 163, 218, 0) 70%);
+  animation: tres-rail-pulse 5s linear infinite;
+}
+
+/* Integrations marquee */
+@keyframes tres-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.tres-marquee-track {
+  animation: tres-marquee 40s linear infinite;
+}
+
+.tres-marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* Chat scroll area */
+.tres-chat-scroll {
+  scrollbar-width: none;
+}
+
+.tres-chat-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tres-float,
+  .tres-live-dot::after,
+  .tres-typing span,
+  .tres-rail-pulse,
+  .tres-marquee-track {
+    animation: none;
+  }
+
+  .tres-card:hover,
+  .tres-btn-primary:hover {
+    transform: none;
+  }
+}

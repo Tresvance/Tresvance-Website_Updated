@@ -33,6 +33,12 @@ const PAGES = {
     description:
       "Join Tresvance in Kochi and build software, AI, IoT and cybersecurity solutions with a team that values learning, collaboration and growth.",
   },
+  "/tres-ai-assistant": {
+    title: "TRES AI Assistant | AI Chatbot for Bookings & Leads",
+    description:
+      "TRES AI Assistant by Tresvance handles customer chats from hello to booking: 24/7 support, lead qualification, appointment booking and follow-ups on web and WhatsApp.",
+    image: `${SITE_URL}/og-tres-ai.jpg`,
+  },
   "/contact": {
     title: "Contact Tresvance | Get a Software Development Quote",
     description:
@@ -67,6 +73,7 @@ const Seo = () => {
     const path = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
     const page = PAGES[path];
     const url = `${SITE_URL}${path === "/" ? "/" : path}`;
+    const image = page?.image || DEFAULT_IMAGE;
 
     // Unknown routes render no page content, so keep them out of the index.
     if (!page) {
@@ -83,11 +90,11 @@ const Seo = () => {
     setMeta("property", "og:title", page.title);
     setMeta("property", "og:description", page.description);
     setMeta("property", "og:url", url);
-    setMeta("property", "og:image", DEFAULT_IMAGE);
+    setMeta("property", "og:image", image);
 
     setMeta("name", "twitter:title", page.title);
     setMeta("name", "twitter:description", page.description);
-    setMeta("name", "twitter:image", DEFAULT_IMAGE);
+    setMeta("name", "twitter:image", image);
   }, [pathname]);
 
   return null;

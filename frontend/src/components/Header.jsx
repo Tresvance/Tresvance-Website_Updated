@@ -30,7 +30,8 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const location = useLocation();
-  const isHome = location.pathname === "/"; 
+  // Home and the TRES AI product page use the dark header with the wordmark logo
+  const isDarkHeader = location.pathname === "/" || location.pathname === "/tres-ai-assistant";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,11 +64,11 @@ const Header = () => {
   return (
     <>
       <div 
-        className={`header-container ${isMenuOpen ? "header-open" : ""} ${isHeaderVisible ? "header-visible" : "header-hidden"} ${isHome ? "header-home" : ""}`}
+        className={`header-container ${isMenuOpen ? "header-open" : ""} ${isHeaderVisible ? "header-visible" : "header-hidden"} ${isDarkHeader ? "header-home" : ""}`}
       >
         <div className="header-logo">
-          {/* LOGIC CHANGE: Show text logo ONLY if on home page AND menu is closed */}
-          {isHome && !isMenuOpen ? (
+          {/* LOGIC CHANGE: Show the wordmark logo ONLY on dark-header pages AND menu is closed */}
+          {isDarkHeader && !isMenuOpen ? (
             <Link to="/" style={{ textDecoration: 'none' }}>
               <img src={homeLogo} alt="Tresvance" className="text-logo" />
             </Link>
@@ -108,6 +109,7 @@ const Header = () => {
             <li><Link to="/" onClick={handleClose}><span>HOME</span></Link></li>
             <li><Link to="/" state={{ scrollTo: "about-us" }} onClick={handleClose}><span>ABOUT</span></Link></li>
             <li><Link to="/" state={{ scrollTo: "our-works" }} onClick={handleClose}><span>OUR WORKS</span></Link></li>
+            <li><Link to="/tres-ai-assistant" onClick={handleClose}><span>TRES AI</span></Link></li>
             <li><Link to="/" state={{ scrollTo: "why-choose-us" }} onClick={handleClose}><span>WHY CHOOSE US</span></Link></li>
             <li><Link to="/join-us" onClick={handleClose}><span>CAREERS</span></Link></li>
             <li><Link to="/contact" onClick={handleClose}><span>CONTACT</span></Link></li>
