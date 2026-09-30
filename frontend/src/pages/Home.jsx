@@ -17,12 +17,12 @@ const serviceImages = [
 
 const workImages = [
   "/works_images/bmc.png",        // Used for the large main card (Optional if using our_products.png)
-  "/works_images/qpet_2.png",     // Used for worksCards[0]
-  "/works_images/ewt.png",  // Used for worksCards[1]
-  "/works_images/sweetbloom2.png", // Used for worksCards[2]
-  "/works_images/biohippo2.png",   // Used for worksCards[3]
-  "/works_images/bmce.png",       // Used for worksCards[4]
-  "/works_images/venad.png"        // Used for worksCards[5]
+  "/works_images/qpet-hero.webp",            // Used for worksCards[0]
+  "/works_images/eastwesttraders-hero.webp", // Used for worksCards[1]
+  "/works_images/sweetbloom-hero.webp",      // Used for worksCards[2]
+  "/works_images/biohippo2.png",             // Used for worksCards[3]
+  "/works_images/bmce-hero.webp",            // Used for worksCards[4]
+  "/works_images/venad-hero.webp"            // Used for worksCards[5]
 ];
 
 const content = [
@@ -34,13 +34,14 @@ const content = [
   { title: "IT, Managed Services & Digital Strategy", description: "Providing proactive IT management, cloud infrastructure support, and continuous network monitoring, alongside strategic digital transformation to modernize legacy systems and optimize operations." }
 ];
 
+// Hero screenshots are wide, so `position` keeps each site's headline inside the card crop
 const worksCards = [
-  { id: 1, title: "Pet Clinic", image: workImages[1] },
-  { id: 2, title: "E-commerce Platform", image: workImages[2] },
-  { id: 3, title: "E-commerce Platform", image: workImages[3] },
-  { id: 4, title: "Website", image: workImages[4] },
-  { id: 5, title: "Website", image: workImages[5] },
-  { id: 6, title: "Website", image: workImages[6] } // Fixed: now points to workImages[6] instead of duplicating [1]
+  { id: 1, title: "Pet Clinic", image: workImages[1], position: "left center", alt: "QPet veterinary clinic website hero section" },
+  { id: 2, title: "E-commerce Platform", image: workImages[2], position: "left center", alt: "EastWest Trade dry fruits e-commerce website hero section" },
+  { id: 3, title: "E-commerce Platform", image: workImages[3], position: "right center", alt: "Sweet Bloom flowers and chocolates e-commerce website hero section" },
+  { id: 4, title: "Website", image: workImages[4], position: "center", alt: "BioHippo website by Tresvance" },
+  { id: 5, title: "Website", image: workImages[5], position: "left center", alt: "Baselios Mathews II College of Engineering website hero section" },
+  { id: 6, title: "Website", image: workImages[6], position: "right center", alt: "Venad Finance gold loan website hero section" }
 ];
 
 const ribbonFaces = Array.from({ length: 16 });
@@ -483,7 +484,7 @@ useEffect(() => {
                 style={{ willChange: "transform, opacity" }}
                 className="col-span-2 md:col-span-1 row-span-2 rounded-[2rem] p-6 flex flex-col justify-between relative group cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden bg-[#111]"
               >
-                <img src="/assets/our_products.png" alt="Our Products" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
+                <img src="/assets/our_products.png" alt="Tresvance software products and client projects" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
 
                 <div className="relative z-10 self-end w-8 h-8 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
@@ -506,7 +507,7 @@ useEffect(() => {
                   style={{ willChange: "transform, opacity" }}
                   className="col-span-1 row-span-1 rounded-[2rem] p-5 flex flex-col justify-end relative group cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl overflow-hidden bg-[#111]"
                 >
-                  <img src={card.image} alt={card.title} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
+                  <img src={card.image} alt={card.alt} style={{ objectPosition: card.position }} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
 
                   <div className="absolute top-4 right-4 z-10 w-7 h-7 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">

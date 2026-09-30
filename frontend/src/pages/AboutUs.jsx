@@ -66,7 +66,7 @@ function AboutUs() {
           <img 
               src={bannerImg}
           //   src="c:\Users\Hisham Haskar\Desktop\TRESVANCE\AboutUs image.jpg"
-              alt="banner"
+              alt="Tresvance team delivering IT solutions and managed services"
               className="aboutus-banner-image"
           />
         </div>

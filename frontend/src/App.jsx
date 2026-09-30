@@ -9,11 +9,13 @@ import Footer from "./components/Footer";
 import JoinUs from "./pages/JoinUs";
 import OurWorks from "./pages/OurWorks";
 import Chatbot from "./components/Chatbot";
+import Seo from "./components/Seo";
 
 function App() {
   return (
     <div id="top">
       <Router>
+        <Seo />
         <Header />
 
         <Routes>

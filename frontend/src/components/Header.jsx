@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
+import homeLogo from "../assets/tresvance-logo.png";
 import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import './Header.css';
 
@@ -68,11 +69,11 @@ const Header = () => {
           {/* LOGIC CHANGE: Show text logo ONLY if on home page AND menu is closed */}
           {isHome && !isMenuOpen ? (
             <Link to="/" style={{ textDecoration: 'none' }}>
-              <span className="text-logo">TRESVANCE</span>
+              <img src={homeLogo} alt="Tresvance" className="text-logo" />
             </Link>
           ) : (
             <Link to="/">
-              <img src={logo} alt="Logo" />
+              <img src={logo} alt="Tresvance logo" />
             </Link>
           )}
         </div>

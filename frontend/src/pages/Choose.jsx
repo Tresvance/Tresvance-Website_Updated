@@ -37,7 +37,7 @@ const Choose = () => {
       </div>
 
       <div className="choose-image-container">
-        <img src={img1} alt="Choose Us" className="choose-image" />
+        <img src={img1} alt="Why choose Tresvance for software development" className="choose-image" />
       </div>
 
       <div className="choose-marquee">
