@@ -141,7 +141,7 @@ const CustomerReviews = () => {
         initial="hidden"
         whileInView="visible"
         viewport={optimizedViewport}
-        className="flex gap-6 overflow-x-auto pb-10 snap-x snap-mandatory hide-scrollbar pr-6 md:pr-20"
+        className="flex gap-6 overflow-x-auto pt-10 pb-10 snap-x snap-mandatory hide-scrollbar pr-6 md:pr-20"
         style={{ transform: "translateZ(0)" }}
       >
         {reviewsData.map((review) => (
